@@ -11,13 +11,16 @@ echo ===================
 echo.
 echo  [1] Log In
 echo  [2] Sign Up
-echo  [3] Exit
+echo  [3] Update FNSS
+echo  [4] Exit
 echo.
 set /p op=
+
 if %op%==1 goto 1
 if %op%==2 goto 2
-if %op%==3 goto 3
-if %op%==4 goto act
+if %op%==3 goto act
+if %op%==4 goto 4
+
 goto error
 
 
