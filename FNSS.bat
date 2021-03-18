@@ -1,7 +1,7 @@
 @echo off
 
 :home
-title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version ]
+title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v1 ]
 color 4
 cls
 echo.
@@ -17,13 +17,52 @@ set /p op=
 if %op%==1 goto 1
 if %op%==2 goto 2
 if %op%==3 goto 3
+if %op%==4 goto act
 goto error
 
 
 
 ###__Importar__Cuentas__###################################################
 
+:act
+cls
+color 5
+echo.
+echo ============================
+echo  Downloading new Version...
+echo ============================
+echo.
 
+start https://github.com/maikyes/fnss/archive/main.zip
+timeout /NOBREAK /T 3 >nul
+
+move C:\Users\%username%\Downloads\fnss-main.zip C:\Users\%username%\Desktop\FNSSv3
+
+timeout /NOBREAK /T 3 >nul
+
+powershell Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3
+
+timeout /NOBREAK /T 3 >nul
+
+
+move C:\Users\%username%\Desktop\FNSSv3\fnss-main\FNSS.bat C:\Users\%username%\Desktop\FNSSv3
+
+timeout /NOBREAK /T 3 >nul
+
+rmdir /s /q fnss-main
+del /s /q fnss-main.zip
+
+color A
+cls
+echo.
+echo ==================
+echo      Done!
+echo ==================
+timeout /NOBREAK /T 3 >nul
+
+goto home
+
+::call C:\Users\%username%\Desktop\FNSSv3\FNSS.bat
 
 
 
