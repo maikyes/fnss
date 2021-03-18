@@ -1,5 +1,7 @@
 @echo off
 
+:: Latest Version
+
 :home
 title Better FN [By Maik]   [ @maikyiq ]
 color 4
