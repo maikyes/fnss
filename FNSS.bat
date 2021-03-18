@@ -1,7 +1,7 @@
 @echo off
 
 :home
-title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v5 ]
+title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v7 ]
 color 4
 cls
 echo.
