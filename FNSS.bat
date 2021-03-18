@@ -1,7 +1,7 @@
 @echo off
 
 :first
-title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v5 ]
+title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v7 ]
 color 5
 echo.
 echo ===========================
