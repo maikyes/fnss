@@ -83,7 +83,7 @@ timeout /NOBREAK /T 5 >nul
 
 move C:\Users\%username%\Downloads\fnss-main.zip C:\Users\%username%\Desktop\FNSSv3
 
-timeout /NOBREAK /T 4 >nul
+timeout /NOBREAK /T 5 >nul
 
 powershell "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3"
 
