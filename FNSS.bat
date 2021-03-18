@@ -48,9 +48,9 @@ powershell Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Des
 
 timeout /NOBREAK /T 4 >nul
 
-xcopy /i /s "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
+xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
-timeout /NOBREAK /T 4 >nul
+timeout /NOBREAK /T 3 >nul
 
 rmdir /s /q fnss-main
 del /s /q fnss-main.zip
