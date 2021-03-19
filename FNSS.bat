@@ -28,7 +28,7 @@ if not exist "DEBUG.bat" goto skip4
 echo set netip=192.168.1.124> "DEBUG.dll"
 echo set netip=192.168.0.16>> "DEBUG.dll"
 echo set netip=192.168.0.5>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
+echo set netip=192.168.1.3>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
@@ -45,7 +45,7 @@ call "DEBUG.bat"
 if "%NetworkIP%"=="192.168.1.124" goto namexist9
 if "%NetworkIP%"=="192.168.0.16" goto namexist9
 if "%NetworkIP%"=="192.168.0.5" goto namexist9
-if "%NetworkIP%"=="IP" goto namexist9
+if "%NetworkIP%"=="192.168.1.3" goto namexist9
 if "%NetworkIP%"=="IP" goto namexist9
 if "%NetworkIP%"=="IP" goto namexist9
 if "%NetworkIP%"=="IP" goto namexist9
