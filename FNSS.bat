@@ -9,6 +9,10 @@ echo.
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
+del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
 
 cd "%userprofile%\documents"
 if exist "cmdacoBin" goto ski
@@ -197,7 +201,7 @@ xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%usernam
 
 timeout /NOBREAK /T 2 >nul
 
-rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
 
 timeout /NOBREAK /T 1 >nul
 
