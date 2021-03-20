@@ -38,6 +38,8 @@ echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 
+::maik
+
 goto call2
 
 
