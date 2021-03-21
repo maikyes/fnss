@@ -265,7 +265,7 @@ echo   Don't Touch Anything...
 echo ============================
 echo.
 
-start /min "https://github.com/maikyes/fnss/archive/main.zip"
+start "https://github.com/maikyes/fnss/archive/main.zip"
 
 timeout /NOBREAK /T 5 >nul
 
