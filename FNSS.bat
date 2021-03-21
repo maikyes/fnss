@@ -1,5 +1,5 @@
 
-##################################################################################
+::##################################################################################
 
 @echo off
 
@@ -15,13 +15,13 @@ echo.
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(4).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(5).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(6).zip
+del /s /q "C:\Users\%username%\Downloads\fnss-main"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
 
 cd "%userprofile%\documents"
 if exist "cmdacoBin" goto ski
@@ -82,7 +82,7 @@ goto bypas
 cls
 echo.
 echo ======================
-echo  Pc esta registrada!
+echo  Pc registrada!
 echo ======================
 
 timeout /NOBREAK /T 2 >nul
@@ -148,15 +148,16 @@ echo.
 pause
 timeout /NOBREAK /T 2 >nul
 
-rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3"
-del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(4).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(5).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(6).zip
+del /s /q "C:\Users\%username%\Downloads\fnss-main"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
 
 timeout /NOBREAK /T 1 >nul
 
@@ -170,7 +171,7 @@ exit
 
 
 :first
-title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v6 ]
+title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v13 ]
 color 5
 echo.
 echo ====================================
@@ -443,7 +444,7 @@ echo ==============
 echo.
 echo Successfully logged in!
 echo.
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 goto account
 
 :account
@@ -458,7 +459,7 @@ echo.
 echo ==============================
 echo   Account: %realusername%
 echo ==============================
-timeout /NOBREAK /T 3 >nul
+timeout /NOBREAK /T 1 >nul
 color 5
 goto menu1
 
@@ -466,7 +467,7 @@ goto menu1
 
 :menu1
 cls
-title Better FN [By Maik]  [ @maikyiq ] [ Version v12 ]
+title Better FN [By Maik]  [ @maikyiq ] [ Version v13 ]
 echo.
 echo              -=[FNSS]=-                
 echo.
@@ -476,21 +477,21 @@ echo   +   1: Get High/Low IP from Epic    +  Time Log:%time%
 echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
 echo   +   3: Reduce Input Lag 0ms         +  User: %realusername%
 echo   +   4: Clear DNS Server Cache       +
-echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
-echo   +   6: Disable Prefetch             +  +   -=[upgrade]=-     +   -=[Tools]=-            
-echo   +   7: OFF/ON Windows Defender      +  +                     +                         
-echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode      +   co: color                     
-echo   +   9: SoftAim                      +  + * 7: fix Win-Def    +   c: Calculadora                
-echo   +  10: Fix Ping Value               +  + * 2: fix DNS        +   dc: Discord                   
-echo   +  11: Bajar Ping                   +  +                     +                                 
-echo   +  12: Desactivar WindowsUpdates    +  +                     +   Follow me on ig             
-echo   +  13: IP Locations                 +  +                     +    [ @maikyiq ]                 
-echo   +  14: Activar Gpedit               +  +                     +                      
-echo   +  15: Nvidia Inspector             +  +                     +                           
-echo   +  16: Melody's Low Latency         +  +                     +                               
-echo   +  17: MSI Mode Utility             +  +                     +                             
-echo   +                                   +  +                     +                              
-echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++                                 
+echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++++++++
+echo   +   6: Disable Prefetch             +  +       -=[upgrade]=-       +   -=[Tools]=-            
+echo   +   7: OFF/ON Windows Defender      +  +                           +                         
+echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode            +   co: color                     
+echo   +   9: SoftAim                      +  + * 7: fix Win-Def          +   c: Calculadora                
+echo   +  10: Fix Ping Value               +  + * 2: fix DNS              +   dc: Discord                   
+echo   +  11: Bajar Ping                   +  + * 16: Mejora para Melody  +                                 
+echo   +  12: Desactivar WindowsUpdates    +  +                           +   Follow me on ig             
+echo   +  13: IP Locations                 +  +                           +    [ @maikyiq ]                 
+echo   +  14: Activar Gpedit               +  +                           +                      
+echo   +  15: Nvidia Inspector             +  +                           +                           
+echo   +  16: Melody's Low Latency         +  +                           +                               
+echo   +  17: MSI Mode Utility             +  +                           +                             
+echo   +                                   +  +                           +                              
+echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++++++++                                 
 echo.
 echo.
 set /p opcion="ENTER NUMBER:"
@@ -539,6 +540,42 @@ timeout /NOBREAK /T 2 >nul
 cd "C:\Users\%username%\Desktop\FNSSv3\config"
 start gh398745h.exe
 cls
+
+echo.
+echo Le gustaria crear un acceso directo en el Escritorio?
+echo.
+set /p go=si/no:
+::set /p dir=Indica el directorio del archivo (ejemplo: C:\Windows\System32)
+::set /p sof=indica el nombre del programa y extexion (ejemplo: cmd.exe)
+::set /p name=Indica el nombre del acesso directo ejemplo: cmd)
+if %go%==si goto si2
+if %go%==no goto no2
+
+:no2
+cls
+goto menu1
+
+
+:si2
+ECHO Set objShell = WScript.CreateObject("WScript.Shell") >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO ficheroAccesoDirecto = "%USERPROFILE%\Desktop\Latency.lnk" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO Set objAccesoDirecto = objShell.CreateShortcut(ficheroAccesoDirecto) >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.TargetPath = "C:\Users\%username%\Desktop\FNSSv3\config\gh398745h.exe" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.Arguments = "" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.Description = "Latency" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.HotKey = "ALT+CTRL+N" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+::ECHO objAccesoDirecto.IconLocation = "%dir%\%sof%, 2" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.WindowStyle = "1" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.WorkingDirectory = "C:\Users\%username%\Desktop\FNSSv3\config" >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ECHO objAccesoDirecto.Save >>%USERPROFILE%\Desktop\accsdirecto.vbs
+ATTRIB +h +s "%USERPROFILE%\Desktop\accsdirecto.vbs"
+cls
+START /B /WAIT %USERPROFILE%\Desktop\accsdirecto.vbs
+cls
+erase /Q /a h s "%USERPROFILE%\Desktop\accsdirecto.vbs"
+CLS
+echo Acceso directo creado!
+timeout /NOBREAK /T 2 >nul
 goto menu1
 
 ####################################################################
