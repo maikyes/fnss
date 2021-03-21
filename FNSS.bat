@@ -15,6 +15,7 @@ echo.
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
+del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
@@ -148,9 +149,8 @@ echo.
 pause
 timeout /NOBREAK /T 2 >nul
 
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3"
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
+del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
