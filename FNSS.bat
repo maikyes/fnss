@@ -1,8 +1,14 @@
+
 ##################################################################################
 
 @echo off
 
-:: PCs Registradas para usar el programa :::::::::::::::::::::::::::::::::::::::
+cd "C:\Users\%username%\Documents\passBin"
+if exist "PASS.bat" goto f2
+if not exist "PASS.bat" goto home4
+
+
+:::::::::::::::::::::::::::::::::::::::::
 
 :home4
 echo.
@@ -13,6 +19,9 @@ del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(4).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(5).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(6).zip
 
 cd "%userprofile%\documents"
 if exist "cmdacoBin" goto ski
@@ -29,17 +38,17 @@ if not exist "DEBUG.bat" goto skip4
 
 
 :skip4
-echo set netip=192.168.1.124> "DEBUG.dll"
-echo set netip=192.168.0.16>> "DEBUG.dll"
-echo set netip=192.168.0.5>> "DEBUG.dll"
-echo set netip=192.168.1.3>> "DEBUG.dll"
-echo set netip=maiko>> "DEBUG.dll"
-echo set netip=Skrt Killero>> "DEBUG.dll"
-echo set netip=carlos cabassa>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
+echo set netip=192.168.1.124> "DEBUG.bat"
+echo set netip=192.168.0.16>> "DEBUG.bat"
+echo set netip=192.168.0.5>> "DEBUG.bat"
+echo set netip=192.168.1.3>> "DEBUG.bat"
+echo set netip=maiko>> "DEBUG.bat"
+echo set netip=Skrt Killero>> "DEBUG.bat"
+echo set netip=carlos cabassa>> "DEBUG.bat"
+echo set netip=IP>> "DEBUG.bat"
+echo set netip=IP>> "DEBUG.bat"
+echo set netip=IP>> "DEBUG.bat"
+echo set netip=IP>> "DEBUG.bat"
 
 
 goto call2
@@ -64,7 +73,7 @@ if "%username%"=="IP" goto namexist9
 
 
 
-goto skip9
+goto bypas
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -80,11 +89,53 @@ timeout /NOBREAK /T 2 >nul
 cls
 goto first
 
+################################################################
+
+:f2
+cls
+echo.
+echo Tratas de usarlo? jajajajaja
+echo.
+pause
+exit
+
+
+
+:bypas
+cd "C:\Users\%username%\Documents"
+if exist "passBin" goto sk6
+if not exist "passBin" goto noskip6
+
+:noskip6
+md "passBin"
+goto ski6
+
+:ski6
+cd "C:\Users\%username%\Documents\passBin"
+if exist "PASS.bat" goto call26
+if not exist "PASS.bat" goto skip6
+
+:skip6
+echo bypas=%username%> "PASS.bat"
+echo bypas=%NetworkIP%>> "PASS.bat"
+
+goto call26
+
+
+:call26
+call "PASS.bat"
+if "%username%"=="%username%" goto skip9
+
+
+::
+
 :skip9
 cls
 echo ==================================================
 echo  Su PC no esta registrada en la base de datos
-echo  Favor de comprar el programa.
+echo  Favor de comprar el programa y debido
+echo  A que trato de usarlo sin comprarlo se le 
+echo  Bloqueara el programa hasta que lo compre.
 echo.
 echo  Puede contactarme por:
 echo. 
@@ -97,12 +148,15 @@ echo.
 pause
 timeout /NOBREAK /T 2 >nul
 
-
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 del /f /q "C:\Users\%username%\Desktop\FNSSv3"
 del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(4).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(5).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(6).zip
 
 timeout /NOBREAK /T 1 >nul
 
@@ -111,7 +165,6 @@ rd /s /q "%systemdrive%\$Recycle.bin"
 timeout /NOBREAK /T 1 >nul
 
 exit
-
 
 ###################################################################################
 
