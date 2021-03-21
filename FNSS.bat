@@ -97,6 +97,16 @@ cls
 echo.
 echo Tratas de usarlo? jajajajaja
 echo.
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
+del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Desktop\FNSS.bat"
+del /s /q "C:\Users\%username%\Downloads\fnss-main"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
 pause
 exit
 
