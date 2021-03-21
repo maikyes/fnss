@@ -107,6 +107,13 @@ del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
 del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3 (1).zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3 (2).zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3 (3).zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3 (4).zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3 (5).zip"
+
 pause
 exit
 
