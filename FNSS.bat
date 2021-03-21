@@ -86,7 +86,7 @@ echo ======================
 echo  Pc registrada!
 echo ======================
 
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 cls
 goto first
 
