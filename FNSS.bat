@@ -46,7 +46,7 @@ echo set netip=192.168.1.3>> "DEBUG.bat"
 echo set netip=maiko>> "DEBUG.bat"
 echo set netip=Skrt Killero>> "DEBUG.bat"
 echo set netip=carlos cabassa>> "DEBUG.bat"
-echo set netip=IP>> "DEBUG.bat"
+echo set netip=17572>> "DEBUG.bat"
 echo set netip=IP>> "DEBUG.bat"
 echo set netip=IP>> "DEBUG.bat"
 echo set netip=IP>> "DEBUG.bat"
@@ -67,7 +67,7 @@ if "%NetworkIP%"=="192.168.1.3" goto namexist9
 if "%username%"=="maiko" goto namexist9
 if "%username%"=="Skrt Killero" goto namexist9
 if "%username%"=="carlos cabassa" goto namexist9
-if "%username%"=="IP" goto namexist9
+if "%username%"=="17572" goto namexist9
 if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
 
