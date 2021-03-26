@@ -1,28 +1,61 @@
-
-::##################################################################################
-
 @echo off
 
-cd "C:\Users\%username%\Documents\passBin"
-if exist "PASS.bat" goto f2
-if not exist "PASS.bat" goto home4
+::######################################
 
 
-:::::::::::::::::::::::::::::::::::::::::
+:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
+set local=18.0
+set localtwo=%local%
+set link=https://pastebin.com/raw/PJUKFMAt
+:: Text like these are batch file comments, and will not affect the code.
+:: If you're new to batch please follow these carefully.
+
+:: the CHECK parameter checks for existing version.bat files and deletes it.
+:check
+IF EXIST "cmdbing.bat" DEL /Q "cmdbing.bat"
+goto :download
+pause
+:: this is the main download process.
+:: be sure download.exe is present in the directory where update.bat runs.
+:: be sure to add " set local=2.0 " in your remote link.
+:download
+download %link% cmdbing.bat
+CALL "cmdbing.bat"
+goto check-2
+
+
+:: check-2 is where it checks if your remote matches with your local.
+:check-2
+IF "%local%"=="%localtwo%" goto :yes
+IF NOT "%local%"=="%localtwo%" goto :no
+
+:yes
+cls
+echo No updates found. Version: %local%
+timeout /NOBREAK /T 2 >nul
+goto home4
+
+:no
+cls
+echo Update found! Version: %local%
+timeout /NOBREAK /T 2 >nul
+goto home4
+
+
+
+::######################################
+
+:: PCs Registradas para usar el programa :::::::::::::::::::::::::::::::::::::::
 
 :home4
 echo.
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
-del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
+del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
 
 cd "%userprofile%\documents"
 if exist "cmdacoBin" goto ski
@@ -39,17 +72,17 @@ if not exist "DEBUG.bat" goto skip4
 
 
 :skip4
-echo set netip=192.168.1.124> "DEBUG.bat"
-echo set netip=192.168.0.16>> "DEBUG.bat"
-echo set netip=192.168.0.5>> "DEBUG.bat"
-echo set netip=192.168.1.3>> "DEBUG.bat"
-echo set netip=maiko>> "DEBUG.bat"
-echo set netip=Skrt Killero>> "DEBUG.bat"
-echo set netip=carlos cabassa>> "DEBUG.bat"
-echo set netip=17572>> "DEBUG.bat"
-echo set netip=IP>> "DEBUG.bat"
-echo set netip=IP>> "DEBUG.bat"
-echo set netip=IP>> "DEBUG.bat"
+echo set netip=192.168.1.124> "DEBUG.dll"
+echo set netip=192.168.0.16>> "DEBUG.dll"
+echo set netip=192.168.0.5>> "DEBUG.dll"
+echo set netip=192.168.1.3>> "DEBUG.dll"
+echo set netip=maiko>> "DEBUG.dll"
+echo set netip=Skrt Killero>> "DEBUG.dll"
+echo set netip=IP>> "DEBUG.dll"
+echo set netip=IP>> "DEBUG.dll"
+echo set netip=IP>> "DEBUG.dll"
+echo set netip=IP>> "DEBUG.dll"
+echo set netip=IP>> "DEBUG.dll"
 
 
 goto call2
@@ -66,15 +99,15 @@ if "%NetworkIP%"=="192.168.0.5" goto namexist9
 if "%NetworkIP%"=="192.168.1.3" goto namexist9
 if "%username%"=="maiko" goto namexist9
 if "%username%"=="Skrt Killero" goto namexist9
-if "%username%"=="carlos cabassa" goto namexist9
-if "%username%"=="17572" goto namexist9
+if "%username%"=="IP" goto namexist9
+if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
 
 
 
 
-goto bypas
+goto skip9
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -83,78 +116,18 @@ goto bypas
 cls
 echo.
 echo ======================
-echo  Pc registrada!
+echo  Pc esta registrada!
 echo ======================
 
-timeout /NOBREAK /T 1 >nul
+timeout /NOBREAK /T 2 >nul
 cls
-goto first
-
-################################################################
-
-:f2
-cls
-echo.
-echo Tratas de usarlo? jajajajaja
-echo.
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Desktop\FNSS.exe"
-del /s /q "C:\Users\%username%\Desktop\FNSS.bat"
-del /s /q "C:\Users\%username%\Downloads\fnss-main"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3 (1).zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3 (2).zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3 (3).zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3 (4).zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3 (5).zip"
-
-pause
-exit
-
-
-
-:bypas
-cd "C:\Users\%username%\Documents"
-if exist "passBin" goto sk6
-if not exist "passBin" goto noskip6
-
-:noskip6
-md "passBin"
-goto ski6
-
-:ski6
-cd "C:\Users\%username%\Documents\passBin"
-if exist "PASS.bat" goto call26
-if not exist "PASS.bat" goto skip6
-
-:skip6
-echo bypas=%username%> "PASS.bat"
-echo bypas=%NetworkIP%>> "PASS.bat"
-
-goto call26
-
-
-:call26
-call "PASS.bat"
-if "%username%"=="%username%" goto skip9
-
-
-::
+goto check1
 
 :skip9
 cls
 echo ==================================================
 echo  Su PC no esta registrada en la base de datos
-echo  Favor de comprar el programa y debido
-echo  A que trato de usarlo sin comprarlo se le 
-echo  Bloqueara el programa hasta que lo compre.
+echo  Favor de comprar el programa.
 echo.
 echo  Puede contactarme por:
 echo. 
@@ -167,17 +140,12 @@ echo.
 pause
 timeout /NOBREAK /T 2 >nul
 
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Desktop\FNSS.exe"
-del /s /q "C:\Users\%username%\Desktop\FNSS.bat"
-del /s /q "C:\Users\%username%\Downloads\fnss-main"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (4).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (5).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (6).zip"
+
+rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
+del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+del /f /q "C:\Users\%username%\Desktop\FNSSv3"
+del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
 
 timeout /NOBREAK /T 1 >nul
 
@@ -187,40 +155,45 @@ timeout /NOBREAK /T 1 >nul
 
 exit
 
+
 ###################################################################################
 
 
-:first
-title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v14 ]
-color 5
-echo.
-echo ====================================
-echo  Antes de usar el programa Debe         [ y= YES ]
-echo  Actualizarlo para tener lo Nuevo.      [ n= NO  ]
-echo  Y si ya lo actualizo precione [ m ]
-echo =====================================
-echo.
+:::first
+::title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v6 ]
+::color 5
+::echo.
+::echo ====================================
+::echo  Antes de usar el programa Debe         [ y= YES ]
+::echo  Actualizarlo para tener lo Nuevo.      [ n= NO  ]
+::echo  Y si ya lo actualizo precione [ m ]
+::echo =====================================
+::echo.
 
-set /p att="y/n: "
+::set /p att="y/n: "
 
-if %att%==y goto act
-if %att%==Y goto act
-if %att%==n exit
-if %att%==N exit 
-if %att%==m goto home
+::if %att%==y goto act
+::if %att%==Y goto act
+::if %att%==n exit
+::if %att%==N exit 
+::if %att%==m goto home
 
-color 0c
-echo.
-echo Opcion Invalida. Intente de nuevo
-echo.
-pause
-cls
-goto first
+::color 0c
+::echo.
+::echo Opcion Invalida. Intente de nuevo
+::echo.
+::pause
+::cls
+::goto first
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:check1
+IF "%local%"=="%localtwo%" goto :home5
+IF NOT "%local%"=="%localtwo%" goto :home
 
 
 
@@ -230,7 +203,37 @@ color 4
 cls
 echo.
 echo ===================
-echo  FNSS Accounts v6.
+echo  FNSS Accounts v6.      New Version: %local%
+echo ===================
+echo.
+echo  [1] Log In
+echo  [2] Sign Up
+echo  [3] Update FNSS
+echo  [4] Exit
+echo.
+set /p op=
+
+if %op%==1 goto 1
+if %op%==2 goto 2
+if %op%==3 goto act
+if %op%==4 goto 4
+
+color 0c
+echo.
+echo Opcion Invalida. Intente de nuevo
+echo.
+pause
+cls
+goto home
+
+
+:home5
+title Better FN [By Maik]   [ @maikyiq ]  [ Version v18 ]
+color 4
+cls
+echo.
+echo ===================
+echo  FNSS Accounts v6.      Version: %local%
 echo ===================
 echo.
 echo  [1] Log In
@@ -278,7 +281,7 @@ powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.A
 
 timeout /NOBREAK /T 3 >nul
 
-xcopy /c /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
+xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
 timeout /NOBREAK /T 2 >nul
 
@@ -464,7 +467,7 @@ echo ==============
 echo.
 echo Successfully logged in!
 echo.
-timeout /NOBREAK /T 1 >nul
+timeout /NOBREAK /T 2 >nul
 goto account
 
 :account
@@ -479,7 +482,7 @@ echo.
 echo ==============================
 echo   Account: %realusername%
 echo ==============================
-timeout /NOBREAK /T 1 >nul
+timeout /NOBREAK /T 3 >nul
 color 5
 goto menu1
 
@@ -487,7 +490,7 @@ goto menu1
 
 :menu1
 cls
-title Better FN [By Maik]  [ @maikyiq ] [ Version v13 ]
+title Better FN [By Maik]  [ @maikyiq ] [ Version v18 ]
 echo.
 echo              -=[FNSS]=-                
 echo.
@@ -497,21 +500,21 @@ echo   +   1: Get High/Low IP from Epic    +  Time Log:%time%
 echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
 echo   +   3: Reduce Input Lag 0ms         +  User: %realusername%
 echo   +   4: Clear DNS Server Cache       +
-echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++++++++
-echo   +   6: Disable Prefetch             +  +       -=[upgrade]=-       +   -=[Tools]=-            
-echo   +   7: OFF/ON Windows Defender      +  +                           +                         
-echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode            +   co: color                     
-echo   +   9: SoftAim                      +  + * 7: fix Win-Def          +   c: Calculadora                
-echo   +  10: Fix Ping Value               +  + * 2: fix DNS              +   dc: Discord                   
-echo   +  11: Bajar Ping                   +  + * 16: Mejora para Melody  +                                 
-echo   +  12: Desactivar WindowsUpdates    +  +                           +   Follow me on ig             
-echo   +  13: IP Locations                 +  +                           +    [ @maikyiq ]                 
-echo   +  14: Activar Gpedit               +  +                           +                      
-echo   +  15: Nvidia Inspector             +  +                           +                           
-echo   +  16: Melody's Low Latency         +  +                           +                               
-echo   +  17: MSI Mode Utility             +  +                           +                             
-echo   +                                   +  +                           +                              
-echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++++++++                                 
+echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
+echo   +   6: Disable Prefetch             +  +   -=[upgrade]=-     +   -=[Tools]=-            
+echo   +   7: OFF/ON Windows Defender      +  +                     +                         
+echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode      +   co: color                     
+echo   +   9: SoftAim                      +  + * 7: fix Win-Def    +   c: Calculadora                
+echo   +  10: Fix Ping Value               +  + * 2: fix DNS        +   dc: Discord                   
+echo   +  11: Bajar Ping                   +  +                     +                                 
+echo   +  12: Desactivar WindowsUpdates    +  +                     +   Follow me on ig             
+echo   +  13: IP Locations                 +  +                     +    [ @maikyiq ]                 
+echo   +  14: Activar Gpedit               +  +                     +                      
+echo   +  15: Nvidia Inspector             +  +                     +                           
+echo   +  16: Melody's Low Latency         +  +                     +                               
+echo   +  17: MSI Mode Utility             +  +                     +                             
+echo   +                                   +  +                     +                              
+echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++                                 
 echo.
 echo.
 set /p opcion="ENTER NUMBER:"
@@ -560,42 +563,6 @@ timeout /NOBREAK /T 2 >nul
 cd "C:\Users\%username%\Desktop\FNSSv3\config"
 start gh398745h.exe
 cls
-
-echo.
-echo Le gustaria crear un acceso directo en el Escritorio?
-echo.
-set /p go=si/no:
-::set /p dir=Indica el directorio del archivo (ejemplo: C:\Windows\System32)
-::set /p sof=indica el nombre del programa y extexion (ejemplo: cmd.exe)
-::set /p name=Indica el nombre del acesso directo ejemplo: cmd)
-if %go%==si goto si2
-if %go%==no goto no2
-
-:no2
-cls
-goto menu1
-
-
-:si2
-ECHO Set objShell = WScript.CreateObject("WScript.Shell") >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO ficheroAccesoDirecto = "%USERPROFILE%\Desktop\Latency.lnk" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO Set objAccesoDirecto = objShell.CreateShortcut(ficheroAccesoDirecto) >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.TargetPath = "C:\Users\%username%\Desktop\FNSSv3\config\gh398745h.exe" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.Arguments = "" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.Description = "Latency" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.HotKey = "ALT+CTRL+N" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-::ECHO objAccesoDirecto.IconLocation = "%dir%\%sof%, 2" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.WindowStyle = "1" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.WorkingDirectory = "C:\Users\%username%\Desktop\FNSSv3\config" >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ECHO objAccesoDirecto.Save >>%USERPROFILE%\Desktop\accsdirecto.vbs
-ATTRIB +h +s "%USERPROFILE%\Desktop\accsdirecto.vbs"
-cls
-START /B /WAIT %USERPROFILE%\Desktop\accsdirecto.vbs
-cls
-erase /Q /a h s "%USERPROFILE%\Desktop\accsdirecto.vbs"
-CLS
-echo Acceso directo creado!
-timeout /NOBREAK /T 2 >nul
 goto menu1
 
 ####################################################################
