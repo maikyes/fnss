@@ -300,8 +300,7 @@ echo =================
 echo     Updated!
 echo =================
 timeout /NOBREAK /T 3 >nul
-cls
-goto check1
+exit
 
 
 #########__Antes__Del__Sign__Up___#################################################
