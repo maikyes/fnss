@@ -301,7 +301,7 @@ echo     Updated!
 echo =================
 timeout /NOBREAK /T 3 >nul
 cls
-goto home
+goto check1
 
 
 #########__Antes__Del__Sign__Up___#################################################
