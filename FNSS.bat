@@ -203,7 +203,7 @@ color 4
 cls
 echo.
 echo ===================
-echo  FNSS Accounts v6.      New Version: %local%
+echo  FNSS Accounts v6.      Download New Version: %local%
 echo ===================
 echo.
 echo  [1] Log In
@@ -254,7 +254,7 @@ echo Opcion Invalida. Intente de nuevo
 echo.
 pause
 cls
-goto home
+goto home5
 
 
 
@@ -490,7 +490,7 @@ goto menu1
 
 :menu1
 cls
-title Better FN [By Maik]  [ @maikyiq ] [ Version v18 ]
+title Better FN [By Maik]  [ @maikyiq ]
 echo.
 echo              -=[FNSS]=-                
 echo.
