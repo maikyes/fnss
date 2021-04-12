@@ -78,7 +78,7 @@ echo set netip=192.168.0.5>> "DEBUG.dll"
 echo set netip=192.168.1.3>> "DEBUG.dll"
 echo set netip=maiko>> "DEBUG.dll"
 echo set netip=Skrt Killero>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
+echo set netip=Usuario>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
@@ -99,7 +99,7 @@ if "%NetworkIP%"=="192.168.0.5" goto namexist9
 if "%NetworkIP%"=="192.168.1.3" goto namexist9
 if "%username%"=="maiko" goto namexist9
 if "%username%"=="Skrt Killero" goto namexist9
-if "%username%"=="IP" goto namexist9
+if "%username%"=="Usuario" goto namexist9
 if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
@@ -503,7 +503,7 @@ echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
 echo   +   6: Disable Prefetch             +  +   -=[upgrade]=-     +   -=[Tools]=-            
 echo   +   7: OFF/ON Windows Defender      +  +                     +                         
 echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode      +   co: color                     
-echo   +   9: SoftAim                      +  + * 7: fix Win-Def    +   c: Calculadora                
+echo   +   9: NO VALID                     +  + * 7: fix Win-Def    +   c: Calculadora                
 echo   +  10: Fix Ping Value               +  + * 2: fix DNS        +   dc: Discord                   
 echo   +  11: Bajar Ping                   +  +                     +                                 
 echo   +  12: Desactivar WindowsUpdates    +  +                     +   Follow me on ig             
@@ -527,7 +527,6 @@ if %opcion%==5 goto filest
 if %opcion%==6 goto prefecth
 if %opcion%==7 goto windos
 if %opcion%==8 goto diskup
-if %opcion%==9 goto soft
 if %opcion%==10 goto fix
 if %opcion%==11 goto fixping
 if %opcion%==12 goto updatewindows
