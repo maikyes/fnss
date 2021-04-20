@@ -79,7 +79,7 @@ echo set netip=192.168.1.3>> "DEBUG.dll"
 echo set netip=maiko>> "DEBUG.dll"
 echo set netip=Skrt Killero>> "DEBUG.dll"
 echo set netip=Usuario>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
+echo set netip=santy>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
 echo set netip=IP>> "DEBUG.dll"
@@ -100,7 +100,7 @@ if "%NetworkIP%"=="192.168.1.3" goto namexist9
 if "%username%"=="maiko" goto namexist9
 if "%username%"=="Skrt Killero" goto namexist9
 if "%username%"=="Usuario" goto namexist9
-if "%username%"=="IP" goto namexist9
+if "%username%"=="santy" goto namexist9
 if "%username%"=="IP" goto namexist9
 if "%username%"=="IP" goto namexist9
 
