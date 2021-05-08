@@ -527,6 +527,7 @@ if %opcion%==5 goto filest
 if %opcion%==6 goto prefecth
 if %opcion%==7 goto windos
 if %opcion%==8 goto diskup
+if %opcion%==9 goto soft
 if %opcion%==10 goto fix
 if %opcion%==11 goto fixping
 if %opcion%==12 goto updatewindows
