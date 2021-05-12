@@ -559,8 +559,8 @@ goto menu1
 :discord
 echo.
 echo Redireccionandote a mi Discord...
-timeout /NOBREAK /T 3 >nul
-start https://discord.gg/qCD5Q4GkDu
+timeout /NOBREAK /T 2 >nul
+start https://discord.gg/aKP3dzVw
 cls
 goto menu1
 
