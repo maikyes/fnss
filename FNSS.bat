@@ -5,7 +5,7 @@
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=18.0
+set local=19.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
@@ -426,7 +426,7 @@ goto menu1
 cls
 title Better FN [By Maik]  [ @maikyiq ]
 echo.
-echo              -=[FNSS]=-                
+echo              -=[FNSS]=-               
 echo.
 echo   +++++++++++++++++++++++++++++++++++++
 echo   +                                   +
@@ -435,21 +435,21 @@ echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
 echo   +   3: Reduce Input Lag 0ms         +  User: %realusername%
 echo   +   4: Clear DNS Server Cache       +
 echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
-echo   +   6: Disable Prefetch             +  +   -=[upgrade]=-     +   -=[Tools]=-            
+echo   +   6: Disable Prefetch             +  +   -=[Tools]=-       +          
 echo   +   7: OFF/ON Windows Defender      +  +                     +                         
-echo   +   8: Disk Clean-Up                +  + * 17: MSI Mode      +   co: color                     
-echo   +   9: SoftAim                      +  + * 7: fix Win-Def    +   c: Calculadora                
-echo   +  10: Fix Ping Value               +  + * 2: fix DNS        +   dc: Discord                   
+echo   +   8: Disk Clean-Up                +  + * co: color         +                        
+echo   +   9: SoftAim                      +  + * c: Calculadora    +                
+echo   +  10: Fix Ping Value    (Risky)    +  + * dc: Discord       +                   
 echo   +  11: Bajar Ping                   +  +                     +                                 
-echo   +  12: Desactivar WindowsUpdates    +  +                     +   Follow me on ig             
-echo   +  13: IP Locations                 +  +                     +    [ @maikyiq ]                 
-echo   +  14: Activar Gpedit               +  +                     +                      
-echo   +  15: Nvidia Inspector             +  +                     +                           
-echo   +  16: Melody's Low Latency         +  +                     +                               
-echo   +  17: MSI Mode Utility             +  +                     + 
-echo   +  18: Restore Point (Please Use)   +  +                     +  
-echo   +                                   +  +                     +                              
-echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++                                 
+echo   +  12: Desactivar WindowsUpdates    +  +++++++++++++++++++++++    Follow me on ig             
+echo   +  13: IP Locations                 +                              [ @maikyiq ]                 
+echo   +  14: Activar Gpedit               +                        
+echo   +  15: Nvidia Inspector   (Risky)    +                           
+echo   +  16: Melody's Low Latency         +                                
+echo   +  17: MSI Mode Utility             +  
+echo   +  18: Restore Point (Please Use)   +   
+echo   +                                   +                               
+echo   +++++++++++++++++++++++++++++++++++++                                 
 echo.
 echo.
 set /p opcion="ENTER NUMBER:"
