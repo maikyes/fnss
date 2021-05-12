@@ -82,7 +82,7 @@ echo set netip=Usuario>> "DEBUG.dll"
 echo set netip=santy>> "DEBUG.dll"
 echo set netip=Yesid>> "DEBUG.dll"
 echo set netip=unrx>> "DEBUG.dll"
-echo set netip=IP>> "DEBUG.dll"
+echo set netip=mayko>> "DEBUG.dll"
 
 
 goto call2
@@ -103,6 +103,7 @@ if "%username%"=="Usuario" goto namexist9
 if "%username%"=="santy" goto namexist9
 if "%username%"=="Yesid" goto namexist9
 if "%username%"=="unrx" goto namexist9
+if "%username%"=="mayko" goto namexist9
 
 
 
@@ -279,8 +280,8 @@ timeout /NOBREAK /T 5 >nul
 ::powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\Desktop\FNSSv3'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
 
 echo Unzipping files...
-cd C:\Users\maikp\Downloads
-powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\maikp\Desktop\FNSSv3"
+cd C:\Users\%username%\Downloads
+powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3"
 echo "Done!"
 
 timeout /NOBREAK /T 3 >nul
@@ -294,6 +295,9 @@ rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
 
 cd C:\Users\%username%\Downloads
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+
+cd C:\Users\%username%\Desktop
+del /s /q C:\Users\%username%\Desktop\FNSS.bat
 
 timeout /NOBREAK /T 2 >nul
 
