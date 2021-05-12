@@ -515,7 +515,8 @@ echo   +  13: IP Locations                 +  +                     +    [ @maik
 echo   +  14: Activar Gpedit               +  +                     +                      
 echo   +  15: Nvidia Inspector             +  +                     +                           
 echo   +  16: Melody's Low Latency         +  +                     +                               
-echo   +  17: MSI Mode Utility             +  +                     +                             
+echo   +  17: MSI Mode Utility             +  +                     + 
+echo   +  18: Restore Point (Please Use)   +  +                     +  
 echo   +                                   +  +                     +                              
 echo   +++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++                                 
 echo.
@@ -540,6 +541,7 @@ if %opcion%==14 goto gepedit
 if %opcion%==15 goto nvidia
 if %opcion%==16 goto melody
 if %opcion%==17 goto msi
+if %opcion%==18 goto restore
 
 if %opcion%==co goto color2
 if %opcion%==b goto block
@@ -556,6 +558,13 @@ cls
 goto menu1
 
 ####################################################################
+
+:restore
+start C:\Windows\System32\SystemPropertiesProtection.exe
+cls
+goto menu1
+
+::++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 :melody
 cls
@@ -1139,7 +1148,7 @@ md C:\Windows\SoftwareDistribution
 echo.
 echo.
 echo Selecciona el disco que quieras limpiar
-start cleanmgr.exe
+start C:\Windows\System32\cleanmgr.exe
 echo.
 pause
 goto menu1
