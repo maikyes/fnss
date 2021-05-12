@@ -296,8 +296,8 @@ rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
 cd C:\Users\%username%\Downloads
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 
-cd C:\Users\%username%\Desktop
-del /s /q C:\Users\%username%\Desktop\FNSS.bat
+::cd C:\Users\%username%\Desktop
+::del /s /q C:\Users\%username%\Desktop\FNSS.bat
 
 timeout /NOBREAK /T 2 >nul
 
@@ -322,7 +322,7 @@ echo ======================
 echo.
 set /p seri="Enter Serial Number: "
 
-if %seri%==2364-2687-2346 goto 9
+if %seri%==2364-2687-2346 goto 5
 if %seri%==show goto seri2
 
 color 0c
@@ -343,30 +343,7 @@ goto 2
 
 
 
-########################################################################
-
-:9
-cls
-color 0c
-echo.
-echo ===============================
-echo   Submitting Serial Number...
-echo ===============================
-timeout /NOBREAK /T 3 >nul
-cls
-color A
-echo.
-echo ===============================
-echo   Serial Number Submit!
-echo ===============================
-timeout /NOBREAK /T 2 >nul
-goto 5
-
-
-
-#########################################################################
-
-
+::########################################################################
 
 
 :5
