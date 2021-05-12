@@ -12,15 +12,15 @@ set link=https://pastebin.com/raw/PJUKFMAt
 
 :: the CHECK parameter checks for existing version.bat files and deletes it.
 :check
-IF EXIST "cmdbing.bat" DEL /Q "cmdbing.bat"
+IF EXIST "a.bat" DEL /Q "a.bat"
 goto :download
 pause
 :: this is the main download process.
 :: be sure download.exe is present in the directory where update.bat runs.
 :: be sure to add " set local=2.0 " in your remote link.
 :download
-download %link% cmdbing.bat
-CALL "cmdbing.bat"
+download %link% a.bat
+CALL "a.bat"
 goto check-2
 
 
