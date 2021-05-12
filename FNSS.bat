@@ -1,4 +1,5 @@
-@echo off
+ÿþ
+@echo off
 
 ::######################################
 
@@ -160,36 +161,6 @@ exit
 ###################################################################################
 
 
-:::first
-::title Better FN [By Maik]   [ @maikyiq ]  [ Latest Version v6 ]
-::color 5
-::echo.
-::echo ====================================
-::echo  Antes de usar el programa Debe         [ y= YES ]
-::echo  Actualizarlo para tener lo Nuevo.      [ n= NO  ]
-::echo  Y si ya lo actualizo precione [ m ]
-::echo =====================================
-::echo.
-
-::set /p att="y/n: "
-
-::if %att%==y goto act
-::if %att%==Y goto act
-::if %att%==n exit
-::if %att%==N exit 
-::if %att%==m goto home
-
-::color 0c
-::echo.
-::echo Opcion Invalida. Intente de nuevo
-::echo.
-::pause
-::cls
-::goto first
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :check1
@@ -276,9 +247,6 @@ start https://github.com/maikyes/fnss/archive/main.zip
 
 timeout /NOBREAK /T 5 >nul
 
-::cd "C:\Users\%username%\Downloads"
-::powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\Desktop\FNSSv3'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
-
 echo Unzipping files...
 cd C:\Users\%username%\Downloads
 powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3"
@@ -296,9 +264,6 @@ rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
 cd C:\Users\%username%\Downloads
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 
-::cd C:\Users\%username%\Desktop
-::del /s /q C:\Users\%username%\Desktop\FNSS.bat
-
 timeout /NOBREAK /T 2 >nul
 
 color A
@@ -307,7 +272,7 @@ echo.
 echo =================
 echo     Updated!
 echo =================
-timeout /NOBREAK /T 3 >nul
+timeout /NOBREAK /T 2 >nul
 exit
 
 
@@ -452,25 +417,10 @@ echo.
 echo Successfully logged in!
 echo.
 timeout /NOBREAK /T 2 >nul
-goto account
-
-:account
-cls
-cd "%userprofile%\documents\cmdacoBin"
-call "%realusername%color.bat"
-call "%realusername%.bat"
-color %colorcode%
-cls
-color A
-echo.
-echo ==============================
-echo   Account: %realusername%
-echo ==============================
-timeout /NOBREAK /T 3 >nul
-color 5
 goto menu1
 
-###############################################################
+
+::###############################################################
 
 :menu1
 cls
