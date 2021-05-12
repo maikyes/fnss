@@ -40,7 +40,7 @@ goto home4
 cls
 echo Update found! Version: %local%
 timeout /NOBREAK /T 2 >nul
-goto home4
+goto act
 
 
 
@@ -118,12 +118,12 @@ goto skip9
 cls
 echo.
 echo ======================
-echo  Pc esta registrada!
+echo    PC Registrada!
 echo ======================
 
 timeout /NOBREAK /T 2 >nul
 cls
-goto check1
+goto menu1
 
 :skip9
 cls
@@ -158,79 +158,8 @@ timeout /NOBREAK /T 1 >nul
 exit
 
 
-###################################################################################
 
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:check1
-IF "%local%"=="%localtwo%" goto :home5
-IF NOT "%local%"=="%localtwo%" goto :home
-
-
-
-:home
-title Better FN [By Maik]   [ @maikyiq ]
-color 4
-cls
-echo.
-echo ===================
-echo  FNSS Accounts v6.      Download New Version: %local%
-echo ===================
-echo.
-echo  [1] Log In
-echo  [2] Sign Up
-echo  [3] Update FNSS
-echo  [4] Exit
-echo.
-set /p op=
-
-if %op%==1 goto 1
-if %op%==2 goto 2
-if %op%==3 goto act
-if %op%==4 goto 4
-
-color 0c
-echo.
-echo Opcion Invalida. Intente de nuevo
-echo.
-pause
-cls
-goto home
-
-
-:home5
-title Better FN [By Maik]   [ @maikyiq ]
-color 4
-cls
-echo.
-echo ===================
-echo  FNSS Accounts v6.      Version: %local%
-echo ===================
-echo.
-echo  [1] Log In
-echo  [2] Sign Up
-echo  [3] Update FNSS
-echo  [4] Exit
-echo.
-set /p op=
-
-if %op%==1 goto 1
-if %op%==2 goto 2
-if %op%==3 goto act
-if %op%==4 goto 4
-
-color 0c
-echo.
-echo Opcion Invalida. Intente de nuevo
-echo.
-pause
-cls
-goto home5
-
-
-
-###__Importar__Cuentas__###################################################
+:: Descargar la actualizacion
 
 
 :act
@@ -275,149 +204,6 @@ echo =================
 timeout /NOBREAK /T 2 >nul
 exit
 
-
-#########__Antes__Del__Sign__Up___#################################################
-
-:2
-cls
-color 4
-echo ======================
-echo  FNSS Serial Number
-echo ======================
-echo.
-set /p seri="Enter Serial Number: "
-
-if %seri%==2364-2687-2346 goto 5
-if %seri%==show goto seri2
-
-color 0c
-echo.
-echo Wrong Serial Number...
-echo Please type your serial number.
-echo.
-pause >nul
-goto home
-
-:seri2
-color A
-echo.
-echo Serial Number: 2364-2687-2346
-echo.
-pause >nul
-goto 2
-
-
-
-::########################################################################
-
-
-:5
-cls
-color 4
-echo =======================================
-echo  FNSS Sign Up
-echo =======================================
-echo.
-set /p newname="Enter new username:"
-if "%newname%"=="%newname%" goto inputname
-
-:inputname
-cd "%userprofile%\documents"
-if exist "cmdacoBin" goto skip
-if not exist "cmdacoBin" goto noskip
-
-:noskip
-md "cmdacoBin"
-goto skip
-
-:skip
-cd "%userprofile%\documents\cmdacoBin"
-if exist "%newname%.bat" goto namexist
-if not exist "%newname%.bat" goto skip2
-
-:skip2
-echo set realusername=%newname%> "%newname%.bat"
-goto next
-
-:next
-echo.
-set /p pswd=Enter new Password:
-if "%pswd%"=="%pswd%" goto inputpass
-
-:inputpass
-cd "%userprofile%\documents\cmdacoBin"
-echo set password=%pswd%>> "%newname%.bat"
-goto next1
-
-:namexist
-echo.
-echo The entered username already exists.
-echo Press any key to return. . .
-pause >nul
-goto 2
-
-:next1
-cls
-color A
-echo ================
-echo  FNSS Accounts
-echo ================
-echo.
-echo Your account has been successfully created!
-echo.
-pause
-goto home
-
-####################################################################
-
-
-###__Iniciar__Seccion__#############################################
-
-
-:1
-color 4
-cls
-echo =================================
-echo  FNSS Accounts Log In
-echo =================================
-echo.
-Set /p logname=Username:
-if "%logname%"=="%logname%" goto 2.1
-
-:2.1
-echo.
-set /p logpass="Password:"
-if "%logpass%"=="%logpass%" goto login
-
-:login
-cd "%userprofile%\documents\cmdacoBin"
-if exist "%logname%.bat" goto call
-if not exist "%logname%.bat" goto errorlog
-
-:call
-call "%logname%.bat"
-if "%password%"=="%logpass%" goto logdone
-goto errorlog
-
-:errorlog
-color 0c
-echo.
-echo Username or Password incorrect.
-echo Access denied.
-pause >nul
-goto home
-
-:logdone
-cls
-color A
-echo ==============
-echo     FNSS
-echo ==============
-echo.
-echo Successfully logged in!
-echo.
-timeout /NOBREAK /T 2 >nul
-goto menu1
 
 
 ::###############################################################
