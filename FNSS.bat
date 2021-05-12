@@ -170,7 +170,7 @@ IF NOT "%local%"=="%localtwo%" goto :home
 
 
 :home
-title Better FN [By Maik]   [ @maikyiq ]  [ Version v18 ]
+title Better FN [By Maik]   [ @maikyiq ]
 color 4
 cls
 echo.
@@ -200,7 +200,7 @@ goto home
 
 
 :home5
-title Better FN [By Maik]   [ @maikyiq ]  [ Version v18 ]
+title Better FN [By Maik]   [ @maikyiq ]
 color 4
 cls
 echo.
@@ -435,16 +435,16 @@ echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
 echo   +   3: Reduce Input Lag 0ms         +  User: %realusername%
 echo   +   4: Clear DNS Server Cache       +
 echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
-echo   +   6: Disable Prefetch             +  +   -=[Tools]=-       +          
-echo   +   7: OFF/ON Windows Defender      +  +                     +                         
+echo   +   6: Disable Prefetch             +  +   -=[Tools]=-       +    Follow me on ig           
+echo   +   7: OFF/ON Windows Defender      +  +                     +     [ @maikyiq ]                 
 echo   +   8: Disk Clean-Up                +  + * co: color         +                        
 echo   +   9: SoftAim                      +  + * c: Calculadora    +                
 echo   +  10: Fix Ping Value    (Risky)    +  + * dc: Discord       +                   
 echo   +  11: Bajar Ping                   +  +                     +                                 
-echo   +  12: Desactivar WindowsUpdates    +  +++++++++++++++++++++++    Follow me on ig             
-echo   +  13: IP Locations                 +                              [ @maikyiq ]                 
+echo   +  12: Desactivar WindowsUpdates    +  +++++++++++++++++++++++                
+echo   +  13: IP Locations                 +                                           
 echo   +  14: Activar Gpedit               +                        
-echo   +  15: Nvidia Inspector   (Risky)    +                           
+echo   +  15: Nvidia Inspector   (Risky)   +                           
 echo   +  16: Melody's Low Latency         +                                
 echo   +  17: MSI Mode Utility             +  
 echo   +  18: Restore Point (Please Use)   +   
