@@ -121,7 +121,7 @@ echo ======================
 echo    PC Registrada!
 echo ======================
 
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 cls
 goto menu1
 
@@ -145,7 +145,7 @@ timeout /NOBREAK /T 2 >nul
 
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /f /q "C:\Users\%username%\Desktop\FNSSv3"
+del /f /q C:\Users\%username%\Desktop\FNSSv3
 del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
 
