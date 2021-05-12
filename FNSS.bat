@@ -5,7 +5,7 @@
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=21.0
+set local=21 .0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
@@ -142,10 +142,18 @@ echo.
 pause
 timeout /NOBREAK /T 2 >nul
 
-
+cd C:\Users\%username%\Desktop
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 del /f /q C:\Users\%username%\Desktop\FNSSv3
+del /f /q C:\Users\%username%\Desktop\FNSSv3.zip
+del /f /q C:\Users\%username%\Desktop\FNSSv3.rar
+del /f /q C:\Users\%username%\Desktop\fnss-main.zip
+del /f /q C:\Users\%username%\Desktop\fnss-main.zip(1).zip
+
+cd C:\Users\%username%\Downloads
+del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
+del /s /q C:\Users\%username%\Downloads\FNSSv3.rar
+del /s /q C:\Users\%username%\Downloads\fnss-main.zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
 del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
 
@@ -190,8 +198,12 @@ timeout /NOBREAK /T 2 >nul
 cd C:\Users\%username%\Desktop\FNSSv3
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
 
+cd C:\Users\%username%\Desktop
+del /s /q C:\Users\%username%\Desktop\FNSSv3.zip
+
 cd C:\Users\%username%\Downloads
 del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
 
 timeout /NOBREAK /T 2 >nul
 
