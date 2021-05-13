@@ -1,11 +1,36 @@
 ÿþ
 @echo off
 
-::######################################
+:: ================== ESTATUS DEL PROGRAMA =============================
+
+:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
+set new1=
+set new2=
+set new3=
+set new4=
+set new5=
+set new6=
+set link=https://pastebin.com/raw/KqSyC39w
+:: Text like these are batch file comments, and will not affect the code.
+:: If you're new to batch please follow these carefully.
+
+:: the CHECK parameter checks for existing version.bat files and deletes it.
+:check
+IF EXIST "GhdUd.bat" DEL /Q "GhdUd.bat"
+goto :download
+pause
+:: this is the main download process.
+:: be sure download.exe is present in the directory where update.bat runs.
+:: be sure to add " set local=2.0 " in your remote link.
+:download
+download %link% GhdUd.bat
+CALL "GhdUd.bat"
+::=======================================================================================
+
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=23.0
+set local=26.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
@@ -13,15 +38,15 @@ set link=https://pastebin.com/raw/PJUKFMAt
 
 :: the CHECK parameter checks for existing version.bat files and deletes it.
 :check
-IF EXIST "a.bat" DEL /Q "a.bat"
+IF EXIST "YkPsL.bat" DEL /Q "YkPsL.bat"
 goto :download
 pause
 :: this is the main download process.
 :: be sure download.exe is present in the directory where update.bat runs.
 :: be sure to add " set local=2.0 " in your remote link.
 :download
-download %link% a.bat
-CALL "a.bat"
+download %link% YkPsL.bat
+CALL "YkPsL.bat"
 goto check-2
 
 
@@ -33,13 +58,13 @@ IF NOT "%local%"=="%localtwo%" goto :no
 :yes
 cls
 echo No updates found. Version: %local%
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 goto home4
 
 :no
 cls
 echo Update found! Version: %local%
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 goto act
 
 
@@ -238,7 +263,7 @@ echo   +++++++++++++++++++++++++++++++++++++
 echo   +                                   +
 echo   +   1: Get High/Low IP from Epic    +  Time Log:%time%
 echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
-echo   +   3: Reduce Input Lag 0ms         +  User: %realusername%
+echo   +   3: Reduce Input Lag 0ms         +  User: %username%
 echo   +   4: Clear DNS Server Cache       +
 echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
 echo   +   6: Disable Prefetch             +  +   -=[Tools]=-       +    Follow me on ig           
@@ -249,12 +274,13 @@ echo   +  10: Fix Ping Value    (Risky)    +  + * dc: Discord       +
 echo   +  11: Bajar Ping                   +  +                     +                                 
 echo   +  12: Desactivar WindowsUpdates    +  +++++++++++++++++++++++                
 echo   +  13: IP Locations                 +                                           
-echo   +  14: Activar Gpedit               +                        
-echo   +  15: Nvidia Inspector   (Risky)   +                           
-echo   +  16: Melody's Low Latency         +                                
-echo   +  17: MSI Mode Utility             +  
-echo   +  18: Restore Point (Please Use)   +   
-echo   +                                   +                               
+echo   +  14: Activar Gpedit               + %new1%                   
+echo   +  15: Nvidia Inspector   (Risky)   + %new2%                     
+echo   +  16: Melody's Low Latency         + %new3%                                
+echo   +  17: MSI Mode Utility             + %new4%  
+echo   +  18: Restore Point (Please Use)   + %new5%   
+echo   +  19: HWID Checker                 + %new6%   
+echo   +                                   +                            
 echo   +++++++++++++++++++++++++++++++++++++                                 
 echo.
 echo.
@@ -279,6 +305,7 @@ if %opcion%==15 goto nvidia
 if %opcion%==16 goto melody
 if %opcion%==17 goto msi
 if %opcion%==18 goto restore
+if %opcion%==19 goto hwi
 
 if %opcion%==co goto color2
 if %opcion%==b goto block
@@ -294,7 +321,7 @@ pause
 cls
 goto menu1
 
-####################################################################
+::####################################################################
 
 :restore
 start C:\Windows\System32\SystemPropertiesProtection.exe
@@ -314,8 +341,55 @@ start gh398745h.exe
 cls
 goto menu1
 
-####################################################################
+::####################################################################
 
+:hwi
+cls 
+@echo ---------------------------WINDOWS MANAGEMENT INSTRUMENTATION---------------------------
+@echo off
+echo.
+@echo [SMBIOS UUID]
+@echo off 
+wmic csproduct get uuid
+@echo [BIOS]
+@echo off 
+wmic bios get serialnumber
+@echo [MOTHERBOARD]
+@echo off 
+wmic baseboard get serialnumber
+@echo [CPU/PROCESSOR]
+@echo off 
+wmic cpu get serialnumber
+@echo [HARDDRIVES]
+@echo off 
+wmic diskdrive get serialnumber
+@echo [MEMORYCHIPS]
+@echo off 
+wmic memorychip get serialnumber
+@echo [GPU/GRAPHIC CARDS]
+@echo off 
+wmic PATH Win32_VideoController GET PNPDeviceID
+@echo [MONITOR]
+@echo off 
+wmic desktopmonitor get pnpdeviceid
+@echo [MAC ADRESSES]
+@echo off 
+getmac
+echo.
+echo ---------------------------Registry Keys---------------------------
+echo.
+@echo HwProfile GUID:  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware Profiles\0001
+@echo Machine GUID:    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography
+@echo Product ID:      HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+@echo Machine ID:      HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient
+@echo off
+echo.
+pause
+goto menu1
+
+
+
+:: ==================================================
 
 :msi
 cls
@@ -330,7 +404,7 @@ goto menu1
 
 
 
-####################################################################
+::####################################################################
 
 :nvidia
 cls
@@ -360,7 +434,7 @@ pause
 goto menu1
 
 
-####################################################################
+::####################################################################
 
 :discord
 echo.
@@ -371,7 +445,7 @@ cls
 goto menu1
 
 
-####################################################################
+::####################################################################
 
 :color2
 echo.
