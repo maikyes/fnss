@@ -84,6 +84,7 @@ echo set netip=santy>> "DEBUG.dll"
 echo set netip=Yesid>> "DEBUG.dll"
 echo set netip=unrx>> "DEBUG.dll"
 echo set netip=mayko>> "DEBUG.dll"
+echo set netip=carlos cabassa>> "DEBUG.dll"
 
 
 goto call2
@@ -105,6 +106,7 @@ if "%username%"=="santy" goto namexist9
 if "%username%"=="Yesid" goto namexist9
 if "%username%"=="unrx" goto namexist9
 if "%username%"=="mayko" goto namexist9
+if "%username%"=="carlos cabassa" goto namexist9
 
 
 
