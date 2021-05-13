@@ -5,7 +5,7 @@
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=22.0
+set local=23.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
@@ -87,6 +87,7 @@ echo set netip=mayko>> "DEBUG.dll"
 echo set netip=carlos cabassa>> "DEBUG.dll"
 echo set netip=Raul>> "DEBUG.dll"
 echo set netip=GAMER>> "DEBUG.dll"
+echo set netip=ESMERLIN MARTE>> "DEBUG.dll"
 
 
 goto call2
@@ -111,6 +112,7 @@ if "%username%"=="mayko" goto namexist9
 if "%username%"=="carlos cabassa" goto namexist9
 if "%username%"=="Raul" goto namexist9
 if "%username%"=="GAMER" goto namexist9
+if "%username%"=="ESMERLIN MARTE" goto namexist9
 
 
 
