@@ -29,7 +29,7 @@ CALL "GhdUd.bat"
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=26.0
+set local=27.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
