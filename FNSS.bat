@@ -204,6 +204,12 @@ exit
 
 
 :act
+del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
+del /s /q C:\Users\%username%\Downloads\FNSSv3.rar
+del /s /q C:\Users\%username%\Downloads\fnss-main.zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
+del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
 cls
 color 5
 echo.
@@ -214,6 +220,7 @@ echo ============================
 echo.
 
 start https://github.com/maikyes/fnss/archive/main.zip
+
 
 timeout /NOBREAK /T 5 >nul
 
