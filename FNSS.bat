@@ -1,5 +1,4 @@
-ÿþ
-@echo off
+@echo off
 
 :: ================== ESTATUS DEL PROGRAMA =============================
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
@@ -267,13 +266,11 @@ del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
 
 timeout /NOBREAK /T 2 >nul
 
-color A
-cls
-echo.
-echo =================
-echo     Updated!
-echo =================
+echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896",0,"FNSS Announcement")>>msgbox.vbs
+start msgbox.vbs
 timeout /NOBREAK /T 2 >nul
+del /s /q C:\Users\maikp\Desktop\Proyecto\msgbox.vbs
+cls
 exit
 
 
