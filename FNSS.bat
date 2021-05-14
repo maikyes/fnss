@@ -238,7 +238,9 @@ timeout /NOBREAK /T 2 >nul
 
 cd C:\Users\%username%\Desktop\FNSSv3
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
-del /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
+rmdir /s /q C:\Users\%realusername%\Desktop\FNSSv3\fnss-main
+del /s /q C:\Users\%ComputerName%\Desktop\FNSSv3\fnss-main
+del /s /q C:\Users\%realusername%\Desktop\FNSSv3\fnss-main
 
 cd C:\Users\%username%\Desktop
 del /s /q C:\Users\%username%\Desktop\FNSSv3.zip
