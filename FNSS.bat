@@ -219,6 +219,7 @@ timeout /NOBREAK /T 5 >nul
 
 echo Unzipping files...
 cd C:\Users\%username%\Downloads
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\Desktop\FNSSv3'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
 powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3"
 echo "Done!"
 
