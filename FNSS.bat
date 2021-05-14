@@ -1,7 +1,15 @@
 @echo off
 
 :: ================== ESTATUS DEL PROGRAMA =============================
-
+cd C:\Users\%username%\Downloads
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
+del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
+cls
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
 set new1=
 set new2=
@@ -175,19 +183,21 @@ pause
 timeout /NOBREAK /T 2 >nul
 
 cd C:\Users\%username%\Desktop
-rmdir /s /q C:\Users\%username%\Desktop\FNSSv3.zip
-del /f /q C:\Users\%username%\Desktop\FNSSv3
-del /f /q C:\Users\%username%\Desktop\FNSSv3.zip
-del /f /q C:\Users\%username%\Desktop\FNSSv3.rar
-del /f /q C:\Users\%username%\Desktop\fnss-main.zip
-del /f /q C:\Users\%username%\Desktop\fnss-main.zip(1).zip
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
+del /f /q "C:\Users\%username%\Desktop\FNSSv3"
+del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
+del /f /q "C:\Users\%username%\Desktop\FNSSv3.rar"
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
+del /f /q "C:\Users\%username%\Desktop\fnss-main.zip"
+del /f /q "C:\Users\%username%\Desktop\fnss-main (1).zip"
 
 cd C:\Users\%username%\Downloads
-del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
-del /s /q C:\Users\%username%\Downloads\FNSSv3.rar
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
+del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
 
 timeout /NOBREAK /T 1 >nul
 
@@ -203,12 +213,17 @@ exit
 
 
 :act
-del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
-del /s /q C:\Users\%username%\Downloads\FNSSv3.rar
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
+cd "C:\Users\%username%\Downloads"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
+del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
+del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+
+cd "C:\Users\%username%\Desktop\FNSSv3"
+del /s /q "C:\Users\%username%\Desktop\fnss-main"
+
 cls
 color 5
 echo.
@@ -236,18 +251,19 @@ xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%usernam
 timeout /NOBREAK /T 2 >nul
 
 cd C:\Users\%username%\Desktop\FNSSv3
-del fnss-main
-rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
-rmdir /s /q C:\Users\%realusername%\Desktop\FNSSv3\fnss-main
-del /s /q C:\Users\%ComputerName%\Desktop\FNSSv3\fnss-main
-del /s /q C:\Users\%realusername%\Desktop\FNSSv3\fnss-main
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
+rmdir /s /q "C:\Users\%realusername%\Desktop\FNSSv3\fnss-main"
+del /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
+del /s /q "C:\Users\%realusername%\Desktop\FNSSv3\fnss-main"
 
 cd C:\Users\%username%\Desktop
-del /s /q C:\Users\%username%\Desktop\FNSSv3.zip
+del /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
+del /s /q "C:\Users\%username%\Desktop\FNSSv3.rar"
 
 cd C:\Users\%username%\Downloads
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /s /q C:\Users\%username%\Downloads\FNSSv3.zip
+del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
+del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
 
 timeout /NOBREAK /T 2 >nul
 
