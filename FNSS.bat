@@ -1,7 +1,7 @@
-@echo off
+ÿþ
+@echo off
 
 :: ================== ESTATUS DEL PROGRAMA =============================
-cd C:\Users\%username%\Downloads
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
 del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
@@ -37,7 +37,7 @@ CALL "GhdUd.bat"
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=27.0
+set local=26.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
