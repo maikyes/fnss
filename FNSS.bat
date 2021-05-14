@@ -1,5 +1,4 @@
-ÿþ
-@echo off
+@echo off
 
 :: ================== ESTATUS DEL PROGRAMA =============================
 
@@ -237,6 +236,7 @@ xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%usernam
 timeout /NOBREAK /T 2 >nul
 
 cd C:\Users\%username%\Desktop\FNSSv3
+del fnss-main
 rmdir /s /q C:\Users\%username%\Desktop\FNSSv3\fnss-main
 rmdir /s /q C:\Users\%realusername%\Desktop\FNSSv3\fnss-main
 del /s /q C:\Users\%ComputerName%\Desktop\FNSSv3\fnss-main
