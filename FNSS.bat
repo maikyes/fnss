@@ -1,4 +1,5 @@
-@echo off
+ÿþ
+@echo off
 
 :: ================== ESTATUS DEL PROGRAMA =============================
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
@@ -238,23 +239,20 @@ start https://github.com/maikyes/fnss/archive/main.zip
 timeout /NOBREAK /T 5 >nul
 
 echo Unzipping files...
+
 cd C:\Users\%username%\Downloads
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\Desktop\FNSSv3'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
-powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\Desktop\FNSSv3"
+
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
+
+powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+
 echo "Done!"
 
 timeout /NOBREAK /T 3 >nul
 
-xcopy /i /s /y "C:\Users\%username%\Desktop\FNSSv3\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
 timeout /NOBREAK /T 2 >nul
-
-cd C:\Users\%username%\Desktop\FNSSv3
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
-rmdir /s /q "C:\Users\%realusername%\Desktop\FNSSv3\fnss-main"
-del /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
-del /s /q "C:\Users\%realusername%\Desktop\FNSSv3\fnss-main"
 
 cd C:\Users\%username%\Desktop
 del /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
