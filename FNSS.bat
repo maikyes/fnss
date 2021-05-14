@@ -266,10 +266,11 @@ del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
 
 timeout /NOBREAK /T 2 >nul
 
+cd C:\Users\%username%%\Documents\cmdacoBin
 echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896",0,"FNSS Announcement")>>msgbox.vbs
 start msgbox.vbs
 timeout /NOBREAK /T 2 >nul
-del /s /q C:\Users\maikp\Desktop\Proyecto\msgbox.vbs
+del /s /q C:\Users\%username%%\Documents\cmdacoBin\msgbox.vbs
 cls
 exit
 
