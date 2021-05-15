@@ -5,7 +5,7 @@
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=28.0
+set local=29.0
 set localtwo=%local%
 
 
