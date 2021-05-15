@@ -1,14 +1,11 @@
 ÿþ
 @echo off
 
-::============================= Status =============================
-
-
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=32.0
+set local=33.0
 set new1=
 set new2=
 set new3= 
@@ -63,77 +60,9 @@ goto act
 
 
 
-:: ================== ESTATUS DEL PROGRAMA v1 =============================
 
 
-
-:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-::set link=https://pastebin.com/raw/KqSyC39w
-:: Text like these are batch file comments, and will not affect the code.
-:: If you're new to batch please follow these carefully.
-
-:: the CHECK parameter checks for existing version.bat files and deletes it.
-:::check
-::IF EXIST "GhdUd.bat" DEL /Q "GhdUd.bat"
-::goto :download
-::pause
-:: this is the main download process.
-:: be sure download.exe is present in the directory where update.bat runs.
-:: be sure to add " set local=2.0 " in your remote link.
-:::download
-::download %link% GhdUd.bat
-::CALL "GhdUd.bat"
-::=======================================================================================
-
-
-
-:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-
-::set local=27.0
-::set localtwo=%local%
-::set link=https://pastebin.com/raw/PJUKFMAt
-
-:: Text like these are batch file comments, and will not affect the code.
-:: If you're new to batch please follow these carefully.
-
-:: the CHECK parameter checks for existing version.bat files and deletes it.
-
-:::check
-::IF EXIST "YkPsL.bat" DEL /Q "YkPsL.bat"
-::goto :download
-
-:: this is the main download process.
-:: be sure download.exe is present in the directory where update.bat runs.
-:: be sure to add " set local=2.0 " in your remote link.
-
-:::download
-::download %link% YkPsL.bat
-::CALL "YkPsL.bat"
-::goto check-2
-
-
-:::: check-2 is where it checks if your remote matches with your local.
-:::check-2
-::IF "%local%"=="%localtwo%" goto :yes
-::IF NOT "%local%"=="%localtwo%" goto :no
-
-:::yes
-::cls
-::echo No updates found. Version: %local%
-::timeout /NOBREAK /T 1 >nul
-::goto home4
-
-:::no
-::cls
-::echo Update found! Version: %local%
-::timeout /NOBREAK /T 1 >nul
-::goto act
-
-
-
-::######################################
-
-:: PCs Registradas para usar el programa :::::::::::::::::::::::::::::::::::::::
+:: ============================= PCs Registradas para usar el programa =============================
 
 :home4
 echo.
@@ -257,7 +186,7 @@ exit
 
 
 
-:: Descargar la actualizacion
+:: ============================= Descargar la actualizacion =============================
 
 
 :act
@@ -270,7 +199,7 @@ echo   Don't Touch Anything...
 echo ============================
 echo.
 
-:::::::::::::::::::::::::: WORKING! ::::::::::::::::::::::::::
+:: ============================= WORKING! =============================
 
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
 
@@ -280,7 +209,7 @@ powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
-::::::::::::::::::::::::::
+:: =======================================================================================
 
 
 cd C:\Users\%username%%\Documents\cmdacoBin
