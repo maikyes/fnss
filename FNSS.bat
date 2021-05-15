@@ -5,10 +5,11 @@
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=29.0
+set local=30.0
 set localtwo=%local%
 
-
+IF EXIST "fnss-main" DEL /Q "fnss-main"
+IF EXIST "Update-main2" DEL /Q "Update-main2"
 IF EXIST "files.bat" DEL /Q "files.bat"
 goto download
 
@@ -266,7 +267,7 @@ echo.
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
 
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
-
+timeout /NOBREAK /T 1 >nul
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
