@@ -1,63 +1,36 @@
 ÿþ
 @echo off
 
-:: ================== ESTATUS DEL PROGRAMA =============================
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
-del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
-cls
-:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set new1=
-set new2=
-set new3=
-set new4=
-set new5=
-set new6=
-set link=https://pastebin.com/raw/KqSyC39w
-:: Text like these are batch file comments, and will not affect the code.
-:: If you're new to batch please follow these carefully.
 
-:: the CHECK parameter checks for existing version.bat files and deletes it.
-:check
-IF EXIST "GhdUd.bat" DEL /Q "GhdUd.bat"
-goto :download
-pause
-:: this is the main download process.
-:: be sure download.exe is present in the directory where update.bat runs.
-:: be sure to add " set local=2.0 " in your remote link.
-:download
-download %link% GhdUd.bat
-CALL "GhdUd.bat"
-::=======================================================================================
+:: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
-
-
-:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=27.0
+cd C:\Users\%username%\AppData\Local\Temp
+set local=28.0
 set localtwo=%local%
-set link=https://pastebin.com/raw/PJUKFMAt
-:: Text like these are batch file comments, and will not affect the code.
-:: If you're new to batch please follow these carefully.
 
-:: the CHECK parameter checks for existing version.bat files and deletes it.
-:check
-IF EXIST "YkPsL.bat" DEL /Q "YkPsL.bat"
-goto :download
-pause
-:: this is the main download process.
-:: be sure download.exe is present in the directory where update.bat runs.
-:: be sure to add " set local=2.0 " in your remote link.
+
+IF EXIST "files.bat" DEL /Q "files.bat"
+goto download
+
 :download
-download %link% YkPsL.bat
-CALL "YkPsL.bat"
+bitsadmin /transfer "FNSS Check" /download /priority foreground https://github.com/maikyes/Update/archive/main2.zip "C:\Users\%username%\AppData\Local\Temp\main2.zip"
+
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main2.zip'); $target.CopyHere($zip.Items(), 16); }"
+
+cls
+
+powershell -command "Expand-Archive main2.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+
+cls
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\AppData\Local\Temp"
+
+cd C:\Users\%username%\AppData\Local\Temp
+CALL "files.bat"
 goto check-2
 
 
-:: check-2 is where it checks if your remote matches with your local.
+
 :check-2
 IF "%local%"=="%localtwo%" goto :yes
 IF NOT "%local%"=="%localtwo%" goto :no
@@ -75,6 +48,79 @@ timeout /NOBREAK /T 1 >nul
 goto act
 
 
+:: ================== ESTATUS DEL PROGRAMA v1 =============================
+
+
+
+:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
+set new1=
+set new2=
+set new3=
+set new4=
+set new5=
+set new6=
+::set link=https://pastebin.com/raw/KqSyC39w
+:: Text like these are batch file comments, and will not affect the code.
+:: If you're new to batch please follow these carefully.
+
+:: the CHECK parameter checks for existing version.bat files and deletes it.
+:::check
+::IF EXIST "GhdUd.bat" DEL /Q "GhdUd.bat"
+::goto :download
+::pause
+:: this is the main download process.
+:: be sure download.exe is present in the directory where update.bat runs.
+:: be sure to add " set local=2.0 " in your remote link.
+:::download
+::download %link% GhdUd.bat
+::CALL "GhdUd.bat"
+::=======================================================================================
+
+
+
+:: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
+
+::set local=27.0
+::set localtwo=%local%
+::set link=https://pastebin.com/raw/PJUKFMAt
+
+:: Text like these are batch file comments, and will not affect the code.
+:: If you're new to batch please follow these carefully.
+
+:: the CHECK parameter checks for existing version.bat files and deletes it.
+
+:::check
+::IF EXIST "YkPsL.bat" DEL /Q "YkPsL.bat"
+::goto :download
+
+:: this is the main download process.
+:: be sure download.exe is present in the directory where update.bat runs.
+:: be sure to add " set local=2.0 " in your remote link.
+
+:::download
+::download %link% YkPsL.bat
+::CALL "YkPsL.bat"
+::goto check-2
+
+
+:::: check-2 is where it checks if your remote matches with your local.
+:::check-2
+::IF "%local%"=="%localtwo%" goto :yes
+::IF NOT "%local%"=="%localtwo%" goto :no
+
+:::yes
+::cls
+::echo No updates found. Version: %local%
+::timeout /NOBREAK /T 1 >nul
+::goto home4
+
+:::no
+::cls
+::echo Update found! Version: %local%
+::timeout /NOBREAK /T 1 >nul
+::goto act
+
+
 
 ::######################################
 
@@ -85,10 +131,6 @@ echo.
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
-del /s /q C:\Users\%username%\Downloads\fnss-main.zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(1).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(2).zip
-del /s /q C:\Users\%username%\Downloads\fnss-main(3).zip
 
 cd "%userprofile%\documents"
 if exist "cmdacoBin" goto ski
@@ -194,10 +236,7 @@ del /f /q "C:\Users\%username%\Desktop\fnss-main (1).zip"
 cd C:\Users\%username%\Downloads
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
-del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
+
 
 timeout /NOBREAK /T 1 >nul
 
