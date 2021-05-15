@@ -1,11 +1,10 @@
-ÿþ
-@echo off
+@echo off
 
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=30.0
+set local=31.0
 set localtwo=%local%
 
 IF EXIST "fnss-main" DEL /Q "fnss-main"
@@ -54,12 +53,6 @@ goto act
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set new1=
-set new2=
-set new3=
-set new4=
-set new5=
-set new6=
 ::set link=https://pastebin.com/raw/KqSyC39w
 :: Text like these are batch file comments, and will not affect the code.
 :: If you're new to batch please follow these carefully.
