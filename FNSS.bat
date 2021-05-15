@@ -1,15 +1,25 @@
-@echo off
+ÿþ
+@echo off
+
+::============================= Status =============================
+
 
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=31.0
+set local=32.0
+set new1=
+set new2=
+set new3= 
+set new4=
+
 set localtwo=%local%
 
 IF EXIST "fnss-main" DEL /Q "fnss-main"
 IF EXIST "Update-main2" DEL /Q "Update-main2"
 IF EXIST "files.bat" DEL /Q "files.bat"
+IF EXIST "status.bat" DEL /Q "status.bat"
 goto download
 
 :download
@@ -27,6 +37,7 @@ xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%
 
 cd C:\Users\%username%\AppData\Local\Temp
 CALL "files.bat"
+CALL "status"
 goto check-2
 
 
@@ -46,6 +57,10 @@ cls
 echo Update found! Version: %local%
 timeout /NOBREAK /T 1 >nul
 goto act
+
+
+
+
 
 
 :: ================== ESTATUS DEL PROGRAMA v1 =============================
@@ -305,8 +320,8 @@ echo   +  14: Activar Gpedit               + %new1%
 echo   +  15: Nvidia Inspector   (Risky)   + %new2%                     
 echo   +  16: Melody's Low Latency         + %new3%                                
 echo   +  17: MSI Mode Utility             + %new4%  
-echo   +  18: Restore Point (Please Use)   + %new5%   
-echo   +  19: HWID Checker                 + %new6%   
+echo   +  18: Restore Point (Please Use)   +    
+echo   +  19: HWID Checker                 +   
 echo   +                                   +                            
 echo   +++++++++++++++++++++++++++++++++++++                                 
 echo.
