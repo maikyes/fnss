@@ -37,7 +37,7 @@ CALL "GhdUd.bat"
 
 
 :: INPUT THE LOCAL VERSION HERE (replace local's "1.0") also replace link with your own.
-set local=26.0
+set local=27.0
 set localtwo=%local%
 set link=https://pastebin.com/raw/PJUKFMAt
 :: Text like these are batch file comments, and will not affect the code.
@@ -213,17 +213,6 @@ exit
 
 
 :act
-cd "C:\Users\%username%\Downloads"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
-del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (1).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (2).zip"
-del /s /q "C:\Users\%username%\Downloads\fnss-main (3).zip"
-
-cd "C:\Users\%username%\Desktop\FNSSv3"
-del /s /q "C:\Users\%username%\Desktop\fnss-main"
-
 cls
 color 5
 echo.
@@ -233,41 +222,23 @@ echo   Don't Touch Anything...
 echo ============================
 echo.
 
-start https://github.com/maikyes/fnss/archive/main.zip
+:::::::::::::::::::::::::: WORKING! ::::::::::::::::::::::::::
 
+bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
 
-timeout /NOBREAK /T 5 >nul
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
 
-echo Unzipping files...
-
-cd C:\Users\%username%\Downloads
-
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\Downloads\fnss-main.zip'); $target.CopyHere($zip.Items(), 16); }"
-
-powershell -command "Expand-Archive fnss-main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
-
-echo "Done!"
-
-timeout /NOBREAK /T 3 >nul
+powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
-timeout /NOBREAK /T 2 >nul
+::::::::::::::::::::::::::
 
-cd C:\Users\%username%\Desktop
-del /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Desktop\FNSSv3.rar"
-
-cd C:\Users\%username%\Downloads
-del /s /q "C:\Users\%username%\Downloads\fnss-main.zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
-
-timeout /NOBREAK /T 2 >nul
 
 cd C:\Users\%username%%\Documents\cmdacoBin
 echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896",0,"FNSS Announcement")>>msgbox.vbs
 start msgbox.vbs
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 del /s /q C:\Users\%username%%\Documents\cmdacoBin\msgbox.vbs
 cls
 exit
