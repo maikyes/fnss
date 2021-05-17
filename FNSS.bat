@@ -3,7 +3,7 @@
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=34.0
+set local=36.0
 set new1=
 set new2=
 set new3=
