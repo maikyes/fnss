@@ -54,7 +54,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=42.0
+set local=43.0
 set new1=
 set new2=
 set new3=
