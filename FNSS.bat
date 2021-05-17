@@ -1,10 +1,59 @@
 ÿþ
 @echo off
 
-:: ============================= ESTATUS DEL PROGRAMA v2 =============================
+:: ============================= ESTATUS DEL SERVER v1 =============================
+
+
+:missing
+cd C:\Users\%username%\AppData\Local\Temp
+set local9=
+set Offline=Offline
+
+IF EXIST "server-main8" DEL /Q "server-main8"
+IF EXIST "server.bat" DEL /Q "server.bat"
+IF EXIST "main8.zip" DEL /Q "main8.zip"
+
+goto download1
+
+:download1
+bitsadmin /transfer "FNSS Check2" /download /priority foreground https://github.com/maikyes/server/archive/main8.zip "C:\Users\%username%\AppData\Local\Temp\main8.zip"
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }"
+cls
+powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+cls
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=39.0
+CALL "server.bat"
+goto check-22
+
+:check-22
+IF "%local9%"=="%Offline%" goto :yes26
+IF NOT "%local9%"=="%Offline%" goto :fnssserver
+
+:yes26
+cls
+echo Server OFFLINE: %local9%
+goto serveroffline
+
+:serveroffline
+cls
+echo.
+echo.
+echo FNSS Servers estan: %local9%
+echo.
+pause
+exit
+
+
+
+
+:: ============================= ESTATUS DEL PROGRAMA v2 =============================
+
+
+:fnssserver
+cd C:\Users\%username%\AppData\Local\Temp
+set local=40.0
 set new1=
 set new2=
 set new3=
@@ -48,7 +97,6 @@ IF NOT "%local%"=="%localtwo%" goto :no
 :yes
 cls
 echo No updates found. Version: %local%
-timeout /NOBREAK /T 1 >nul
 goto home4
 
 :no
@@ -143,7 +191,6 @@ echo ======================
 echo    PC Registrada!
 echo ======================
 
-timeout /NOBREAK /T 1 >nul
 cls
 goto menu1
 
@@ -228,7 +275,7 @@ exit
 
 :menu1
 cls
-title FNSS [ By Maik ] [ ig @maikyiq ] Version: %localtwo%
+title FNSS [ By Maik ] [ ig @maikyiq ] Version: %localtwo% 
 echo.
 echo              -=[FNSS]=-               
 echo.
