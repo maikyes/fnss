@@ -53,7 +53,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=40.0
+set local=41.0
 set new1=
 set new2=
 set new3=
@@ -924,24 +924,24 @@ goto menu1
 ####################################################################
 
 :ipfinder
-rem Ip Lookup
-@echo off
-title Maik IP Lookup
-color 5
+title St3e5ssed IP Lookup
+color D
 setlocal ENABLEDELAYEDEXPANSION
 set webclient=webclient
 if exist "%temp%\%webclient%.vbs" del "%temp%\%webclient%.vbs" /f /q /s >nul
 if exist "%temp%\response.txt" del "%temp%\response.txt" /f /q /s >nul
+:menuu
 cls
 echo Ip lookup/
 
 cls
 echo.
-echo                          Type an pussy's IP to lookup
+echo                          Type a IP to lookup
 echo.
 set ip=127.0.0.1
 set /p ip=IP: 
 echo sUrl = "http://ipinfo.io/%ip%/json" > %temp%\%webclient%.vbs
+
 :localip
 cls
 echo set oHTTP = CreateObject("MSXML2.ServerXMLHTTP.6.0") >> %temp%\%webclient%.vbs
@@ -977,11 +977,12 @@ echo.
 echo Did not receive a response from the API.
 echo.
 pause
-goto menu1
+goto menuu2
 :response_exist
 cls
 echo.
 echo   IP Results Listed Below
+echo.
 set /a num=(%Random%%%9)+1
 color %num%
 for /f "delims= 	" %%i in ('findstr /i "," %temp%\response.txt') do (
@@ -1004,9 +1005,8 @@ echo.
 del "%temp%\%webclient%.vbs" /f /q /s >nul
 del "%temp%\response.txt" /f /q /s >nul
 pause
-if '%ip%'=='' goto menu1
-pause
 goto menu1
+
 
 ####################################################################
 
