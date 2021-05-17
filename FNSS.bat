@@ -1,10 +1,9 @@
-ÿþ
-@echo off
+@echo off
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=37.0
+set local=39.0
 set new1=
 set new2=
 set new3=
