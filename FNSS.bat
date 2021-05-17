@@ -1,5 +1,4 @@
-ÿþ
-@echo off
+@echo off
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
@@ -654,7 +653,9 @@ goto mgg
 :yesss
 echo.
 echo Desabilitando MMAgent...
-powershell Disable-MMAgent -mc
+
+powershell.exe Disable-MMAgent -mc
+
 cls
 echo.
 echo Desabilitado!
