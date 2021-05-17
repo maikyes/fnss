@@ -1,14 +1,13 @@
 ÿþ
 @echo off
 
-
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=33.0
+set local=34.0
 set new1=
 set new2=
-set new3= 
+set new3=
 set new4=
 
 set localtwo=%local%
@@ -17,9 +16,12 @@ IF EXIST "fnss-main" DEL /Q "fnss-main"
 IF EXIST "Update-main2" DEL /Q "Update-main2"
 IF EXIST "files.bat" DEL /Q "files.bat"
 IF EXIST "status.bat" DEL /Q "status.bat"
+IF EXIST "main2.zip" DEL /Q "main2.zip"
+IF EXIST "main.zip" DEL /Q "main.zip"
 goto download
 
 :download
+
 bitsadmin /transfer "FNSS Check" /download /priority foreground https://github.com/maikyes/Update/archive/main2.zip "C:\Users\%username%\AppData\Local\Temp\main2.zip"
 
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main2.zip'); $target.CopyHere($zip.Items(), 16); }"
@@ -34,7 +36,7 @@ xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%
 
 cd C:\Users\%username%\AppData\Local\Temp
 CALL "files.bat"
-CALL "status"
+CALL "status.bat"
 goto check-2
 
 
@@ -230,30 +232,27 @@ title Better FN [By Maik]  [ @maikyiq ] Version: %localtwo%
 echo.
 echo              -=[FNSS]=-               
 echo.
+echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++
+echo   +                                   + +                                   +
+echo   +   1: Get High/Low IP from Epic    + +  16: Melody's Low Latency         +   Time Log:%time%
+echo   +   2: Get Better DNS               + +  17: MSI Mode Utility             +   IP log: %NetworkIP%
+echo   +   3: Reduce Input Lag 0ms         + +  18: Restore Point (Please Use)   +   User: %username%
+echo   +   4: Clear DNS Server Cache       + +  19: HWID Checker                 +
+echo   +   5: Delete Temporary Files       + +  20: Windows Settings Registry    +  
+echo   +   6: Disable Prefetch             + +  21: Comprimir HDD / SSD          +      
+echo   +   7: OFF/ON Windows Defender      + +  22: Windows Service Disabler     +              
+echo   +   8: Disk Clean-Up                + +                                   +                     
+echo   +   9: SoftAim                      + +++++++++++++++++++++++++++++++++++++      
+echo   +  10: Fix Ping Value    (Risky)    +                                               
+echo   +  11: Bajar Ping        (Risky)    + %new1%                                           
+echo   +  12: Desactivar WindowsUpdates    + %new2%                           
+echo   +  13: IP Locations                 + %new3%                                            
+echo   +  14: Activar Gpedit               + %new4%                   
+echo   +  15: Nvidia Inspector  (Risky)    +                    
+echo   +                                   +                                
 echo   +++++++++++++++++++++++++++++++++++++
-echo   +                                   +
-echo   +   1: Get High/Low IP from Epic    +  Time Log:%time%
-echo   +   2: Get Better DNS               +  IP log: %NetworkIP%
-echo   +   3: Reduce Input Lag 0ms         +  User: %username%
-echo   +   4: Clear DNS Server Cache       +
-echo   +   5: Delete Temporary Files       +  +++++++++++++++++++++++
-echo   +   6: Disable Prefetch             +  +   -=[Tools]=-       +    Follow me on ig           
-echo   +   7: OFF/ON Windows Defender      +  +                     +     [ @maikyiq ]                 
-echo   +   8: Disk Clean-Up                +  + * co: color         +                        
-echo   +   9: SoftAim                      +  + * c: Calculadora    +                
-echo   +  10: Fix Ping Value    (Risky)    +  + * dc: Discord       +                   
-echo   +  11: Bajar Ping                   +  +                     +                                 
-echo   +  12: Desactivar WindowsUpdates    +  +++++++++++++++++++++++                
-echo   +  13: IP Locations                 +                                           
-echo   +  14: Activar Gpedit               + %new1%                   
-echo   +  15: Nvidia Inspector   (Risky)   + %new2%                     
-echo   +  16: Melody's Low Latency         + %new3%                                
-echo   +  17: MSI Mode Utility             + %new4%  
-echo   +  18: Restore Point (Please Use)   +    
-echo   +  19: HWID Checker                 +   
-echo   +  20: Windows Settings Registry    +
-echo   +                                   +                            
-echo   +++++++++++++++++++++++++++++++++++++                                 
+                          
+                                 
 echo.
 echo.
 set /p opcion="ENTER NUMBER:"
@@ -279,6 +278,8 @@ if %opcion%==17 goto msi
 if %opcion%==18 goto restore
 if %opcion%==19 goto hwi
 if %opcion%==20 goto winew
+if %opcion%==21 goto mgg
+if %opcion%==22 goto WindowsServiceDisabler
 
 if %opcion%==co goto color2
 if %opcion%==b goto block
@@ -286,7 +287,7 @@ if %opcion%==maik goto maik
 if %opcion%==c goto calculadora
 if %opcion%==dc goto discord
 
-
+echo.
 color 4
 echo Opcion Invalida. Intente de nuevo
 echo.
@@ -295,6 +296,375 @@ cls
 goto menu1
 
 
+:: =============================================
+:: ==============================================
+
+
+:WindowsServiceDisabler
+title Windows 10 Service Disabler
+
+setlocal enabledelayedexpansion
+for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+  set "del=%%a"
+)
+
+
+:mainnnnnn
+cls
+echo.
+echo Esto puede ser revertido y puedes elegir que servicios deas desabilitar. && echo.
+echo Te gustaria continuar? yes/no/reset [ Solo descativa lo que crees que no usas ]
+echo.
+set /p con=
+if /i "%con%" == "no" cls && goto menu1
+if /i "%con%" == "reset" cls && goto restorer
+if /i "%con%" == "yes" (
+       goto servicess
+) else (
+     cls && echo. && echo No escribiste una opcion: yes, no, reset
+     timeout 2 >nul
+     cls
+     goto :mainnnnnn
+)
+
+
+
+::=====================================
+
+
+:restorer
+cls
+echo.
+echo Te gustaria devolver los servicios a los antiguos?
+echo.
+set /p ope="y/n: "
+
+
+if %ope%==y goto siii
+if %ope%==n goto noepe
+
+echo.
+echo Opcion Invalida. Intente de nuevo
+echo.
+pause
+cls
+goto restorer
+
+:noepe
+cls
+goto menu1
+
+:siii
+echo.
+Restableciendo Servicios...
+echo.
+powershell Set-Service CDPUserSvc -StartupType Manual
+powershell Set-Service InstallService -StartupType Manual
+powershell Set-Service PushToInstall -StartupType Manual
+powershell Set-Service PimIndexMaintenanceSvc -StartupType Manual
+powershell Set-Service TapiSrv -StartupType Manual
+powershell Set-Service QWAVE -StartupType Manual
+powershell Set-Service nsi -StartupType Manual
+powershell Set-Service NlaSvc -StartupType Manual
+powershell Set-Service netprofm -StartupType Manual
+powershell Set-Service WlanSvc -StartupType Manual
+powershell Set-Service WaaSMedicSvc -StartupType Manual
+powershell Set-Service wuauserv -StartupType Manual
+powershell Set-Service UsoSvc -StartupType Manual
+powershell Set-Service CryptSvc -StartupType Manual
+powershell Set-Service wscsvc -StartupType Manual
+powershell Set-Service WinDefend -StartupType Manual
+powershell Set-Service WdNisSvc -StartupType Manual
+powershell Set-Service Schedule -StartupType Manual
+powershell Set-Service OneSyncSvc -StartupType Manual
+powershell Set-Service RmSvc -StartupType Manual
+powershell Set-Service PcaSvc -StartupType Manual
+powershell Set-Service wlidsvc -StartupType Manual
+powershell Set-Service IpxlatCfgSvc -StartupType Manual
+powershell Set-Service iphlpsvc -StartupType Manual
+powershell Set-Service diagsvc -StartupType Manual
+powershell Set-Service WerSvc -StartupType Manual
+powershell Set-Service WdiSystemHost -StartupType Manual
+powershell Set-Service DPS -StartupType Manual
+powershell Set-Service DiagTrack -StartupType Manual
+powershell Set-Service camsvc -StartupType Manual
+powershell Set-Service AppXSvc -StartupType Manual
+powershell Set-Service XboxNetApiSvc -StartupType Manual
+powershell Set-Service wisvc -StartupType Manual
+powershell Set-Service FontCache -StartupType Manual
+powershell Set-Service Themes -StartupType Manual
+powershell Set-Service vmicvss -StartupType Manual
+powershell Set-Service vmictimesync -StartupType Manual
+powershell Set-Service vmicrdv -StartupType Manual
+powershell Set-Service vmicvmsession -StartupType Manual
+powershell Set-Service vmicheartbeat -StartupType Manual
+powershell Set-Service vmicshutdown -StartupType Manual
+powershell Set-Service vmicguestinterface -StartupType Manual
+powershell Set-Service vmickvpexchange -StartupType Manual
+powershell Set-Service HvHost -StartupType Manual
+powershell Set-Service AxInstSV -StartupType Manual
+powershell Set-Service tzautoupdate -StartupType Manual
+powershell Set-Service bthserv -StartupType Manual
+powershell Set-Service dmwappushservice -StartupType Manual
+powershell Set-Service MapsBroker -StartupType Manual
+powershell Set-Service lfsvc -StartupType Manual
+powershell Set-Service SharedAccess -StartupType Manual
+powershell Set-Service lltdsvc -StartupType Manual
+powershell Set-Service AppVClient -StartupType Manual
+powershell Set-Service NetTcpPortSharing -StartupType Manual
+powershell Set-Service CscService -StartupType Manual
+powershell Set-Service PhoneSvc -StartupType Manual
+powershell Set-Service Spooler -StartupType Manual
+powershell Set-Service PrintNotify -StartupType Manual
+powershell Set-Service QWAVE -StartupType Manual
+powershell Set-Service RmSvc -StartupType Manual
+powershell Set-Service RemoteAccess -StartupType Manual
+powershell Set-Service SensorDataService -StartupType Manual
+powershell Set-Service SensrSvc -StartupType Manual
+powershell Set-Service SensorService -StartupType Manual
+powershell Set-Service ShellHWDetection -StartupType Manual
+powershell Set-Service SCardSvr -StartupType Manual
+powershell Set-Service ScDeviceEnum -StartupType Manual
+powershell Set-Service SSDPSRV -StartupType Manual
+powershell Set-Service WiaRpc -StartupType Manual
+powershell Set-Service TabletInputService -StartupType Manual
+powershell Set-Service upnphost -StartupType Manual
+powershell Set-Service UserDataSvc -StartupType Manual
+powershell Set-Service UevAgentService -StartupType Manual
+powershell Set-Service WalletService -StartupType Manual
+powershell Set-Service FrameServer -StartupType Manual
+powershell Set-Service stisvc -StartupType Manual
+powershell Set-Service wisvc -StartupType Manual
+powershell Set-Service icssvc -StartupType Manual
+powershell Set-Service WSearch -StartupType Manual
+powershell Set-Service XblAuthManager -StartupType Manual
+powershell Set-Service XblGameSave -StartupType Manual
+echo.
+Restablecidos!
+echo.
+pause
+goto menu1
+
+
+
+
+::=====================================
+
+
+
+:servicess
+cls 
+call :colortext FC "Disable" && echo  App-V (Virtual Applications)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service AppVClient -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext F4 "Disable" && echo  Auto-Play Events Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service ShellHWDetection -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Auto Time Zone Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service tzautoupdate -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Bluetooth Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service bthserv -StartupType Disabled" && PowerShell -Command "Set-Service BTAGService -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  GPS Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service lfsvc -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Maps Broker?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service MapsBroker -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Microsort Store Dependencies?
+set /p con=
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service NcbService -StartupType Disabled" && PowerShell -Command "Set-Service InstallService -StartupType Disabled" && PowerShell -Command "Set-Service PushToInstall -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Phone and Contact Searching Services?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service PimIndexMaintenanceSvc -StartupType Disabled" && PowerShell -Command "Set-Service PhoneSvc -StartupType Disabled" && PowerShell -Command "Set-Service icssvc -StartupType Disabled" && PowerShell -Command "Set-Service TapiSrv -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Print Services?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service LanmanServer -StartupType Disabled" && PowerShell -Command "Set-Service Spooler -StartupType Disabled" && PowerShell -Command "Set-Service PrintNotify -StartupType Disabled" && PowerShell -Command "Set-Service Fax -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Quality Windows Audio Video Experience Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service QWAVE -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Remote Access Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service RemoteAccess -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Sensor Services (don't disable on 2-in-1s or 360 devices)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service TabletInputService -StartupType Disabled" && PowerShell -Command "Set-Service SensorService -StartupType Disabled" && PowerShell -Command "Set-Service SensrSvc -StartupType Disabled" && PowerShell -Command "Set-Service SensorDataService -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Smart Card Services?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service SCardSvr -StartupType Disabled" && PowerShell -Command "Set-Service ScDeviceEnum -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext F4 "Disable" && echo  Theme Management Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service Themes -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls 
+
+cls && cls
+call :colortext FC "Disable" && echo  UPnP Device Host?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service SSDPSRV -StartupType Disabled" && PowerShell -Command "Set-Service upnphost -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Virtual Machine Services?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service HvHost -StartupType Disabled" && PowerShell -Command "Set-Service vmickvpexchange -StartupType Disabled" && PowerShell -Command "Set-Service vmicguestinterface -StartupType Disabled" && PowerShell -Command "Set-Service vmicshutdown -StartupType Disabled" && PowerShell -Command "Set-Service vmicheartbeat -StartupType Disabled" && PowerShell -Command "Set-Service vmicvmsession -StartupType Disabled" && PowerShell -Command "Set-Service vmicrdv -StartupType Disabled" && PowerShell -Command "Set-Service vmictimesync -StartupType Disabled" && PowerShell -Command "Set-Service vmicvss -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Windows Camera Frame Client Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service FrameServer -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext F4 "Disable" && echo  Windows Font Cache Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service FontCache -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls 
+
+cls && cls
+call :colortext FC "Disable" && echo  Windows Image Scanning Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service stisvc -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Windows Insider Service?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service wisvc -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Windows Search Indexing?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service WSearch -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext FC "Disable" && echo  Xbox Live Services?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service XblAuthManager -StartupType Disabled" && PowerShell -Command "Set-Service XblGameSave -StartupType Disabled" && PowerShell -Command "Set-Service XboxNetApiSvc -StartupType Disabled" && cls  
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext F4 "Disable" && echo  Diagnostics and Telemetry Services (breaks diagnostics)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service DiagTrack -StartupType Disabled" && PowerShell -Command "Set-Service DPS -StartupType Disabled" && PowerShell -Command "Set-Service WdiServiceHost -StartupType Disabled" && PowerShell -Command "Set-Service WdiSystemHost -StartupType Disabled" && PowerShell -Command "Set-Service WerSvc -StartupType Disabled" && PowerShell -Command "Set-Service diagsvc -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls 
+
+cls && cls
+call :colortext F4 "Disable" && echo  Sync Host (breaks synchronization)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service OneSyncSvc -StartupType Disabled" && PowerShell -Command "Set-Service CDPUserSvc -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+call :colortext F4 "Disable" && echo  Task Scheduler Service (breaks Windows Search)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service Schedule -StartupType Disabled" && cls
+if /i "%con%" == "no" ^ && cls 
+
+cls && cls
+call :colortext F4 "Disable" && echo  Windows Defender Services (breaks MS Defender)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service WdNisSvc -StartupType Disabled" && PowerShell -Command "Set-Service WinDefend -StartupType Disabled" && PowerShell -Command "Set-Service wscsvc -StartupType Disabled" && cls 
+if /i "%con%" == "no" ^ && cls 
+
+:exitss
+cls && cls
+call :colortext F0 "Todos los servicios seleccionados fueron" && call :colortext FA " DESACTIVADOS"
+echo.
+call :colortext F0 "Asegurese de reiniciar su PC para aplicar todo!"
+echo.
+pause
+goto menu1
+
+
+:colortext
+echo off
+<nul set /p ".=%del%" > "%~2"
+findstr /v /a:%1 /R "^$" "%~2" nul
+del "%~2" > nul 2>&1
+
+
+
+:: ==============================================
+:: ==============================================
+
+:mgg
+cls
+echo.
+echo La compresion de memoria es una tecnica de administracion de memoria que utiliza la compresion de datos para reducir el tamano o
+echo numero de solicitudes de paginacion hacia y desde el HDD / SSD. Desactivarlo puede cambiar el rendimiento y reducir los tiempos de carga,
+echo pero personalmente no he notado un gran cambio. Recomendaria mantenerlo encendido para discos duros y PC mas lentos
+echo.
+set /p numeral="y/n: "
+
+
+if %numeral%==y goto yesss
+if %numeral%==n goto noooo
+
+echo.
+echo Opcion Invalida. Intente de nuevo
+echo.
+pause
+cls
+goto mgg
+
+
+:yesss
+echo.
+echo Desabilitando MMAgent...
+powershell Disable-MMAgent -mc
+cls
+echo.
+echo Desabilitado!
+echo.
+pause
+goto menu1
+
+:noooo
+cls
+goto menu1
 
 :: ==============================================
 
