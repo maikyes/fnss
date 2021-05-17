@@ -116,11 +116,11 @@ echo ==================================
 timeout /NOBREAK /T 3 >nul
 exit
 
-::=============================::=============================::=============================
+::=========================::=ACTUALIZACION DE VERSION::=============================
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=46.0
+set local=47.0
 set new1=
 set new2=
 set new3=
