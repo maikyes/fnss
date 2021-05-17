@@ -3,7 +3,7 @@
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=37.0
+set local=38.0
 set new1=
 set new2=
 set new3=
@@ -672,7 +672,7 @@ goto menu1
 :winew
 cls
 echo.
-start C:\Users\%username%\Desktop\FNSSv3\config\488rrt5j8.reg
+call C:\Users\%userprofile%\Desktop\FNSSv3\config\488rrt5j8.reg
 pause
 goto menu1
 
