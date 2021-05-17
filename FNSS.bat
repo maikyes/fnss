@@ -226,7 +226,7 @@ exit
 
 :menu1
 cls
-title Better FN [By Maik]  [ @maikyiq ] Version %localtwo%
+title Better FN [By Maik]  [ @maikyiq ] Version: %localtwo%
 echo.
 echo              -=[FNSS]=-               
 echo.
@@ -251,6 +251,7 @@ echo   +  16: Melody's Low Latency         + %new3%
 echo   +  17: MSI Mode Utility             + %new4%  
 echo   +  18: Restore Point (Please Use)   +    
 echo   +  19: HWID Checker                 +   
+echo   +  20: Windows Settings Registry    +
 echo   +                                   +                            
 echo   +++++++++++++++++++++++++++++++++++++                                 
 echo.
@@ -277,6 +278,7 @@ if %opcion%==16 goto melody
 if %opcion%==17 goto msi
 if %opcion%==18 goto restore
 if %opcion%==19 goto hwi
+if %opcion%==20 goto winew
 
 if %opcion%==co goto color2
 if %opcion%==b goto block
@@ -291,6 +293,18 @@ echo.
 pause
 cls
 goto menu1
+
+
+
+:: ==============================================
+
+:winew
+cls
+echo.
+call C:\Users\maikp\Desktop\FNSSv3\config\488rrt5j8.reg 
+goto menu1
+
+
 
 ::####################################################################
 
