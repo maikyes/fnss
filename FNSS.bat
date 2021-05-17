@@ -3,7 +3,7 @@
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
 cd C:\Users\%username%\AppData\Local\Temp
-set local=36.0
+set local=37.0
 set new1=
 set new2=
 set new3=
@@ -314,17 +314,20 @@ echo.
 echo Esto puede ser revertido y puedes elegir que servicios deas desabilitar. && echo.
 echo Te gustaria continuar? yes/no/reset [ Solo descativa lo que crees que no usas ]
 echo.
+
 set /p con=
-if /i "%con%" == "no" cls && goto menu1
-if /i "%con%" == "reset" cls && goto restorer
-if /i "%con%" == "yes" (
-       goto servicess
-) else (
-     cls && echo. && echo No escribiste una opcion: yes, no, reset
-     timeout 2 >nul
-     cls
-     goto :mainnnnnn
-)
+
+if %con%==n goto menu1
+if %con%==reset goto restorer
+if %con%==yes goto servicess
+
+echo.
+color 4
+echo Opcion Invalida. Intente de nuevo
+echo.
+pause
+cls
+goto mainnnnnn
 
 
 
