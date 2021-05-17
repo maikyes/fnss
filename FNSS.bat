@@ -54,7 +54,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=43.0
+set local=44.0
 set new1=
 set new2=
 set new3=
@@ -151,6 +151,7 @@ echo set netip=carlos cabassa>> "DEBUG.dll"
 echo set netip=Raul>> "DEBUG.dll"
 echo set netip=GAMER>> "DEBUG.dll"
 echo set netip=ESMERLIN MARTE>> "DEBUG.dll"
+echo set netip=Adrian>> "DEBUG.dll"
 
 
 goto call2
@@ -176,6 +177,7 @@ if "%username%"=="carlos cabassa" goto namexist9
 if "%username%"=="Raul" goto namexist9
 if "%username%"=="GAMER" goto namexist9
 if "%username%"=="ESMERLIN MARTE" goto namexist9
+if "%username%"=="Adrian" goto namexist9
 
 
 
@@ -435,6 +437,7 @@ goto mainnnnnn
 
 
 
+::=====================================
 ::=====================================
 
 
