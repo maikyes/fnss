@@ -82,6 +82,8 @@ powershell -command "Expand-Archive main2.zip -DestinationPath C:\Users\%usernam
 
 cls
 
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\OneDrive\AppData\Local\Temp"
+
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\AppData\Local\Temp"
 
 cd C:\Users\%username%\AppData\Local\Temp
@@ -258,6 +260,8 @@ bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/mai
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
 timeout /NOBREAK /T 1 >nul
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
 
