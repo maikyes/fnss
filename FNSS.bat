@@ -1,4 +1,5 @@
-@echo off
+ÿþ
+@echo off
 
 :: ============================= ESTATUS DEL PROGRAMA v2 =============================
 
@@ -227,7 +228,7 @@ exit
 
 :menu1
 cls
-title Better FN [By Maik]  [ @maikyiq ] Version: %localtwo%
+title FNSS [ By Maik ] [ ig @maikyiq ] Version: %localtwo%
 echo.
 echo              -=[FNSS]=-               
 echo.
@@ -311,15 +312,15 @@ for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 :mainnnnnn
 cls
 echo.
-echo Esto puede ser revertido y puedes elegir que servicios deas desabilitar. && echo.
-echo Te gustaria continuar? yes/no/reset [ Solo descativa lo que crees que no usas ]
+echo Esto puede ser revertido y puedes elegir que servicios deas desabilitar.
+echo Te gustaria continuar? y/n/r [ Solo descativa lo que crees que no usas ]
 echo.
 
-set /p con=
+set /p con="ENTER: "
 
 if %con%==n goto menu1
-if %con%==reset goto restorer
-if %con%==yes goto servicess
+if %con%==r goto restorer
+if %con%==y goto servicesss
 
 echo.
 color 4
@@ -454,178 +455,175 @@ goto menu1
 
 
 
-:servicess
-cls 
-call :colortext FC "Disable" && echo  App-V (Virtual Applications)?
+:servicesss
+cls
+echo.
+echo escribe (no) o (yes) para las opciones.
+echo.
+echo  App-V (Virtual Applications)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service AppVClient -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext F4 "Disable" && echo  Auto-Play Events Service?
+echo  Auto-Play Events Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service ShellHWDetection -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Auto Time Zone Service?
+echo  Auto Time Zone Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service tzautoupdate -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Bluetooth Service?
+echo  Bluetooth Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service bthserv -StartupType Disabled" && PowerShell -Command "Set-Service BTAGService -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  GPS Service?
+echo  GPS Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service lfsvc -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Maps Broker?
+echo  Maps Broker?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service MapsBroker -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Microsort Store Dependencies?
+echo  Microsort Store Dependencies?
 set /p con=
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service NcbService -StartupType Disabled" && PowerShell -Command "Set-Service InstallService -StartupType Disabled" && PowerShell -Command "Set-Service PushToInstall -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Phone and Contact Searching Services?
+echo  Phone and Contact Searching Services?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service PimIndexMaintenanceSvc -StartupType Disabled" && PowerShell -Command "Set-Service PhoneSvc -StartupType Disabled" && PowerShell -Command "Set-Service icssvc -StartupType Disabled" && PowerShell -Command "Set-Service TapiSrv -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Print Services?
+echo  Print Services?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service LanmanServer -StartupType Disabled" && PowerShell -Command "Set-Service Spooler -StartupType Disabled" && PowerShell -Command "Set-Service PrintNotify -StartupType Disabled" && PowerShell -Command "Set-Service Fax -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Quality Windows Audio Video Experience Service?
+echo  Quality Windows Audio Video Experience Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service QWAVE -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Remote Access Service?
+echo  Remote Access Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service RemoteAccess -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Sensor Services (don't disable on 2-in-1s or 360 devices)?
+echo  Sensor Services (don't disable on 2-in-1s or 360 devices)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service TabletInputService -StartupType Disabled" && PowerShell -Command "Set-Service SensorService -StartupType Disabled" && PowerShell -Command "Set-Service SensrSvc -StartupType Disabled" && PowerShell -Command "Set-Service SensorDataService -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Smart Card Services?
+echo  Smart Card Services?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service SCardSvr -StartupType Disabled" && PowerShell -Command "Set-Service ScDeviceEnum -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext F4 "Disable" && echo  Theme Management Service?
+echo  Theme Management Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service Themes -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls 
 
 cls && cls
-call :colortext FC "Disable" && echo  UPnP Device Host?
+echo  UPnP Device Host?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service SSDPSRV -StartupType Disabled" && PowerShell -Command "Set-Service upnphost -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Virtual Machine Services?
+echo  Virtual Machine Services?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service HvHost -StartupType Disabled" && PowerShell -Command "Set-Service vmickvpexchange -StartupType Disabled" && PowerShell -Command "Set-Service vmicguestinterface -StartupType Disabled" && PowerShell -Command "Set-Service vmicshutdown -StartupType Disabled" && PowerShell -Command "Set-Service vmicheartbeat -StartupType Disabled" && PowerShell -Command "Set-Service vmicvmsession -StartupType Disabled" && PowerShell -Command "Set-Service vmicrdv -StartupType Disabled" && PowerShell -Command "Set-Service vmictimesync -StartupType Disabled" && PowerShell -Command "Set-Service vmicvss -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Windows Camera Frame Client Service?
+echo  Windows Camera Frame Client Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service FrameServer -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext F4 "Disable" && echo  Windows Font Cache Service?
+echo  Windows Font Cache Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service FontCache -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls 
 
 cls && cls
-call :colortext FC "Disable" && echo  Windows Image Scanning Service?
+echo  Windows Image Scanning Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service stisvc -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Windows Insider Service?
+echo  Windows Insider Service?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service wisvc -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Windows Search Indexing?
+echo  Windows Search Indexing?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service WSearch -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext FC "Disable" && echo  Xbox Live Services?
+echo  Xbox Live Services?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service XblAuthManager -StartupType Disabled" && PowerShell -Command "Set-Service XblGameSave -StartupType Disabled" && PowerShell -Command "Set-Service XboxNetApiSvc -StartupType Disabled" && cls  
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext F4 "Disable" && echo  Diagnostics and Telemetry Services (breaks diagnostics)?
+echo  Diagnostics and Telemetry Services (breaks diagnostics)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service DiagTrack -StartupType Disabled" && PowerShell -Command "Set-Service DPS -StartupType Disabled" && PowerShell -Command "Set-Service WdiServiceHost -StartupType Disabled" && PowerShell -Command "Set-Service WdiSystemHost -StartupType Disabled" && PowerShell -Command "Set-Service WerSvc -StartupType Disabled" && PowerShell -Command "Set-Service diagsvc -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls 
 
 cls && cls
-call :colortext F4 "Disable" && echo  Sync Host (breaks synchronization)?
+echo  Sync Host (breaks synchronization)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service OneSyncSvc -StartupType Disabled" && PowerShell -Command "Set-Service CDPUserSvc -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls
 
 cls && cls
-call :colortext F4 "Disable" && echo  Task Scheduler Service (breaks Windows Search)?
+echo  Task Scheduler Service (breaks Windows Search)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service Schedule -StartupType Disabled" && cls
 if /i "%con%" == "no" ^ && cls 
 
 cls && cls
-call :colortext F4 "Disable" && echo  Windows Defender Services (breaks MS Defender)?
+echo  Windows Defender Services (breaks MS Defender)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Set-Service WdNisSvc -StartupType Disabled" && PowerShell -Command "Set-Service WinDefend -StartupType Disabled" && PowerShell -Command "Set-Service wscsvc -StartupType Disabled" && cls 
 if /i "%con%" == "no" ^ && cls 
 
 :exitss
-cls && cls
-call :colortext F0 "Todos los servicios seleccionados fueron" && call :colortext FA " DESACTIVADOS"
+cls 
+echo Todos los servicios seleccionados fueron DESACTIVADOS
 echo.
-call :colortext F0 "Asegurese de reiniciar su PC para aplicar todo!"
+echo Asegurese de reiniciar su PC para aplicar todo!
 echo.
 pause
 goto menu1
 
-
-:colortext
-echo off
-<nul set /p ".=%del%" > "%~2"
-findstr /v /a:%1 /R "^$" "%~2" nul
-del "%~2" > nul 2>&1
 
 
 
@@ -657,7 +655,7 @@ goto mgg
 echo.
 echo Desabilitando MMAgent...
 
-powershell.exe Disable-MMAgent -mc
+PowerShell Disable-MMAgent -mc
 
 cls
 echo.
