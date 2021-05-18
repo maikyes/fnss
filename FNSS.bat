@@ -130,7 +130,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=48.0
+set local=49.0
 set new1=
 set new2=
 set new3=
@@ -300,9 +300,9 @@ echo   +   4: Clear DNS Server Cache       + +  19: HWID Checker                
 echo   +   5: Delete Temporary Files       + +  20: Windows Settings Registry    +  
 echo   +   6: Disable Prefetch             + +  21: Comprimir HDD / SSD          +  
 echo   +   7: OFF/ON Windows Defender      + +  22: Windows Service Disabler     +                
-echo   +   8: Disk Clean-Up                + +                                   +                   
-echo   +   9: SoftAim                      + +++++++++++++++++++++++++++++++++++++    
-echo   +  10: Fix Ping Value    (Risky)    +                                               
+echo   +   8: Disk Clean-Up                + +  23: FiveM Priority               +                   
+echo   +   9: SoftAim                      + +                                   +    
+echo   +  10: Fix Ping Value    (Risky)    + +++++++++++++++++++++++++++++++++++++          
 echo   +  11: Bajar Ping        (Risky)    + %new1%                                           
 echo   +  12: Desactivar WindowsUpdates    + %new2%                           
 echo   +  13: IP Locations                 + %new3%                                            
@@ -340,6 +340,7 @@ if %opcion%==19 goto hwi
 if %opcion%==20 goto winew
 if %opcion%==21 goto mgg
 if %opcion%==22 goto WindowsServiceDisabler
+if %opcion%==23 goto search2
 
 if %opcion%==admin goto adminmaik
 
@@ -356,6 +357,121 @@ echo.
 pause
 cls
 goto menu1
+
+
+
+
+::+=============================
+::+ Para encontrar FiveM antes de iniciar la prioridad
+
+:search2
+cls
+echo.
+echo  [-] Waiting for FiveM
+tasklist|find "FiveM_GTAProcess.exe"
+IF %ERRORLEVEL% == 0 GOTO :found1
+timeout /NOBREAK /T 1 >nul
+GOTO :search2
+
+:found1
+cls
+echo.
+echo  [+] FiveM Found
+echo.
+timeout /NOBREAK /T 1 >nul
+goto menuprio
+
+
+
+:menuprio
+cls
+echo.
+echo  [-] FiveM Priority 
+echo.
+echo  [+] 1: Normal
+echo  [+] 2: High
+echo  [+] 3: Above normal
+echo  [+] 4: Realtime [Not Recomended]
+echo  [+] 5: Go Back
+echo.
+
+
+set /p opcion="ENTER NUMBER: "
+
+
+if %opcion%==1 goto normalfort1
+if %opcion%==2 goto normalfort2
+if %opcion%==3 goto normalfort3
+if %opcion%==4 goto normalfort4
+if %opcion%==5 goto menusito
+
+
+echo.
+echo Invalid number!
+echo.
+timeout /NOBREAK /T 1 >nul
+goto menuprio
+
+
+:menusito
+cls
+echo.
+echo  [-] Getting Back
+echo.
+timeout /NOBREAK /T 1 >nul
+goto menu1
+
+:normalfort1
+cls
+wmic process where name="FiveM_GTAProcess.exe" call setpriority "Normal"
+wmic process where name="FiveM_ChromeBrowser" call setpriority "Normal"
+wmic process where name="FiveM_ROSService" call setpriority "Normal"
+cls
+echo.
+echo FiveM set with priority Normal
+echo.
+pause
+goto menuprio
+
+
+:normalfort2
+cls
+wmic process where name="FiveM_GTAProcess.exe" call setpriority "High"
+wmic process where name="FiveM_ChromeBrowser" call setpriority "High"
+wmic process where name="FiveM_ROSService" call setpriority "High"
+cls
+echo.
+echo FiveM set with priority Normal
+echo.
+pause
+goto menuprio
+
+:normalfort3
+cls
+wmic process where name="FiveM_GTAProcess.exe" call setpriority "Above normal"
+wmic process where name="FiveM_ChromeBrowser" call setpriority "Above normal"
+wmic process where name="FiveM_ROSService" call setpriority "Above normal" 
+cls
+echo.
+echo FiveM set with priority Normal
+echo.
+pause
+goto menuprio
+
+:normalfort4
+cls
+wmic process where name="FiveM_GTAProcess.exe" call setpriority "Realtime" 
+wmic process where name="FiveM_ChromeBrowser" call setpriority "Realtime"
+wmic process where name="FiveM_ROSService" call setpriority "Realtime"
+cls
+echo.
+echo FiveM set with priority Normal
+echo.
+pause
+goto menuprio
+
+:: ===============================================================================
+
 
 
 :: =============================================
