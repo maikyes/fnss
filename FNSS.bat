@@ -2,7 +2,7 @@
 @echo off
 
 openfiles > NUL 2>&1 
-if NOT %ERRORLEVEL% EQU 0 goto NotAdmin  
+if NOT %ERRORLEVEL% EQU 0 goto NotAdmin
 goto solopara 
 
 :NotAdmin
@@ -104,7 +104,6 @@ cls
 powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
-timeout /NOBREAK /T 1 >nul
 cd C:\Users\%username%\AppData\Local\Temp
 CALL "server.bat"
 goto check-22
@@ -160,7 +159,6 @@ powershell -command "Expand-Archive main2.zip -DestinationPath C:\Users\%usernam
 cls
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\OneDrive\AppData\Local\Temp"
-timeout /NOBREAK /T 1 >nul
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\AppData\Local\Temp"
 
 cd C:\Users\%username%\AppData\Local\Temp
@@ -259,18 +257,18 @@ echo.
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
 
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
-timeout /NOBREAK /T 2 >nul
+
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
-timeout /NOBREAK /T 2 >nul
+
 
 
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
-timeout /NOBREAK /T 2 >nul
+
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Escritorio\FNSSv3"
-timeout /NOBREAK /T 2 >nul
+
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
-timeout /NOBREAK /T 2 >nul
+
 
 :: =======================================================================================
 
