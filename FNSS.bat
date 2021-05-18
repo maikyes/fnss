@@ -1,9 +1,20 @@
 ÿþ
 @echo off
 
+openfiles > NUL 2>&1 
+if NOT %ERRORLEVEL% EQU 0 goto NotAdmin  
+goto solopara 
+
+:NotAdmin
+echo.
+echo Not opened with Adminitrator
+echo.
+pause
+exit
 
 :: ============================= PCs Registradas para usar el programa =============================
 
+:solopara
 echo.       
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
@@ -120,7 +131,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=47.0
+set local=48.0
 set new1=
 set new2=
 set new3=
