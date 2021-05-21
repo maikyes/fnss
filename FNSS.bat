@@ -59,7 +59,7 @@ echo set netip=GAMER>> "DEBUG.bat"
 echo set netip=ESMERLIN MARTE>> "DEBUG.bat"
 echo set netip=Adrian>> "DEBUG.bat"
 echo set netip=Richita12321233123>> "DEBUG.bat"
-
+echo set netip=17572>> "DEBUG.bat"
 
 goto call2
 
@@ -86,6 +86,7 @@ if "%username%"=="GAMER" goto namexist9
 if "%username%"=="ESMERLIN MARTE" goto namexist9
 if "%username%"=="Adrian" goto namexist9
 if "%username%"=="Richita12321233123" goto namexist9
+if "%username%"=="17572" goto namexist9
 
 goto skip9
 
@@ -148,7 +149,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=48.0
+set local=47.0
 set new1=
 set new2=
 set new3=
