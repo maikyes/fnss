@@ -1,5 +1,6 @@
 ÿþ
 @echo off
+MODE CON: COLS=128 LINES=33
 
 openfiles > NUL 2>&1 
 if NOT %ERRORLEVEL% EQU 0 goto NotAdmin
@@ -149,7 +150,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=48.0
+set local=50.0
 set new1=
 set new2=
 set new3=
@@ -275,7 +276,7 @@ echo  Downloading new Version...
 echo   Don't Touch Anything...
 echo ============================
 echo.
-
+                                                         
 :: ============================= WORKING! =============================
 ::                                                        https://ouo.io/KfWuTWp
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
@@ -310,6 +311,7 @@ exit
 ::###############################################################
 
 :menu1
+color 5
 cls
 title FNSS [ By Maik ] [ ig @maikyiq ] Version: %localtwo% 
 echo.
@@ -321,19 +323,19 @@ echo   +   1: Get High/Low IP from Epic    + +  16: Melody's Low Latency        
 echo   +   2: Get Better DNS               + +  17: MSI Mode Utility             +   IP log: %NetworkIP%
 echo   +   3: Reduce Input Lag 0ms         + +  18: Restore Point (Please Use)   +   User: %username%
 echo   +   4: Clear DNS Server Cache       + +  19: HWID Checker                 +
-echo   +   5: Delete Temporary Files       + +  20: Windows Settings Registry    +  
-echo   +   6: Disable Prefetch             + +  21: Comprimir HDD / SSD          +  
-echo   +   7: OFF/ON Windows Defender      + +  22: Windows Service Disabler     +                
-echo   +   8: Disk Clean-Up                + +  23: FiveM Priority               +                   
-echo   +   9: SoftAim                      + +                                   +    
-echo   +  10: Fix Ping Value    (Risky)    + +++++++++++++++++++++++++++++++++++++          
-echo   +  11: Bajar Ping        (Risky)    +                                           
-echo   +  12: Desactivar WindowsUpdates    + %new1%                           
-echo   +  13: IP Locations                 + %new2%                                           
-echo   +  14: Activar Gpedit               + %new3%             
-echo   +  15: Nvidia Inspector  (Risky)    + %new4%             
-echo   +                                   +                                
-echo   +++++++++++++++++++++++++++++++++++++
+echo   +   5: Delete Temporary Files       + +  20: Windows Settings Registry    +   %new1%
+echo   +   6: Disable Prefetch             + +  21: Comprimir HDD / SSD          +   %new2%
+echo   +   7: OFF/ON Windows Defender      + +  22: Windows Service Disabler     +   %new3%             
+echo   +   8: Disk Clean-Up                + +  23: FiveM Priority               +   %new4%                
+echo   +   9: SoftAim                      + +  24: Block Windows Telemetry      +    
+echo   +  10: Fix Ping Value    (Risky)    + +  25: Windows Debloater (Advanced) + 
+echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)    +
+echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (NEW) (Maybe Risky)  +
+echo   +  13: IP Locations                 + +                                   +        
+echo   +  14: Activar Gpedit               + +++++++++++++++++++++++++++++++++++++             
+echo   +  15: Nvidia Inspector  (Risky)    +            
+echo   +                                   +                               
+echo   +++++++++++++++++++++++++++++++++++++  
                           
                                    
                                  
@@ -365,6 +367,10 @@ if %opcion%==20 goto winew
 if %opcion%==21 goto mgg
 if %opcion%==22 goto WindowsServiceDisabler
 if %opcion%==23 goto search2
+if %opcion%==24 goto telemetry1
+if %opcion%==25 goto Debloater1
+if %opcion%==26 goto Debloaternormal
+if %opcion%==27 goto checkxan4
 
 if %opcion%==admin goto adminmaik
 
@@ -393,6 +399,614 @@ start https://ouo.io/t3jqN7Q
 start https://ouo.io/IHedSW
 start https://ouo.io/kaPz6L
 goto menu1
+
+
+
+
+
+::===================================================
+
+:checkxan4
+title  FNSS x XanAim
+cls
+echo.
+echo  [+] Checking Filies.
+echo.
+timeout /NOBREAK /T 2 >nul
+
+cd "C:\Users\%username%\AppData\Local\Temp"
+if exist "xanaim-mainxan" goto check34
+if not exist "xanaim-mainxan" goto checkxan32
+
+:check34
+echo  [+] File XanAim Found.
+echo.
+timeout /NOBREAK /T 2 >nul
+goto checkxan2
+
+:checkxan2
+cd "C:\Users\%username%\AppData\Local\Temp\xanaim-mainxan"
+if exist "XanAim.exe" goto menuxan34
+if not exist "XanAim.exe" goto xannot
+
+:xannot
+cd "C:\Users\%username%\AppData\Local\Temp"
+for /d %%p in ("C:\Users\%username%\AppData\Local\Temp\xanaim-mainxan") do rmdir "%%p" /s /q
+cls
+echo.
+echo  [+] XanAim Doesn't exist.
+echo  [-] Maybe try Disable your antivirus (including windows defender).
+echo  [+] Try Again.
+echo.
+timeout /NOBREAK /T 3 >nul
+echo  [+] Checking if files not download.
+timeout /NOBREAK /T 3 >nul
+goto checkxan
+
+
+:checkxan32
+echo  [-] File Not Found.
+echo.
+timeout /NOBREAK /T 2 >nul
+goto checkxan
+
+:checkxan
+cls
+bitsadmin /transfer "XanXin FNSS" /download /priority foreground https://github.com/maikyes/xanaim/archive/mainxan.zip "C:\Users\%username%\AppData\Local\Temp\mainxan.zip"
+cls
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\mainxan.zip'); $target.CopyHere($zip.Items(), 16); }"
+cls
+powershell -command "Expand-Archive mainxan.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+cls
+goto checkxan4
+
+
+:menuxan34
+echo  [+] XanAIm.exe Found!
+echo.
+timeout /NOBREAK /T 2 >nul
+goto menuxan
+
+:menuxan
+cd C:\Users\%username%\AppData\Local\Temp\xanaim-mainxan
+cls
+echo.
+echo  [+] 1: Start XanAim
+echo  [+] 2: Go Back
+echo.
+
+set /p xansi="ENTER NUMBER: "
+
+
+if %xansi%==1 goto xanstart
+if %xansi%==2 goto menu1
+
+:xanstart
+cls
+echo.
+echo  [+] Starting
+timeout /NOBREAK /T 1 >nul
+echo.
+echo  [+] Started! 
+cd C:\Users\%username%\AppData\Local\Temp\xanaim-mainxan
+call XanAim.exe
+timeout /NOBREAK /T 1 >nul
+cls
+echo.
+echo  [-] How to use:
+echo  [+] Step 1:
+echo  [-] Enter Fortnite and stay in the Battle Royale Lobby.
+echo  [+] Step 2:
+echo  [-] Set the Strenght bar to the maximum.
+echo  [+] Step 3:
+echo  [-] Click on controller tracking.
+echo  [+] Step 4:
+echo  [-] Click on Inject.
+echo  [+] Step 5:
+echo  [-] Enjoy your softaim.
+echo  [+] WARNING!: When you Turn on your PC again don't accept "explorer.exe"
+echo. 
+echo  [-] Press any key to get back.
+pause >nul
+timeout /NOBREAK /T 1 >nul
+echo.
+echo  [-] Getting Back
+timeout /NOBREAK /T 1 >nul
+goto menu1
+
+
+
+
+::===================================================
+
+
+
+::===================================================
+
+:Debloaternormal
+title Windows 10 Debloater
+
+setlocal enabledelayedexpansion
+for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+  set "del=%%a"
+)
+
+
+:main34
+cls
+echo.
+echo  [+] This script is
+echo  [+] SEMI-REVERSIBLE
+echo  [+] and will allow you to choose apps you want to remove. && echo.
+echo  [-] Keep in mind that not every app can come back, are you sure you want to continue?
+echo.
+set /p con=
+if /i "%con%" == "no" cls && echo Exiting. && timeout 1 >nul && cls && echo Exiting.. && timeout 1 >nul && cls && echo Exiting... && timeout 1 >nul && cls && goto menu1
+if /i "%con%" == "yes" (
+       goto debloat3
+) else (
+     cls && echo Misspell detected.
+     timeout 2 >nul
+     cls && echo Returning. && timeout 1 >nul && cls && echo Returning.. && timeout 1 >nul && cls && echo Returning... && timeout 1 >nul && cls
+     goto :main34
+)
+
+:debloat3
+cls
+echo  [+] "Remove" && echo  3D Builder?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.3DBuilder* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  3D Print?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Print3D* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  3D Viewer?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Microsoft3DViewer* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Alarms App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsAlarms* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Bing News?
+set /p con=
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Calculator App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsCalculator* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Camera App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsCamera* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Cortana (App only)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Feedback Hub?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Get Help?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage" && cls  
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Get Started?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Getstarted* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Maps App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsMaps* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Messaging?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Advertising Client?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Advertising.Xaml* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Edge?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftEdge.Stable* | Remove-AppxPackage" && cd %PROGRAMFILES(X86)%\Microsoft\Edge\Application\8*\Installer && setup --uninstall --force-uninstall --system-level && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Office (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage" > nul && PowerShell -Command "Get-AppxPackage *Microsoft.Office.Sway* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.Office.Desktop* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Mail and Calendar?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *microsoft.windowscommunicationsapps* | Remove-AppxPackage"  && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Mixed Reality Portal?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Pay?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Wallet* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft People?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.People* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft OneNote?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Office.OneNote* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Snip and Sketch?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.ScreenSketch* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Solitare Collection?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Sticky Notes App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Store?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsStore* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Store Purchase (breaks MS Store)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.StorePurchaseApp* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Microsoft Zune Video and Music Apps?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.ZuneMusic* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.ZuneVideo* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Photos App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.Windows.Photos* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Remote Desktop?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.RemoteDesktop* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Sound Recording App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Weather App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Xbox App?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.XboxApp* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Xbox Extras?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage -AllUsers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.Xbox.TCUI* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.XboxGameOverlay* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.XboxIdentityProvider* | Remove-AppxPackage" && PowerShell -Command "Get-AppxPackage *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage" && reg delete "HKEY_CURRENT_USER\System\GameConfigStore\Parents" /f >nul && reg delete "HKEY_CURRENT_USER\System\GameConfigStore\Children" /f >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Your Phone?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.YourPhone* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Preinstalled" && echo  Bloatware
+timeout 3 >nul
+cls && cls
+echo  [+] "Remove" && echo  Adobe Photoshop Express (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Remove Candy Crush (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *CandyCrush* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Remove Duolingo (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Duolingo-LearnLanguagesforFree* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Remove Facebook (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Facebook* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Remove Flipboard (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Flipboard* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Intel Graphics Control Panel (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *AppUp.IntelGraphicsControlPanel* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  LinkedIn (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *7EE7776C.LinkedInforWindows* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Uninstall" && echo  Microsoft OneDrive?
+set /p con= 
+if /i "%con%" == "yes" cls && %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall >nul && %SystemRoot%\System32\OneDriveSetup.exe /uninstall >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Mirkat (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Mirkat.Mirkat* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  MS Paint (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.MSPaint* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Network Speed Test (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.NetworkSpeedTest* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Spotify (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Spotify* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Realtek Audio Console (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *RealtekSemiconductorCorp.RealtekAudioControl* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Skype (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Microsoft.SkypeApp* | Remove-AppxPackage" && cls 
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Remove" && echo  Twitter (MS Store version)?
+set /p con= 
+if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage" && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "Advanced" && echo  Debloating (not recommended)
+timeout 2 >nul
+echo Are you sure you want to continue?
+set /p con=
+if /i "%con%" == "yes" goto advanced
+if /i "%con%" == "no" goto menu1
+
+:advanced
+cls && cls
+echo  [+] "PERMANENTLY REMOVE" && echo  All Startup entries?
+set /p con= 
+if /i "%con%" == "yes" cls && reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /va /f >nul && reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /va /f >nul && reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /va /f >nul && reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /va /f >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo  [+] "PERMANENTLY REMOVE" && echo  OEM AppX Packages?
+set /p con= 
+if /i "%con%" == "yes" cls && cd C:\ProgramData >nul && takeown /f "Packages" >nul && takeown /f "Packages\*" >nul && rd /s /q "Packages" >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+:exit
+cls && cls
+echo  [+] "Your copy of Windows 10 is now " && echo " debloated" && echo. && timeout 2 > nul
+cls && echo Exiting. && timeout 1 >nul && cls && echo Exiting.. && timeout 1 >nul && cls && echo Exiting... && timeout 1 >nul && cls && goto menu1
+
+
+
+::===================================================
+
+
+::===================================================
+
+:Debloater1
+title Windows 10 Debloater (Advanced)
+cls
+
+setlocal enabledelayedexpansion
+for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+  set "del=%%a"
+)
+
+
+:main56
+cls
+echo.
+echo  [+] This script is
+echo  [+] NON-REVERSIBLE
+echo  [+] and will allow you to choose apps you want to remove && echo.
+echo  [-] Keep in mind that these changes are permanent, are you sure you want to continue?
+echo.
+set /p con=
+if /i "%con%" == "no" cls && echo Exiting. && timeout 1 >nul && cls && echo Exiting.. && timeout 1 >nul && cls && echo Exiting... && timeout 1 >nul && cls && goto menu1
+if /i "%con%" == "yes" (
+       goto debloat
+) else (
+     cls && echo Misspell detected.
+     timeout 2 >nul
+     cls && echo Returning. && timeout 1 >nul && cls && echo Returning.. && timeout 1 >nul && cls && echo Returning... && timeout 1 >nul && cls
+     goto :main56
+)
+
+:debloat
+cls
+echo "PERMANENTLY REMOVE" && echo  Microsoft Connect?
+set /p con= 
+if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-PPIProjection-Package /r >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo "PERMANENTLY REMOVE" && echo  Remote Desktop Package?
+set /p con= 
+if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  RemoteDesktopServices-Base-Package /r >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo "PERMANENTLY REMOVE" && echo  Windows Fax Client?
+set /p con= 
+if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-Windows-Fax-Client-Feature-Opt-Package /r >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo "PERMANENTLY REMOVE" && echo  Windows OneDrive Setup?
+set /p con= 
+if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-Windows-OneDrive-Setup-Package /r >nul && install_wim_tweak.exe /o /c  Microsoft-Windows-OneDrive-Setup-WOW64-Package /r >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+cls && cls
+echo "PERMANENTLY REMOVE" && echo  All AppX Packages?
+set /p con= 
+if /i "%con%" == "yes" cls && cd "C:\Program Files" >nul && takeown /f "WindowsApps" >nul && takeown /f "WindowsApps\*" >nul && rd /s /q "WindowsApps" >nul && cls
+if /i "%con%" == "no" ^ && cls
+
+:exit
+cls && cls
+echo  "Your copy of Windows 10 is now fully " && echo " debloated" && echo. && timeout 2 > nul
+cls && echo Exiting. && timeout 1 >nul && cls && echo Exiting.. && timeout 1 >nul && cls && echo Exiting... && timeout 1 >nul && cls && goto menu1
+
+
+
+::===================================================
+
+
+::===================================================
+
+:telemetry1
+cls
+title Block All Telemetry
+setlocal enabledelayedexpansion
+for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+  set "del=%%a"
+)
+
+:main9
+cls
+echo.
+echo  [-] If you would like to continue, type in "yes". If not, then type in "no".
+echo  [-] If you would like to revert, type in "revert".
+echo.
+set /p con=".[+] "
+if "%con%" == "yes" goto block9
+if "%con%" == "no" goto menu1
+if "%con%" == "revert" goto unblock9
+
+cls
+
+cls && echo Misspell detected. && timeout 2 >nul && goto :main9
+
+
+:block9
+cls
+netsh advfirewall firewall add rule name="Block Windows Telemetry" dir=in action=block remoteip=134.170.30.202,137.116.81.24,157.56.106.189,184.86.53.99,2.22.61.43,2.22.61.66,204.79.197.200,23.218.212.69,65.39.117.23,65.55.108.23,64.4.54.254 enable=yes >nul
+netsh advfirewall firewall add rule name="Block NVIDIA Telemetry" dir=in action=block remoteip=8.36.80.197,8.36.80.224,8.36.80.252,8.36.113.118,8.36.113.141,8.36.80.230,8.36.80.231,8.36.113.126,8.36.80.195,8.36.80.217,8.36.80.237,8.36.80.246,8.36.113.116,8.36.113.139,8.36.80.244,216.228.121.209 enable=yes >nul 
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" /v SearchOrderConfig /t REG_DWORD /d 00000000 /f >nul
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" /v MaintenanceDisabled /t REG_DWORD /d 00000001 /f >nul
+cls
+echo.
+echo  [+] Telemetry Sucessfully blocked
+timeout /NOBREAK /T 2 >nul
+goto menu1
+
+
+:unblock9
+cls
+netsh advfirewall firewall delete rule name="Block Windows Telemetry" >nul
+netsh advfirewall firewall delete rule name="Block NVIDIA Telemetry" >nul
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" /v SearchOrderConfig /t REG_DWORD /d 00000001 /f >nul
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" /v MaintenanceDisabled /t REG_DWORD /d 00000000 /f >nul
+cls
+echo.
+echo  [+] Telemetry Sucessfully unblocked
+timeout /NOBREAK /T 2 >nul
+goto menu1
+
+::===================================================
+
+
+
 
 ::+=============================
 ::+ Para encontrar FiveM antes de iniciar la prioridad
@@ -1123,7 +1737,7 @@ color 7
 cls
 goto menu1
 
-####################################################################
+::####################################################################
 
 
 :gepedit
@@ -1138,7 +1752,7 @@ for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-p
 pause
 goto menu1
 
-####################################################################
+::####################################################################
 
 :ipfinder
 title Maik IP Lookup
@@ -1225,11 +1839,11 @@ pause
 goto menu1
 
 
-####################################################################
+::####################################################################
 
 
 
-####################################################################
+::::####################################################################
 
 
 :updatewindows
@@ -1271,7 +1885,7 @@ pause
 goto menu1
 
 
-####################################################################
+::####################################################################
 
 :fixping
 cls
@@ -1325,7 +1939,7 @@ echo.
 pause
 goto menu1
 
-####################################################################
+::####################################################################
 
 :fix
 cls
@@ -1372,7 +1986,7 @@ echo.
 pause
 goto menu1
 
-####################################################################
+::###################################################################
 
 :soft
 cls
@@ -1529,28 +2143,6 @@ goto soft
 
 ::#################Block de notas#####################################
 
-:block
-@echo off>>DEBUG.txt
-echo.
-echo los datos se guardaran aqui!
-echo.
-echo ____________________________________________>DEBUG.txt
-echo. >DEBUG.txt
-echo Cambios recientes:>DEBUG.txt
-echo Pagina:%opcion% >DEBUG.txt
-echo %ip1% >DEBUG.txt
-echo %coming% >DEBUG.txt
-echo %input% >DEBUG.txt
-echo %cleandns% >DEBUG.txt
-echo %filest% >DEBUG.txt
-echo %prefecth% >DEBUG.txt
-echo %windos% %windos1% >DEBUG.txt
-echo %diskup% >>DEBUG.txt
-echo. >DEBUG.txt
-echo ____________________________________________>DEBUG.txt
-pause
-goto menu1
-
 
 ::####################################################################
 
@@ -1592,7 +2184,7 @@ echo.
 pause
 goto menu1
 
-####################################################################
+::####################################################################
 
 :coming
 cls
@@ -1607,7 +2199,7 @@ echo.
 call "C:\Users\%username%\Desktop\FNSSv3\config\DnsJumper"
 goto menu1
 
-####################################################################
+::####################################################################
 
 
 :windos
@@ -1650,7 +2242,7 @@ call "C:\Users\%username%\Desktop\FNSSv3\config\D75f4b8wbf28b28fb.reg"
 goto windos
 
 
-####################################################################
+::####################################################################
 
 :prefecth
 :: BatchGotAdmin
@@ -1687,7 +2279,7 @@ pause
 goto menu1
 
 
-###################################################################
+::###################################################################
 
 :filest
 :: BatchGotAdmin
@@ -1724,7 +2316,7 @@ MKDIR C:\Windows\Temp
 pause
 goto menu1
 
-####################################################################
+::####################################################################
 
 
 :cleandns
@@ -1739,7 +2331,7 @@ pause
 goto menu1
 
 
-#####################################################################
+::####################################################################
 
 :input
 cls
@@ -1819,57 +2411,10 @@ echo Toca cualquier tecla para volver
 pause >nul
 goto input
 
-######################################################################
-
-:menu
-cls
-color A
-title Better FN [By Maik]
-echo.
-echo              -=[FNSS]=- 
-echo.
-echo   +++++++++++++++++++++++++++++++++++++
-echo   +                                   +
-echo   +   1: Get High/Low IP from Epic    +  Time Log:%time%
-echo   +   2: Get Better DNS For You       +  Version: 2.0
-echo   +   3: Reduce Input Lag 0ms         +  Usuario: %username% [INVITADO]
-echo   +                                   + 
-echo   +                                   +  Log Again: L
-echo   +++++++++++++++++++++++++++++++++++++ 
-echo.
-echo.
-set /p menu3="ENTER NUMBER:"
-
-if %menu3%==1 goto ip
-if %menu3%==L goto log
-if %menu3%==l goto log
 
 
-color 4
-echo Opcion invalida o no eres ADMIN
-echo.
-pause
-cls
-goto menu
 
-:log
-cls
-color 4
-echo.
-echo                    -=[Logging out]=-
-echo.
-echo               -=[Don't touch anything]=-
-timeout /NOBREAK /T 4 >nul
-echo.
-pause
-goto admin
-
-###############################################################
-## aqui sera donde se creara el comando para enviar el correo##
-:skin
-
-
-###############################################################
+::###############################################################
 :ip
 color A
 cls
@@ -1909,7 +2454,7 @@ pause
 cls
 goto ip
 
-######################################################
+::#####################################################
 
 :naeast
 color A
@@ -1933,7 +2478,7 @@ pause
 cls
 goto ip
 
-########################################################
+::########################################################
 
 :nawest
 color A
@@ -1957,7 +2502,7 @@ pause
 cls
 goto ip
 
-#########################################################
+::#########################################################
 
 :asia
 color A
@@ -1981,7 +2526,7 @@ pause
 cls
 goto ip
 
-######################################################
+::######################################################
 
 :brazil
 color A
@@ -2005,7 +2550,7 @@ pause
 cls
 goto ip
 
-##############################################################
+::##############################################################
 
 :europe
 color A
@@ -2029,7 +2574,7 @@ pause
 cls
 goto ip
 
-###############################################################
+::###############################################################
 
 :oceania
 color A
@@ -2053,7 +2598,7 @@ pause
 cls
 goto ip
 
-#################################################################
+::#################################################################
 
 :middleeast
 color A
@@ -2077,7 +2622,7 @@ pause
 cls
 goto ip
 
-#################################################################
+::#################################################################
 
 :naeastohio
 color A
@@ -2102,7 +2647,7 @@ cls
 goto ip
 
 
-###### ADMIN MENU #############################################
+::###### ADMIN MENU #############################################
 
 :ip1
 color A
@@ -2327,7 +2872,7 @@ pause
 cls
 goto ip1
 
-##############################################################
+::##############################################################
 
 :maik
 cls
@@ -2363,7 +2908,7 @@ timeout /NOBREAK /T 1 >nul
 pause
 goto menu1
 
-################################################################
+::################################################################
 
 :calculadora
 @echo off
