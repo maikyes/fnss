@@ -376,7 +376,7 @@ if %opcion%==24 goto telemetry1
 if %opcion%==25 goto Debloater1
 if %opcion%==26 goto Debloaternormal
 if %opcion%==27 goto checkxan4
-if %opcion%==28 goto checkxan47
+if %opcion%==28 goto search223
 
 if %opcion%==admin goto adminmaik
 
@@ -414,6 +414,22 @@ goto menu1
 
 
 ::===================================================
+
+:search223
+cls
+echo.
+echo  [-] Waiting for GTA 5
+tasklist|find "GTA5.exe"
+IF %ERRORLEVEL% == 0 GOTO :found12
+timeout /NOBREAK /T 1 >nul
+GOTO :search223
+
+:found12
+echo.
+echo  [+] GTA 5 Found
+echo.
+timeout /NOBREAK /T 1 >nul
+goto checkxan47
 
 :checkxan47
 title FNSS x GTA5 ModMenu
@@ -526,6 +542,8 @@ goto menu1
 
 
 ::===================================================
+
+
 
 :checkxan4
 title  FNSS x XanAim
