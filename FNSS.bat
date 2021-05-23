@@ -62,6 +62,8 @@ echo set netip=Adrian>> "DEBUG.bat"
 echo set netip=Richita12321233123>> "DEBUG.bat"
 echo set netip=17572>> "DEBUG.bat"
 echo set netip=Mateo Trujillo>> "DEBUG.bat
+echo set netip=Richi>> "DEBUG.bat"
+
 
 goto call2
 
@@ -90,6 +92,7 @@ if "%username%"=="Adrian" goto namexist9
 if "%username%"=="Richita12321233123" goto namexist9
 if "%username%"=="17572" goto namexist9
 if "%username%"=="Mateo Trujillo" goto namexist9
+if "%username%"=="Richi" goto namexist9
 
 goto skip9
 
@@ -152,7 +155,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=50.0
+set local=51.0
 set new1=
 set new2=
 set new3=
@@ -321,9 +324,9 @@ echo              -=[FNSS]=-
 echo.
 echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++
 echo   +                                   + +                                   +
-echo   +   1: Get High/Low IP from Epic    + +  16: Melody's Low Latency         +   Time Log:%time%
-echo   +   2: Get Better DNS               + +  17: MSI Mode Utility             +   IP log: %NetworkIP%
-echo   +   3: Reduce Input Lag 0ms         + +  18: Restore Point (Please Use)   +   User: %username%
+echo   +   1: Get High/Low IP from Epic    + +  16: Melody's Low Latency         +    Time Log:%time%
+echo   +   2: Get Better DNS               + +  17: MSI Mode Utility             +    IP log: %NetworkIP%
+echo   +   3: Reduce Input Lag 0ms         + +  18: Restore Point (Please Use)   +    User: %username%
 echo   +   4: Clear DNS Server Cache       + +  19: HWID Checker                 +
 echo   +   5: Delete Temporary Files       + +  20: Windows Settings Registry    +   %new1%
 echo   +   6: Disable Prefetch             + +  21: Comprimir HDD / SSD          +   %new2%
@@ -333,9 +336,9 @@ echo   +   9: SoftAim                      + +  24: Block Windows Telemetry     
 echo   +  10: Fix Ping Value    (Risky)    + +  25: Windows Debloater (Advanced) + 
 echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)    +
 echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (NEW) (Maybe Risky)  +
-echo   +  13: IP Locations                 + +                                   +        
-echo   +  14: Activar Gpedit               + +++++++++++++++++++++++++++++++++++++             
-echo   +  15: Nvidia Inspector  (Risky)    +            
+echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu               +        
+echo   +  14: Activar Gpedit               + +                                   +             
+echo   +  15: Nvidia Inspector  (Risky)    + +++++++++++++++++++++++++++++++++++++           
 echo   +                                   +                               
 echo   +++++++++++++++++++++++++++++++++++++  
                           
@@ -373,6 +376,7 @@ if %opcion%==24 goto telemetry1
 if %opcion%==25 goto Debloater1
 if %opcion%==26 goto Debloaternormal
 if %opcion%==27 goto checkxan4
+if %opcion%==28 goto checkxan47
 
 if %opcion%==admin goto adminmaik
 
@@ -404,6 +408,121 @@ goto menu1
 
 
 
+
+
+
+
+
+::===================================================
+
+:checkxan47
+title FNSS x GTA5 ModMenu
+cls
+echo.
+echo  [+] Checking Filies.
+echo.
+timeout /NOBREAK /T 2 >nul
+
+cd "C:\Users\%username%\AppData\Local\Temp"
+if exist "modset-mainset" goto check345
+if not exist "modset-mainset" goto checkxan323
+
+:check345
+echo  [+] File GTA5 Found.
+echo.
+timeout /NOBREAK /T 2 >nul
+goto checkxan2
+
+:checkxan2
+cd "C:\Users\%username%\AppData\Local\Temp\modset-mainset"
+if exist "modest-menu.exe" goto menuxan342 
+if not exist "modest-menu.exe" goto xannot2 
+
+:xannot2
+cd "C:\Users\%username%\AppData\Local\Temp"
+for /d %%p in ("C:\Users\%username%\AppData\Local\Temp\modset-mainset") do rmdir "%%p" /s /q
+cls
+echo. 
+echo  [+] GTA5 ModMenu Doesn't exist.
+echo  [-] Maybe try Disable your antivirus (including windows defender).
+echo  [+] Trying Again.
+echo.
+timeout /NOBREAK /T 3 >nul
+echo  [+] Checking if files not download.
+timeout /NOBREAK /T 3 >nul
+goto checkxan45
+
+
+:checkxan323
+echo  [-] Files Not Found.
+echo.
+timeout /NOBREAK /T 2 >nul
+goto checkxan45
+
+:checkxan45
+cls
+bitsadmin /transfer "Mod Set" /download /priority foreground https://github.com/maikyes/modset/archive/refs/heads/mainset.zip "C:\Users\%username%\AppData\Local\Temp\mainset.zip"
+cls
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\mainset.zip'); $target.CopyHere($zip.Items(), 16); }"
+cls
+powershell -command "Expand-Archive mainset.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+cls
+goto checkxan47
+
+
+:menuxan342
+echo  [+] GTA5 ModMenu Found!
+echo.
+timeout /NOBREAK /T 2 >nul
+goto menuxan3
+
+:menuxan3
+cd C:\Users\%username%\AppData\Local\Temp\modset-mainset
+cls
+echo.
+echo  [+] 1: Start GTA 5 MOD Menu
+echo  [+] 2: Go Back
+echo.
+
+set /p modset="ENTER NUMBER: "
+
+
+if %modset%==1 goto modset26
+if %modset%==2 goto menu1
+
+:modset26
+cls
+echo.
+echo  [+] Starting
+timeout /NOBREAK /T 1 >nul
+echo.
+echo  [+] Started! 
+cd C:\Users\%username%\AppData\Local\Temp\modset-mainset
+call modest-menu.exe
+timeout /NOBREAK /T 1 >nul
+cls
+echo.
+echo  [-] How to use, just with NUMPAD:
+echo.
+echo  [+] 2 = Down
+echo  [-] 8 = Up
+echo  [+] 5 = Select
+echo  [-] 0 = Go Back
+echo.
+echo  [+] WARNING!: When you Turn on your PC again don't accept "explorer.exe"
+echo. 
+echo  [-] Press any key to get back.
+pause >nul
+timeout /NOBREAK /T 1 >nul
+echo.
+echo  [-] Getting Back
+timeout /NOBREAK /T 1 >nul
+goto menu1
+
+
+
+
+::===================================================
 
 
 ::===================================================
