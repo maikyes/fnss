@@ -2142,24 +2142,14 @@ goto menu1
 
 :soft
 cls
-color A
-title Better FN [By Maik]
+color 7
 echo.
-echo                -=[FNSS]=- 
-echo.
-echo   +++++++++++++++++++++++++++++++++++++
-echo   +          -=[SoftAim]=-            +      -=[INFO]=-
-echo   +                                   + 
-echo   +   1: Capacidad de Aim +20         +   +20 Seguro
-echo   +   2: Capacidad de Aim +50         +   +50 medio seguro
-echo   +   3: Capacidad de Aim +80         +   +80 50/50
-echo   +   4: Capacidad de Aim +100        +   +100 casi detectable
-echo   +   5: Desactivar                   +
-echo   +                                   +
-echo   +   6: Menu                         +
-echo   +                                   +
-echo   +++++++++++++++++++++++++++++++++++++
-echo.
+echo  [+] 1: Capacidad de Aim +20 
+echo  [+] 2: Capacidad de Aim +50
+echo  [+] 3: Capacidad de Aim +80 
+echo  [+] 4: Capacidad de Aim +100
+echo  [-] 5: Desactivar
+echo  [-] 6: Menu
 echo.
 set /p soft="ENTER NUMBER:"
 
@@ -2171,7 +2161,7 @@ if %soft%==5 goto aim5
 if %soft%==6 goto menu1
 
 color 4
-echo Opcion Invalida. Intente de nuevo
+echo  [+]  Opcion Invalida. Intente de nuevo
 echo.
 pause
 cls
@@ -2179,116 +2169,111 @@ goto soft
 
 
 :aim1
-start https://ouo.io/XzM8oQ
 cls
 echo.
-echo               -=[Installing.]=-
+echo  [+] Installing.
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 1 >nul
 cls
 echo.
-echo               -=[Installing..]=-
+echo  [+] Installing..
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo               -=[Installing...]=-
+echo  [+] Installing...
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 pause
 goto soft
 
 :aim2
-start https://ouo.io/XzM8oQ
 cls
 echo.
-echo               -=[Installing.]=-
+echo  [+] Installing.
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 1 >nul
 cls
 echo.
-echo               -=[Installing..]=-
+echo  [+] Installing..
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo               -=[Installing...]=-
+echo  [+] Installing...
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 pause
 goto soft
 
 :aim3
-start https://ouo.io/XzM8oQ
 cls
 echo.
-echo               -=[Installing.]=-
+echo  [+] Installing.
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 1 >nul
 cls
 echo.
-echo               -=[Installing..]=-
+echo  [+] Installing..
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo               -=[Installing...]=-
+echo  [+] Installing...
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 pause
 goto soft
 
 :aim4
-start https://ouo.io/XzM8oQ
 cls
 echo.
-echo               -=[Installing.]=-
+echo  [+] Installing.
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 1 >nul
 cls
 echo.
-echo               -=[Installing..]=-
+echo  [+] Installing..
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo               -=[Installing...]=-
+echo  [+] Installing...
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 pause
 goto soft
 
 :aim5
-start https://ouo.io/XzM8oQ
 cls
 echo.
-echo               -=[Loading.]=-
+echo  [+] Turn OFF.
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 1 >nul
 cls
 echo.
-echo               -=[Loading..]=-
+echo  [+] Turn OFF..
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo               -=[Loading...]=-
+echo  [+] Turn OFF...
 echo.
-echo               -=[Don't touch anything]=-
+echo  [+] Don't touch anything
 timeout /NOBREAK /T 2 >nul
 pause
 goto soft
