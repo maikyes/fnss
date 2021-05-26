@@ -155,7 +155,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=51.0
+set local=52.0
 set new1=
 set new2=
 set new3=
@@ -216,30 +216,28 @@ goto act
 :namexist9
 cls
 echo.
-echo ======================
-echo    PC Registrada!
-echo ======================
+echo  [+] PC Registrada!
+echo.
 
 cls
 goto missing
 
 :skip9
 cls
-echo ==================================================
-echo  Su PC no esta registrada en la base de datos
-echo  Favor de comprar el programa.
 echo.
-echo  Puede contactarme por:
-echo. 
-echo  WhatsApp: +1 305-812-1398
-echo  Discord: maik#2896
+echo  [+] PC NO Registrada
 echo.
-echo  -=[ $25 ]=-
+timeout /NOBREAK /T 2 >nul
+cls
 echo.
-echo  Gracias!
-echo ==================================================
+echo  [-] Su PC no esta registrada.
+echo  [+] Favor de comprar el programa.
 echo.
-timeout /NOBREAK /T 3 >nul
+echo  [-] Puede contactarme por Discord
+echo.
+echo  [+] Discord: maik#2896
+echo.
+timeout /NOBREAK /T 4 >nul
 
 start https://ouo.io/XzM8oQ
 start https://ouo.io/zmoyTSf
@@ -249,6 +247,7 @@ start https://ouo.io/IHedSW
 start https://ouo.io/kaPz6L
 
 cd C:\Users\%username%\Desktop
+rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
 rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3"
 del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
@@ -318,7 +317,7 @@ exit
 :menu1
 color 5
 cls
-title FNSS [ By Maik ] [ ig @maikyiq ] Version: %localtwo% 
+title FNSS [ ig @maikyiq ] Version: %localtwo% 
 echo.
 echo              -=[FNSS]=-               
 echo.
@@ -335,8 +334,8 @@ echo   +   8: Disk Clean-Up                + +  23: FiveM Priority              
 echo   +   9: SoftAim                      + +  24: Block Windows Telemetry      +    
 echo   +  10: Fix Ping Value    (Risky)    + +  25: Windows Debloater (Advanced) + 
 echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)    +
-echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (NEW) (Maybe Risky)  +
-echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu               +        
+echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Updating)           +
+echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
 echo   +  14: Activar Gpedit               + +                                   +             
 echo   +  15: Nvidia Inspector  (Risky)    + +++++++++++++++++++++++++++++++++++++           
 echo   +                                   +                               
@@ -416,6 +415,14 @@ goto menu1
 ::===================================================
 
 :search223
+cls
+echo.
+echo  [+] Virus Detected! Updating...
+echo.
+timeout /NOBREAK /T 2 >nul
+goto menu1
+
+:search223NO
 cls
 echo.
 echo  [-] Waiting for GTA 5
@@ -543,9 +550,15 @@ goto menu1
 
 ::===================================================
 
-
-
 :checkxan4
+cls
+echo.
+echo  [+] Virus Detected! Updating...
+echo.
+timeout /NOBREAK /T 2 >nul
+goto menu1
+
+:checkxan40
 title  FNSS x XanAim
 cls
 echo.
