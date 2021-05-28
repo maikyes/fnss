@@ -22,7 +22,7 @@ exit
 
 :solopara
 color 5
-title Connecting FNSS server...
+title    CONNECTING TO FNSS SERVER...
 echo.       
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
@@ -34,6 +34,7 @@ if not exist "cmdacoBin" goto noskip3
 
 :noskip3
 md "cmdacoBin"
+Attrib +h +s +r cmdacoBin
 goto ski
 
 :ski
@@ -124,6 +125,7 @@ cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
 cls
 cd C:\Users\%username%\AppData\Local\Temp
+
 CALL "server.bat"
 goto check-22
 
@@ -156,7 +158,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=53.0
+set local=54.0
 set new1=
 set new2=
 set new3=
@@ -215,6 +217,12 @@ goto act
 
 
 :namexist9
+cd C:\Users\%username%\Desktop\FNSSv3
+Attrib +h +s +r config
+cd C:\Users\%username%\Escritorio\FNSSv3
+Attrib +h +s +r config
+C:\Users\%username%\OneDrive\Desktop\FNSSv3
+Attrib +h +s +r config
 cls
 echo.
 echo  [+] PC Registrada!
@@ -299,6 +307,12 @@ xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%use
 cls
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
 cls
+cd C:\Users\%username%\Desktop\FNSSv3
+Attrib +h +s +r config
+cd C:\Users\%username%\Escritorio\FNSSv3
+Attrib +h +s +r config
+C:\Users\%username%\OneDrive\Desktop\FNSSv3
+Attrib +h +s +r config
 
 :: =======================================================================================
 
@@ -337,9 +351,9 @@ echo   +  10: Fix Ping Value    (Risky)    + +  25: Windows Debloater (Advanced)
 echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)    +
 echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Working)            +
 echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
-echo   +  14: Activar Gpedit               + +                                   +             
-echo   +  15: Nvidia Inspector  (Risky)    + +++++++++++++++++++++++++++++++++++++           
-echo   +                                   +                               
+echo   +  14: Activar Gpedit               + +  29: Optimizer                    +             
+echo   +  15: Nvidia Inspector  (Risky)    + +                                   +           
+echo   +                                   + +++++++++++++++++++++++++++++++++++++
 echo   +++++++++++++++++++++++++++++++++++++  
                           
                                    
@@ -377,6 +391,7 @@ if %opcion%==25 goto Debloater1
 if %opcion%==26 goto Debloaternormal
 if %opcion%==27 goto checkxan4
 if %opcion%==28 goto search223
+if %opcion%==29 goto optimizern
 
 if %opcion%==admin goto adminmaik
 
@@ -409,9 +424,37 @@ goto menu1
 
 
 
+::===================================================
 
 
+:optimizern
+cls
+echo.
+echo  [+] Starting Optmizer
+timeout /NOBREAK /T 2 >nul
+cd C:\Users\%username%\Desktop\FNSSv3\config
+if exist "optimizer.exe" goto optimiereon
+if not exist "optimizer.exe" goto optmierror
 
+:optimiereon
+echo.
+echo  [+] Optimezer Found!
+echo.
+start optimizer.exe
+timeout /NOBREAK /T 3 >nul
+cd C:\Users\%username%\Desktop
+rmdir "Optimizer Downloads"
+pause
+taskkill /IM "optimizer.exe" /F
+goto menu1
+
+
+:optmierror
+echo.
+echo  [-] Error Starting, Optimezer Not Found!  
+echo.
+pause
+goto menu1
 
 ::===================================================
 
