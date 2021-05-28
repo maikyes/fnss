@@ -37,6 +37,7 @@ md "cmdacoBin"
 goto ski
 
 :ski
+Attrib +h +s +r cmdacoBin
 cd "%userprofile%\documents\cmdacoBin"
 if exist "DEBUG.bat" goto call2
 if not exist "DEBUG.bat" goto skip4
@@ -155,7 +156,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=52.0
+set local=53.0
 set new1=
 set new2=
 set new3=
@@ -334,7 +335,7 @@ echo   +   8: Disk Clean-Up                + +  23: FiveM Priority              
 echo   +   9: SoftAim                      + +  24: Block Windows Telemetry      +    
 echo   +  10: Fix Ping Value    (Risky)    + +  25: Windows Debloater (Advanced) + 
 echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)    +
-echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Updating)           +
+echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Working)            +
 echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
 echo   +  14: Activar Gpedit               + +                                   +             
 echo   +  15: Nvidia Inspector  (Risky)    + +++++++++++++++++++++++++++++++++++++           
@@ -553,14 +554,12 @@ goto menu1
 :checkxan4
 cls
 echo.
-echo  [+] Virus Detected! Updating...
-echo.
+echo  [+] Not Virus Detected! SecureAge APEX is not Virus
 timeout /NOBREAK /T 2 >nul
-goto menu1
+goto checkxan40
 
 :checkxan40
 title  FNSS x XanAim
-cls
 echo.
 echo  [+] Checking Filies.
 echo.
@@ -609,8 +608,11 @@ cls
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\mainxan.zip'); $target.CopyHere($zip.Items(), 16); }"
 cls
 powershell -command "Expand-Archive mainxan.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+cd C:\Users\%username%\AppData\Local\Temp
+Attrib +h +s +r xanaim-mainxan
+Attrib +h +s +r mainxan.zip
 cls
-goto checkxan4
+goto checkxan40
 
 
 :menuxan34
