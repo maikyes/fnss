@@ -158,7 +158,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=54.0
+set local=55.0
 set new1=
 set new2=
 set new3=
@@ -2186,142 +2186,43 @@ goto menu1
 ::###################################################################
 
 :soft
-cls
-color 7
-echo.
-echo  [+] 1: Capacidad de Aim +20 
-echo  [+] 2: Capacidad de Aim +50
-echo  [+] 3: Capacidad de Aim +80 
-echo  [+] 4: Capacidad de Aim +100
-echo  [-] 5: Desactivar
-echo  [-] 6: Menu
-echo.
-set /p soft="ENTER NUMBER:"
-
-if %soft%==1 goto aim1
-if %soft%==2 goto aim2
-if %soft%==3 goto aim3
-if %soft%==4 goto aim4
-if %soft%==5 goto aim5
-if %soft%==6 goto menu1
-
-color 4
-echo  [+]  Opcion Invalida. Intente de nuevo
-echo.
-pause
-cls
-goto soft
-
-
-:aim1
+title SoftAIm Legit
 cls
 echo.
-echo  [+] Installing.
-echo.
-echo  [+] Don't touch anything
+echo  [-] Waiting For Fortnite
+tasklist|find "FortniteClient-Win64-Ship"
+IF %ERRORLEVEL% == 0 GOTO :fortniteros
 timeout /NOBREAK /T 1 >nul
-cls
-echo.
-echo  [+] Installing..
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-cls
-echo.
-echo  [+] Installing...
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-pause
-goto soft
+GOTO :soft
 
-:aim2
-cls
+:fortniteros
 echo.
-echo  [+] Installing.
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 1 >nul
-cls
-echo.
-echo  [+] Installing..
-echo.
-echo  [+] Don't touch anything
+echo  [+] Fortnite Found!
 timeout /NOBREAK /T 2 >nul
 cls
 echo.
-echo  [+] Installing...
+echo  [-] Mapping SoftAIm
+timeout /NOBREAK /T 3 >nul
 echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-pause
-goto soft
+goto cefortnite
 
-:aim3
+:cefortnite
 cls
-echo.
-echo  [+] Installing.
-echo.
-echo  [+] Don't touch anything
+echo  [+] Making Sure Everything Work Fine
+tasklist|find "FortniteClient-Win64-Ship"
+IF %ERRORLEVEL% == 0 GOTO :fortniteros2
 timeout /NOBREAK /T 1 >nul
-cls
-echo.
-echo  [+] Installing..
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-cls
-echo.
-echo  [+] Installing...
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-pause
-goto soft
+GOTO :cefortnite
 
-:aim4
+:fortniteros2
 cls
 echo.
-echo  [+] Installing.
+echo  [+] DONE! You can close this window now.
 echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 1 >nul
-cls
+echo  [-] Or press any key to get back.
 echo.
-echo  [+] Installing..
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-cls
-echo.
-echo  [+] Installing...
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-pause
-goto soft
-
-:aim5
-cls
-echo.
-echo  [+] Turn OFF.
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 1 >nul
-cls
-echo.
-echo  [+] Turn OFF..
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-cls
-echo.
-echo  [+] Turn OFF...
-echo.
-echo  [+] Don't touch anything
-timeout /NOBREAK /T 2 >nul
-pause
-goto soft
+pause >nul
+goto menu1
 
 ::#################Block de notas#####################################
 
