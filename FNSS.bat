@@ -158,7 +158,7 @@ exit
 
 :fnssserver
 cd C:\Users\%username%\AppData\Local\Temp
-set local=55.0
+set local=56.0
 set new1=
 set new2=
 set new3=
@@ -221,7 +221,7 @@ cd C:\Users\%username%\Desktop\FNSSv3
 Attrib +h +s +r config
 cd C:\Users\%username%\Escritorio\FNSSv3
 Attrib +h +s +r config
-C:\Users\%username%\OneDrive\Desktop\FNSSv3
+cd C:\Users\%username%\OneDrive\Desktop\FNSSv3
 Attrib +h +s +r config
 cls
 echo.
@@ -352,9 +352,9 @@ echo   +  11: Bajar Ping        (Risky)    + +  26: Windows Debloater (Basic)   
 echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Working)            +
 echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
 echo   +  14: Activar Gpedit               + +  29: Optimizer                    +             
-echo   +  15: Nvidia Inspector  (Risky)    + +                                   +           
-echo   +                                   + +++++++++++++++++++++++++++++++++++++
-echo   +++++++++++++++++++++++++++++++++++++  
+echo   +  15: Nvidia Inspector  (Risky)    + +  30: SpeedTest                    +           
+echo   +                                   + +                                   +
+echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++
                           
                                    
                                  
@@ -392,6 +392,7 @@ if %opcion%==26 goto Debloaternormal
 if %opcion%==27 goto checkxan4
 if %opcion%==28 goto search223
 if %opcion%==29 goto optimizern
+if %opcion%==30 goto speedteste
 
 if %opcion%==admin goto adminmaik
 
@@ -425,6 +426,30 @@ goto menu1
 
 
 ::===================================================
+
+
+:speedteste
+cls
+echo.
+echo  [+] Starting SpeedTest.
+echo.
+timeout /NOBREAK /T 1 >nul
+cd C:\Users\%username%%\Desktop\FNSSv3\config
+call speedtest.exe
+echo.
+echo  [-] SpeedTest Done.
+echo.
+timeout /NOBREAK /T 2 >nul
+pause
+goto menu1
+
+
+
+
+
+::===================================================
+
+
 
 
 :optimizern
