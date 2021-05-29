@@ -311,7 +311,7 @@ cd C:\Users\%username%\Desktop\FNSSv3
 Attrib +h +s +r config
 cd C:\Users\%username%\Escritorio\FNSSv3
 Attrib +h +s +r config
-C:\Users\%username%\OneDrive\Desktop\FNSSv3
+cd C:\Users\%username%\OneDrive\Desktop\FNSSv3
 Attrib +h +s +r config
 
 :: =======================================================================================
