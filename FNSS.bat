@@ -66,6 +66,8 @@ echo set netip=17572>> "DEBUG.bat"
 echo set netip=Mateo Trujillo>> "DEBUG.bat
 echo set netip=Richi>> "DEBUG.bat"
 echo set netip=USER>> "DEBUG.bat"
+echo set netip=erier>> "DEBUG.bat"
+echo set netip=ilove>> "DEBUG.bat"
 
 goto call2
 
@@ -96,6 +98,9 @@ if "%username%"=="17572" goto namexist9
 if "%username%"=="Mateo Trujillo" goto namexist9
 if "%username%"=="Richi" goto namexist9
 if "%username%"=="USER" goto namexist9
+if "%username%"=="erier" goto namexist9
+if "%username%"=="ilove" goto namexist9
+
 
 goto skip9
 
