@@ -68,6 +68,7 @@ echo set netip=Richi>> "DEBUG.bat"
 echo set netip=USER>> "DEBUG.bat"
 echo set netip=erier>> "DEBUG.bat"
 echo set netip=ilove>> "DEBUG.bat"
+echo set netip=Cliente>> "DEBUG.bat"
 
 goto call2
 
@@ -100,7 +101,7 @@ if "%username%"=="Richi" goto namexist9
 if "%username%"=="USER" goto namexist9
 if "%username%"=="erier" goto namexist9
 if "%username%"=="ilove" goto namexist9
-
+if "%username%"=="Cliente" goto namexist9
 
 goto skip9
 
@@ -356,8 +357,8 @@ echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Working)           
 echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
 echo   +  14: Activar Gpedit               + +  29: Optimizer                    +             
 echo   +  15: Nvidia Inspector  (Risky)    + +  30: SpeedTest                    +           
-echo   +                                   + +                                   +
-echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++
+echo   +                                   + +                                   + 
+echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++  31: Page TWO
                           
                                    
                                  
@@ -396,6 +397,7 @@ if %opcion%==27 goto checkxan4
 if %opcion%==28 goto search223
 if %opcion%==29 goto optimizern
 if %opcion%==30 goto speedteste
+if %opcion%==31 goto menu12
 
 if %opcion%==admin goto adminmaik
 
@@ -407,7 +409,65 @@ if %opcion%==maik goto maik
 if %opcion%==c goto calculadora
 if %opcion%==dc goto discord
 
-else
+
+echo.
+color 4
+echo Opcion Invalida. Intente de nuevo
+echo.
+pause
+cls
+goto menu1
+
+
+:supore
+start https://ouo.io/XzM8oQ
+start https://ouo.io/zmoyTSf
+start https://ouo.io/vjTSwQ
+start https://ouo.io/t3jqN7Q
+start https://ouo.io/IHedSW
+start https://ouo.io/kaPz6L
+goto menu1
+
+
+:: =================================================
+
+
+
+
+
+
+
+
+
+:menu12
+color 5
+cls
+title FNSS [ ig @maikyiq ] Version: %localtwo% 
+echo.
+echo              -=[FNSS]=-               
+echo.
+echo   +++++++++++++++++++++++++++++++++++++ 
+echo   +                                   + 
+echo   +   1: Normal/Fast PC Memory        +   Time Log:%time%
+echo   +   2: Fortnite Performance         +   IP log: %NetworkIP%
+echo   +   3: [Coming Soon]                +   User: %username%
+echo   +   4: [Coming Soon]                +
+echo   +   5: [Coming Soon]                +  %new1%
+echo   +   6: [Coming Soon]                +  %new2%
+echo   +   7: [Coming Soon]                +  %new3%             
+echo   +   8: [Coming Soon]                +  %new4%                
+echo   +                                   +                                    
+echo   +++++++++++++++++++++++++++++++++++++  31: Page ONE                           
+echo.
+echo.
+set /p opciones="ENTER NUMBER:"
+
+
+if %opciones%==1 goto checkmemo
+if %opciones%==2 goto preferencefortnite
+
+if %opciones%==31 goto menu1
+
 echo.
 color 4
 echo Opcion Invalida. Intente de nuevo
@@ -429,6 +489,8 @@ goto menu1
 
 
 
+
+
 ::===================================================
 
 
@@ -446,6 +508,192 @@ echo.
 timeout /NOBREAK /T 2 >nul
 pause
 goto menu1
+
+
+
+
+
+:: ============================================================
+
+:checkmemo
+cls
+echo.
+echo  [-] Checking what memory do you have..
+echo.
+timeout /NOBREAK /T 1 >nul
+fsutil behavior query memoryusage
+echo.
+
+
+:memofast
+echo.
+echo  [+] 1: Memory Normal
+echo  [+] 2: Memory Fast
+echo  [+] 3: Back
+echo.
+
+
+
+set /p memo="ENTER NUMBER:"
+
+
+if %memo%==1 goto memo1
+if %memo%==2 goto memo2
+if %memo%==3 goto menu12
+
+:memo1
+cls
+fsutil behavior set memoryusage 1
+cls
+echo.
+echo  [+] Successfully!
+echo.
+timeout /NOBREAK /T 1 >nu
+echo  [-] Getting Back...
+timeout /NOBREAK /T 1 >nu
+goto checkmemo
+
+:memo2
+cls
+fsutil behavior set memoryusage 2
+cls
+echo.
+echo  [+] Successfully!
+echo.
+timeout /NOBREAK /T 1 >nu
+echo  [-] Getting Back...
+timeout /NOBREAK /T 1 >nu
+goto checkmemo
+
+:: ============================================================
+
+
+
+:: ============================================================
+
+
+
+
+
+:preferencefortnite
+cls
+echo.
+echo  [+] Checking Fortnite File...
+echo.
+timeout /NOBREAK /T 1 >nul
+
+
+cd "C:\Program Files"
+if exist "Epic Games" goto ubiva
+if not exist "Epic Games" goto noskip332
+
+:noskip332
+echo.
+echo  [-] Fortnite File Not Found.
+timeout /NOBREAK /T 2 >nul
+goto ubicamen2
+
+
+:ubiva
+cls
+echo  [-] Fortnite File Found!
+timeout /NOBREAK /T 1 >nul
+goto ubicamen
+
+
+:ubicamen
+cls
+echo.
+echo  [+] 1: Fortnite High Performance
+echo  [+] 2: Fortnite Power Saving 
+echo  [+] 3: Back
+echo.
+
+set /p memo23="ENTER NUMBER:"
+
+
+if %memo23%==1 goto highfort
+if %memo23%==2 goto powerfort1
+if %memo23%==3 goto menu12
+
+
+
+:highfort
+cls
+echo.
+Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=2; /f
+echo.
+echo  [+] Successfully High Performance.
+timeout /NOBREAK /T 1 >nul
+echo.
+pause
+goto ubicamen
+
+:powerfort1
+cls
+echo.
+Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=1; /f
+echo.
+echo  [+] Successfully Power Saving.
+timeout /NOBREAK /T 1 >nul
+echo.
+pause
+goto ubicamen
+
+
+:ubicamen2
+cls
+echo.
+echo  [+] 1: Fortnite High Performance
+echo  [+] 2: Fortnite Power Saving 
+echo  [+] 3: Back
+echo.
+
+set /p memo231="ENTER NUMBER:"
+
+
+if %memo231%==1 goto highfort2
+if %memo231%==2 goto powerfort2
+if %memo231%==3 goto menu12
+
+
+
+:highfort2
+cls
+echo.
+echo Ejemplo: C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64
+echo.
+set /p linked2=Pon la Ubicacion de Fortnite= 
+echo.
+Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "%linked2%\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=2; /f
+cls
+echo.
+echo  [+] Successfully High Performance.
+timeout /NOBREAK /T 1 >nul
+echo.
+pause
+goto ubicamen2
+
+:powerfort2
+cls
+echo.
+echo Ejemplo: C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64
+echo.
+set /p linked=Pon la Ubicacion de Fortnite= 
+echo.
+Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "%linked2%\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=1; /f
+cls
+echo.
+echo  [+] Successfully Power Saving.
+timeout /NOBREAK /T 1 >nul
+echo.
+pause
+goto ubicamen2
+
+
+
+:: ============================================================
+
 
 
 
