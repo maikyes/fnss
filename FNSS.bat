@@ -166,7 +166,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=59.0
+set local=58.0
 set new1=
 set new2=
 set new3=
@@ -450,7 +450,7 @@ echo   +++++++++++++++++++++++++++++++++++++
 echo   +                                   + 
 echo   +   1: Normal/Fast PC Memory        +   Time Log:%time%
 echo   +   2: Fortnite Performance         +   IP log: %NetworkIP%
-echo   +   3: [Coming Soon]                +   User: %username%
+echo   +   3: Automatic Optimization       +   User: %username%
 echo   +   4: [Coming Soon]                +
 echo   +   5: [Coming Soon]                +  %new1%
 echo   +   6: [Coming Soon]                +  %new2%
