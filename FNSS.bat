@@ -465,6 +465,7 @@ set /p opciones="ENTER NUMBER:"
 
 if %opciones%==1 goto checkmemo
 if %opciones%==2 goto preferencefortnite
+if %opciones%==3 goto automfort
 
 if %opciones%==31 goto menu1
 
@@ -489,7 +490,90 @@ goto menu1
 
 
 
+:: ======================================================
 
+:automfort
+cls
+echo  [+] Optimizando Input Lag...
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 40 /f >nul
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettings /t REG_DWORD /d 0 /f >nul
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverride /t REG_DWORD /d 3 /f >nul
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverrideMask /t REG_DWORD /d 3 /f >nul
+echo.
+echo  [+] Optimizando Daley
+bcdedit /set x2apicpolicy Enable >nul
+bcdedit /set configaccesspolicy Default >nul
+bcdedit /set MSI Default >nul
+bcdedit /set usephysicaldestination No >nul
+bcdedit /set usefirmwarepcisettings No >nul
+bcdedit /set disabledynamictick yes >nul
+bcdedit /set useplatformtick Yes >nul
+bcdedit /set tscsyncpolicy Enhanced >nul
+echo.
+
+echo  [+] Making Fortnite High Priority
+Reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences" /v "C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe" /t REG_SZ /d GpuPreference=2; /f >nul
+echo.
+
+echo  [+] Optimizando Ping
+ipconfig /flushdns >nul
+netsh int tcp set global autotuninglevel=normal >nul
+netsh interface 6to4 set state disabled >nul
+netsh int isatap set state disable >nul
+netsh int tcp set global timestamps=disabled >nul
+netsh int tcp set heuristics disabled >nul
+netsh int tcp set global chimney=disabled >nul
+netsh int tcp set global ecncapability=disabled >nul
+netsh int tcp set global rsc=disabled >nul
+netsh int tcp set global nonsackrttresiliency=disabled >nul
+netsh int tcp set security mpp=disabled >nul
+netsh int tcp set security profiles=disabled >nul
+netsh int ip set global icmpredirects=disabled >nul
+netsh int tcp set security mpp=disabled profiles=disabled >nul
+netsh int ip set global multicastforwarding=disabled >nul
+netsh int tcp set supplemental internet congestionprovider=ctcp >nul
+netsh interface teredo set state disabled >nul
+netsh winsock reset >nul
+netsh int isatap set state disable >nul
+netsh int ip set global taskoffload=disabled >nul
+netsh int ip set global neighborcachelimit=4096 >nul
+netsh int tcp set global dca=enabled >nul
+netsh int tcp set global netdma=enabled >nul
+PowerShell Disable-NetAdapterLso -Name "*" >nul
+powershell "ForEach($adapter In Get-NetAdapter){Disable-NetAdapterPowerManagement -Name $adapter.Name -ErrorAction SilentlyContinue}" >nul
+powershell "ForEach($adapter In Get-NetAdapter){Disable-NetAdapterLso -Name $adapter.Name -ErrorAction SilentlyContinue}" >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "EnableICMPRedirect" /t REG_DWORD /d "1" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "EnablePMTUDiscovery" /t REG_DWORD /d "1" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "Tcp1323Opts" /t REG_DWORD /d "0" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpMaxDupAcks" /t REG_DWORD /d "2" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpTimedWaitDelay" /t REG_DWORD /d "32" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "GlobalMaxTcpWindowSize" /t REG_DWORD /d "8760" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "TcpWindowSize" /t REG_DWORD /d "8760" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "MaxConnectionsPerServer" /t REG_DWORD /d "0" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "MaxUserPort" /t REG_DWORD /d "65534" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "SackOpts" /t REG_DWORD /d "0" /f >nul
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "DefaultTTL" /t REG_DWORD /d "64" /f >nul
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v "NetworkThrottlingIndex" /t REG_SZ /d "ffffffff" /f >nul
+echo.
+
+echo  [+] Optimizando Disco C
+RD /S /Q %temp% >nul
+MKDIR %temp% >nul
+takeown /f "C:\Windows\Temp" /r /d y >nul
+RD /S /Q C:\Windows\Temp >nul
+MKDIR C:\Windows\Temp >nul
+cls
+echo.
+
+echo  [-] Done!
+timeout /NOBREAK /T 3 >nul
+echo.
+echo  [-] Getting Back...
+timeout /NOBREAK /T 3 >nul
+goto menu12
+
+
+:: ======================================================================================================
 
 ::===================================================
 
