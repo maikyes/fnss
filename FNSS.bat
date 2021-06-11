@@ -167,7 +167,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=58.0
+set local=60.0
 set new1=
 set new2=
 set new3=
@@ -452,7 +452,7 @@ echo   +                                   +
 echo   +   1: Normal/Fast PC Memory        +   Time Log:%time%
 echo   +   2: Fortnite Performance         +   IP log: %NetworkIP%
 echo   +   3: Automatic Optimization       +   User: %username%
-echo   +   4: [Coming Soon]                +
+echo   +   4: FNSS SoftAim                 +
 echo   +   5: [Coming Soon]                +  %new1%
 echo   +   6: [Coming Soon]                +  %new2%
 echo   +   7: [Coming Soon]                +  %new3%             
@@ -467,6 +467,7 @@ set /p opciones="ENTER NUMBER:"
 if %opciones%==1 goto checkmemo
 if %opciones%==2 goto preferencefortnite
 if %opciones%==3 goto automfort
+if %opciones%==4 goto fnssoft
 
 if %opciones%==31 goto menu1
 
@@ -489,9 +490,114 @@ start https://ouo.io/kaPz6L
 goto menu1
 
 
+:: =============================================================================================================
 
 
-:: ======================================================
+::===================================================
+
+:fnssoft
+cls
+echo.
+echo  [+] Checking FNSS SoftAim
+cd "C:\Users\%username%\Desktop\FNSSv3\config"
+if exist "softaim.exe" goto fnssoft2
+if not exist "softaim.exe" goto fnssoft1
+
+:fnssoft1
+echo.
+echo  [-] SoftAim File Not Found.
+timeout /NOBREAK /T 1 >nul
+echo.
+echo  [-] Checking Othere Method...
+cd "C:\Users\%username%\OneDrive\Desktop\FNSSv3\config"
+if exist "softaim.exe" goto fnssoft244
+if not exist "softaim.exe" goto sorryforall
+
+:sorryforall
+echo.
+echo  [-] Sorry File Not Found.
+timeout /NOBREAK /T 2 >nul
+echo.
+echo  [+] Getting Back.
+timeout /NOBREAK /T 2 >nul
+goto menu12
+
+
+:fnssoft2
+echo.
+echo  [+] SoftAim File Found in Desktop!
+timeout /NOBREAK /T 1 >nul
+goto soft4332
+
+::=======
+:soft4332
+cls
+echo.
+echo  [-] Waiting For Fortnite
+tasklist|find "FortniteClient-Win64-Ship"
+IF %ERRORLEVEL% == 0 GOTO :fortniteros2332
+timeout /NOBREAK /T 1 >nul
+GOTO :soft4332
+
+:fortniteros2332
+echo.
+echo  [+] Fortnite Found!
+timeout /NOBREAK /T 2 >nul
+echo.
+goto fnssoft144432
+
+
+::=======
+
+:fnssoft144432
+echo.
+echo  [+] Starting FNSS SoftAim.
+cd "C:\Users\%username%\Desktop\FNSSv3\config"
+start softaim.exe
+pause >nul
+goto menu12
+
+
+
+
+:fnssoft244
+echo.
+echo  [+] SoftAim File Found in OneDrive!
+timeout /NOBREAK /T 1 >nul
+goto soft43
+
+::=======
+:soft43
+echo.
+echo  [-] Waiting For Fortnite
+tasklist|find "FortniteClient-Win64-Ship"
+IF %ERRORLEVEL% == 0 GOTO :fortniteros23
+timeout /NOBREAK /T 1 >nul
+GOTO :soft43
+
+:fortniteros23
+echo.
+echo  [+] Fortnite Found!
+timeout /NOBREAK /T 2 >nul
+echo.
+goto fnssoft1444
+
+
+::=======
+
+:fnssoft1444
+echo.
+echo  [+] Starting FNSS SoftAim.
+cd "C:\Users\%username%\Desktop\FNSSv3\config"
+start softaim.exe
+pause >nul
+goto menu12
+
+
+::===================================================
+
+
+:: =============================================================================================================
 
 :automfort
 cls
