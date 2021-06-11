@@ -167,7 +167,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=60.0
+set local=61.0
 set new1=
 set new2=
 set new3=
