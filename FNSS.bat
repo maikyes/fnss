@@ -122,7 +122,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=63.0
+set local=64.0
 set new1=
 set new2=
 set new3=
@@ -300,12 +300,12 @@ cls
 timeout /NOBREAK /T 2 >nul
 
 cd "C:\Users\%username%\Desktop\FNSSv3"
-if exist "FNSS.bat" goto startthis
+if exist "FNSS.bat" goto startthis1
 if not exist "FNSS.bat" goto chec2pero
 
 :chec2pero
 cd "C:\Users\%username%\Escritorio\FNSSv3"
-if exist "FNSS.bat" goto startthis
+if exist "FNSS.bat" goto startthis2
 if not exist "FNSS.bat" goto chec3pero
 
 :chec3pero
@@ -315,11 +315,21 @@ if not exist "OneDrive" goto notfound1
 
 :chec4pero
 cd "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
-if exist "FNSS.bat" goto startthis
+if exist "FNSS.bat" goto startthis3
 if not exist "FNSS.bat" goto notfound1
 
-:startthis
+:startthis1
+cd "C:\Users\%username%\Desktop\FNSSv3"
 call FNSS.bat
+
+:startthis2
+cd "C:\Users\%username%\Escritorio\FNSSv3"
+call FNSS.bat
+
+:startthis3
+cd "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
+call FNSS.bat
+
 
 
 
@@ -3432,7 +3442,7 @@ cls
 echo.
 echo               -=[que]=-
 echo.
-timeout /NOBREAK /T 2 >nul
+timeout /NOBREAK /T 1 >nul
 cls
 echo.
 echo               -=[que miras]=-
