@@ -10,6 +10,7 @@ goto solopara
 :NotAdmin
 color 5
 title OPEN WITH ADMINISTRATOR!!
+echo.
 echo  [+] English
 echo.
 echo  [-] Not opened with Adminitrator.
@@ -54,10 +55,10 @@ xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\users-justuser" "C:\Users
 timeout /NOBREAK /T 1 >nul
 
 :checkpermi
-cd "C:\Users\%username%\AppData\Local\Temp"
-find /n "%username%" justthis.bat
-IF %ERRORLEVEL% == 0 GOTO namexist9
-goto skip9
+cd "C:\Users\%username%\AppData\Local\Temp" >nul
+find /n "%username%" justthis.bat >nul
+IF %ERRORLEVEL% == 0 GOTO namexist9 >nul
+goto skip9 >nul
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -121,7 +122,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=62.0
+set local=63.0
 set new1=
 set new2=
 set new3=
@@ -207,7 +208,7 @@ echo  [+] Favor de comprar el programa.
 echo.
 echo  [-] Puede contactarme por Discord
 echo.
-echo  [+] Discord: maik#2896
+echo  [+] Discord: maiky#0001
 echo.
 timeout /NOBREAK /T 6 >nul
 
@@ -228,26 +229,58 @@ exit
 :act
 color 5
 echo.
-echo  [+] Downloading new Version, Don't Touch Anything.
+echo  [+] Downloading New Version, Don't Touch Anything.
 echo.
                                                          
 :: ============================= WORKING! =============================
-::                                                        https://ouo.io/KfWuTWp
+::           link de dinero para la descarga del FNSSv3            https://ouo.io/KfWuTWp
+
 bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip" >nul
 
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
 
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
+cd "C:\Users\%username%"
+if exist "Desktop" goto 1pero
+if not exist "Desktop" goto chec2pero
 
+:chec2pero
+cd "C:\Users\%username%"
+if exist "Escritorio" goto 2pero
+if not exist "Escritorio" goto chec3pero
 
+:chec3pero
+cd "C:\Users\%username%"
+if exist "OneDrive" goto chec4pero
+if not exist "OneDrive" goto notfound1
 
+:chec4pero
+cd "C:\Users\%username%\OneDrive"
+if exist "Desktop" goto 3pero
+if not exist "Desktop" goto notfound1
+
+:notfound1
+cls
+echo.
+echo We can not find the file.
+echo.
+timeout /NOBREAK /T 6 >nul
+exit
+
+:1pero
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Desktop\FNSSv3" >nul
+goto hidesomething
 
+:2pero
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\Escritorio\FNSSv3" >nul
+goto hidesomething
 
+:3pero
 xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\fnss-main" "C:\Users\%username%\OneDrive\Desktop\FNSSv3" >nul
+goto hidesomething
 
+:hidesomething
 cd C:\Users\%username%\Desktop\FNSSv3
 Attrib +h +s +r config
 cd C:\Users\%username%\Escritorio\FNSSv3
@@ -259,12 +292,34 @@ Attrib +h +s +r config
 
 
 cd C:\Users\%username%%\Documents\cmdacoBin
-echo x=msgbox("Updated! if you got a issues just dm me in discord maik#2896 or download by yourself through this link: https://ouo.io/KfWuTWp",0,"FNSS Announcement")>>msgbox.vbs
+echo x=msgbox("Updated! if you got a issues just dm me in discord maiky#0001 or download by yourself through this link: https://ouo.io/KfWuTWp",0,"FNSS Announcement")>>msgbox.vbs
 start msgbox.vbs
 timeout /NOBREAK /T 2 >nul
 del /s /q C:\Users\%username%%\Documents\cmdacoBin\msgbox.vbs
 cls
-exit
+timeout /NOBREAK /T 2 >nul
+
+cd "C:\Users\%username%\Desktop\FNSSv3"
+if exist "FNSS.bat" goto startthis
+if not exist "FNSS.bat" goto chec2pero
+
+:chec2pero
+cd "C:\Users\%username%\Escritorio\FNSSv3"
+if exist "FNSS.bat" goto startthis
+if not exist "FNSS.bat" goto chec3pero
+
+:chec3pero
+cd "C:\Users\%username%"
+if exist "OneDrive" goto chec4pero
+if not exist "OneDrive" goto notfound1
+
+:chec4pero
+cd "C:\Users\%username%\OneDrive\Desktop\FNSSv3"
+if exist "FNSS.bat" goto startthis
+if not exist "FNSS.bat" goto notfound1
+
+:startthis
+call FNSS.bat
 
 
 
@@ -618,6 +673,19 @@ goto menu12
 
 :: ======================================================================================================
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ::===================================================
 
 
@@ -627,15 +695,24 @@ echo.
 echo  [+] Starting SpeedTest.
 echo.
 timeout /NOBREAK /T 1 >nul
-cd C:\Users\%username%%\Desktop\FNSSv3\config
-call speedtest.exe
+call "C:\Users\%username%%\Desktop\FNSSv3\config\speedtest.exe"
+
+IF %ERRORLEVEL% == 0 GOTO :ggno
+goto ggsi
+
+:ggsi
 echo.
-echo  [-] SpeedTest Done.
+echo  [-] SpeedTest Not Found.
 echo.
-timeout /NOBREAK /T 2 >nul
 pause
 goto menu1
 
+:ggno
+echo.
+echo  [-] SpeedTest Done.
+echo.
+pause
+goto menu1
 
 
 
@@ -2411,7 +2488,7 @@ echo.
 echo Did not receive a response from the API.
 echo.
 pause
-goto menuu2
+goto menu1
 :response_exist
 cls
 echo.
@@ -2452,38 +2529,25 @@ goto menu1
 :updatewindows
 cls
 echo.
-echo Esta opcion te desactivara todas las actualizaciones de windows 
-echo para mejorar el rendimiento del ping.
+echo  [+] Starting Windows Updated Settings...
+cd "C:\Users\%username%\Desktop\FNSSv3\config"
+start Wub_x64.exe
+IF %errorlevel% == 0 goto siwub
+goto nowub
+
+:nowub
+cls
+echo.
+echo  [+] Not Found.
 echo.
 pause
-@echo off
-echo Batch File By Maik
-taskkill /F /FI "IMAGENAME eq SystemSettings.exe"
-@echo
-net stop wuauserv
-net stop UsoSvc
-@echo
-echo Do Not Connect To Any Windows Update Locations
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations" /t REG_DWORD /d "1" /f
-@echo
-echo Remove Access To Use All Windows Update Features
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "SetDisableUXWUAccess" /t REG_DWORD /d "1" /f
-@echo
-echo Disable Automatic Updates
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d "1" /f
-@echo
-echo Do Not Include Drivers With Windows Update
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "ExcludeWUDriversInQualityUpdate" /t REG_DWORD /d "1" /f
-@echo
-gpupdate /force
-@echo
-echo Deleting Windows Update Files
-rd /s /q C:\Windows\SoftwareDistribution
-md C:\Windows\SoftwareDistribution
-@echo
-net start wuauserv
-net start UsoSvc
-echo Windows Updates Are Successfully Disabled!
+goto menu1
+
+
+:siwub
+echo.
+echo  [+] Started!
+echo.
 pause
 goto menu1
 
