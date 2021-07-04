@@ -122,7 +122,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=64.0
+set local=65.0
 set new1=
 set new2=
 set new3=
@@ -454,7 +454,7 @@ echo   +   1: Normal/Fast PC Memory        +   Time Log:%time%
 echo   +   2: Fortnite Performance         +   IP log: %NetworkIP%
 echo   +   3: Automatic Optimization       +   User: %username%
 echo   +   4: FNSS SoftAim                 +
-echo   +   5: [Coming Soon]                +  %new1%
+echo   +   5: Activar Windows 10           +  %new1%
 echo   +   6: [Coming Soon]                +  %new2%
 echo   +   7: [Coming Soon]                +  %new3%             
 echo   +   8: [Coming Soon]                +  %new4%                
@@ -469,7 +469,7 @@ if %opciones%==1 goto checkmemo
 if %opciones%==2 goto preferencefortnite
 if %opciones%==3 goto automfort
 if %opciones%==4 goto fnssoft
-
+if %opciones%==5 goto actwin
 if %opciones%==31 goto menu1
 
 echo.
@@ -492,6 +492,43 @@ goto menu1
 
 
 :: =============================================================================================================
+
+
+:actwin
+title Windows 10 ALL version KMS Activator & cls & echo ************************************************* & echo. & echo Supported products: & echo - Windows 10 Home & echo - Windows 10 Professional & echo - Windows 10 Education & echo - Windows 10 Enterprise, Enterprise LTSB & echo .& echo Microsoft Windows 10 activation...
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk 7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk PVMJN-6DFY6-9CCP6-7BKTT-D3WVR >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk WNMTR-4C88C-JK8YV-HQ7T2-76DF9 >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2F77B-TNFGY-69QQF-B8YKP-D69TJ >nul
+echo ************************************ & echo. & echo. & set i=1
+:server
+if %i%==1 set KMS_Sev=kms.digiboy.ir
+if %i%==2 set KMS_Sev=kms8.MSGuides.com
+if %i%==3 set KMS_Sev=kms.chinancce.com
+if %i%==4 goto :errores
+cscript //nologo c:\windows\system32\slmgr.vbs /skms %KMS_Sev% >nul
+cscript //nologo c:\windows\system32\slmgr.vbs /ato | find /i "successfully" && ( echo. & echo ************************************************* & echo. & choice /n /c YN /m "Do you want to restart your PC now [Y,N]?" & if errorlevel 2 goto :menu12 ) || (echo The connection to the server failed! Trying to connect to another one... & echo Please wait... & echo. & echo. & set /a i+=1 & goto server)
+shutdown.exe /r /t 00
+
+:errores
+cls
+echo.
+echo We can't Activated your Windows
+echo.
+echo.
+pause
+goto menu12
+
+
 
 
 ::===================================================
@@ -3475,16 +3512,21 @@ goto menu1
 
 :calculadora
 @echo off
-set /p ero= Primer Numero= 
-set /p ndo= Segundo Numero= 
+echo [+] Hola %username% hoy te voy hacer las matematicas que
+echo [+] No hiciste en la escuela :v
+echo.
+set /p ero= [+] Primer Numero= 
+set /p ndo= [+] Segundo Numero= 
 echo.
 set /a suma=%ero%+%ndo%
 set /a resta=%ero%-%ndo%
 set /a multi=%ero%*%ndo%
 set /a division=%ero%/%ndo%
-echo  Resultado Suma: %suma%
-echo  Resultado Resta: %resta%
-echo  Resultado Multiplicacion: %multi%
-echo  Resultado Division: %division%
+echo [+] Resultado Suma: %suma%
+echo [+] Resultado Resta: %resta%
+echo [+] Resultado Multiplicacion: %multi%
+echo [+] Resultado Division: %division%
+echo.
+echo [+] Espero te haya servido pendejo!
 pause >nul
 goto menu1
