@@ -44,7 +44,7 @@ for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') 
 
 ::https://github.com/maikyes/users/archive/justuser.zip
 
-bitsadmin /transfer "FNSS Check5" /download /priority foreground https://iplogger.org/2ByUU6 "C:\Users\%username%\AppData\Local\Temp\justuser.zip" >nul
+powershell -c "Invoke-WebRequest -Uri 'https://iplogger.org/2ByUU6' -OutFile C:\Users\%username%\AppData\Local\Temp\justuser.zip
 
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\justuser.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
@@ -79,13 +79,13 @@ goto download1
 ::https://github.com/maikyes/server/archive/main8.zip
 
 :download1
-bitsadmin /transfer "FNSS Check2" /download /priority foreground https://iplogger.org/2aFdM5 "C:\Users\%username%\AppData\Local\Temp\main8.zip" >nul
+powershell -c "Invoke-WebRequest -Uri 'https://iplogger.org/2aFdM5' -OutFile C:\Users\%username%\AppData\Local\Temp\main8.zip
 
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }"
 
-powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
+powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
 
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp" >nul
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
 
 cd C:\Users\%username%\AppData\Local\Temp
 
@@ -122,7 +122,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=65.0
+set local=66.0
 set new1=
 set new2=
 set new3=
@@ -140,7 +140,7 @@ goto download
 
 :download
 
-bitsadmin /transfer "FNSS Check" /download /priority foreground https://github.com/maikyes/Update/archive/main2.zip "C:\Users\%username%\AppData\Local\Temp\main2.zip" >nul
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/maikyes/Update/archive/main2.zip' -OutFile C:\Users\%username%\AppData\Local\Temp\main2.zip
 
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main2.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
@@ -235,7 +235,7 @@ echo.
 :: ============================= WORKING! =============================
 ::           link de dinero para la descarga del FNSSv3            https://ouo.io/KfWuTWp
 
-bitsadmin /transfer "FNSS" /download /priority foreground https://github.com/maikyes/fnss/archive/main.zip "C:\Users\%username%\AppData\Local\Temp\main.zip" >nul
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/maikyes/fnss/archive/main.zip' -OutFile C:\Users\%username%\AppData\Local\Temp\main.zip
 
 powershell -command "Expand-Archive main.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
 
@@ -1056,7 +1056,7 @@ goto checkxan45
 
 :checkxan45
 cls
-bitsadmin /transfer "Mod Set" /download /priority foreground https://github.com/maikyes/modset/archive/refs/heads/mainset.zip "C:\Users\%username%\AppData\Local\Temp\mainset.zip"
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/maikyes/modset/archive/refs/heads/mainset.zip' -OutFile C:\Users\%username%\AppData\Local\Temp\mainset.zip
 cls
 powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\mainset.zip'); $target.CopyHere($zip.Items(), 16); }"
 cls
